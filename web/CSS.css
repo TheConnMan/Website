@@ -1,0 +1,18 @@
+/* 
+    Document   : CSS
+    Created on : Jul 28, 2012, 7:03:23 PM
+    Author     : Brian
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+body
+{
+    color: blue;
+    background-color: dimgray;
+}
+
