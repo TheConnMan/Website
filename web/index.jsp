@@ -29,7 +29,7 @@
             }
             function redirect2()
             {
-                window.location = './Header%20Test.html'
+                window.location = './Template.html'
             }
             </script>
             <div class="push"></div>
