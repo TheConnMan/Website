@@ -10,9 +10,36 @@ root {
     display: block;
 }
 
-body
+* {
+    margin: 0;
+}
+
+html, body
 {
     color: blue;
     background-color: dimgray;
+    height: 100%;
 }
+
+/*Headers*/
+h1 {
+    font-variant-caps: all-small-caps;
+}
+h2 {
+    
+}
+
+/*Classes*/
+
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -3em;
+}
+
+.footer, .push {
+    height: 3em;
+}
+
 

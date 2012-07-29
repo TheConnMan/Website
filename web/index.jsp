@@ -10,22 +10,34 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link type="text/css" rel="stylesheet" href="CSS.css">
-        <title>JSP Page</title>
+        <title>Home Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <h2 id="demo">Hello2</h2>
-        <button type="button" onclick="myFunction()">Try it</button>
-        <button type="button" onclick="redirect()">Redirect Me</button>
-        <script type="text/javascript">
-        function myFunction()
-        {
-            document.getElementById("demo").innerHTML="My First JavaScript Function";
-        }
-        function redirect()
+        <div class="wrapper">
+            <h1>Hello World!</h1>
+            <button type="button" onclick="myFunction()">Try it</button>
+            <button type="button" onclick="redirect()">Redirect Me</button><br />
+            <button type="button" onclick="redirect2()">Check this out</button>
+            <script type="text/javascript">
+            function myFunction()
+            {
+                document.getElementById("demo").innerHTML="My First JavaScript Function";
+            }
+            function redirect()
             {
                 window.location = './Web%20Page.html'
             }
-        </script>
+            function redirect2()
+            {
+                window.location = './Header%20Test.html'
+            }
+            </script>
+            <div class="push"></div>
+        </div>
+        <div class="footer">
+            <div style="text-align: center">
+                Look at this footer!
+            </div>
+        </div>
     </body>
 </html>
