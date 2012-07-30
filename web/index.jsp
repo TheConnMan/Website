@@ -18,6 +18,7 @@
             <button type="button" onclick="myFunction()">Try it</button>
             <button type="button" onclick="redirect()">Redirect Me</button><br />
             <button type="button" onclick="redirect2()">Check this out</button>
+	    <button type="button" onclick="redirectConnectFour()">Yo, play some Connect Four</button>
             <script type="text/javascript">
             function myFunction()
             {
@@ -31,6 +32,10 @@
             {
                 window.location = './Template.html'
             }
+	    function redirectConnectFour()
+	    {
+		window.location = './ConnectFour.html'
+	    }
             </script>
             <div class="push"></div>
         </div>

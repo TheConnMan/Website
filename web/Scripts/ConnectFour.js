@@ -186,13 +186,7 @@ function RecursiveCheck(Board, nextR, nextC, num, turn, type) {
 function WinNextMove(Board, turn) {
     var move=-1;
     for (var i=0; i<7; i++) {
-        var TempBoard= [["","","","","",""],
-        ["","","","","",""],
-        ["","","","","",""],
-        ["","","","","",""],
-        ["","","","","",""],
-        ["","","","","",""]]
-        CopyArray(Board, TempBoard);
+        var TempBoard=Board.slice()
         var TempMove=MakeMove(TempBoard, i);
         if (TempMove!=-1) {
             TempBoard[TempMove][i]=turn;
@@ -207,13 +201,7 @@ function WinNextMove(Board, turn) {
 
 function CompMoveRec(Board, Comp, Player, ratio, win, loss, tie, turns, count, move) {
     var WhosTurn=count%2;
-    var TempBoard= [["","","","","",""],
-    ["","","","","",""],
-    ["","","","","",""],
-    ["","","","","",""],
-    ["","","","","",""],
-    ["","","","","",""]]
-    CopyArray(Board, TempBoard);
+    var TempBoard=Board.slice()
     var TempMove=MakeMove(TempBoard, move);
     if (TempMove!=-1) {
         if (WhosTurn==0) {
@@ -244,13 +232,7 @@ function CompMoveRec(Board, Comp, Player, ratio, win, loss, tie, turns, count, m
 }
 
 function CompMoveFinal(Board, Comp, Player, turns, ratio, win, loss, tie) {
-    var TempBoard= [["","","","","",""],
-    ["","","","","",""],
-    ["","","","","",""],
-    ["","","","","",""],
-    ["","","","","",""],
-    ["","","","","",""]]
-    CopyArray(Board, TempBoard);
+    var TempBoard=Board.slice()
     var move=WinNextMove(TempBoard, Comp);
     if (move==-1) {
         move=WinNextMove(TempBoard, Player);
@@ -286,4 +268,168 @@ function reset()
   vari()
   turn = 0
   moveCount = 0
+}
+
+function makeMoveJavaScript(column, compPiece)
+{
+    var rowNum=0;
+    for (var i=6; i>0; i--) {
+	if (boardT[column,i]==0) {
+	    rowNum=i
+	    break
+	}
+    }
+    turn = 0
+    boardT[column, rowNum]=1
+    var varNum=(column+1)*7+rowNum+1
+    if (varNum==1) {
+	document.tic.sqr1.value = compPiece
+    }
+    else if (varNum==2) {
+	document.tic.sqr2.value = compPiece
+    }
+    else if (varNum==3) {
+	document.tic.sqr3.value = compPiece
+    }
+    else if (varNum==4) {
+	document.tic.sqr4.value = compPiece
+    }
+    else if (varNum==5) {
+	document.tic.sqr5.value = compPiece
+    }
+    else if (varNum==6) {
+	document.tic.sqr6.value = compPiece
+    }
+    else if (varNum==7) {
+	document.tic.qr7.value = compPiece
+    }
+    else if (varNum==8) {
+	document.tic.sqr8.value = compPiece
+    }
+    else if (varNum==9) {
+	document.tic.sqr9.value = compPiece
+    }
+    else if (varNum==10) {
+	document.tic.sqr10.value = compPiece
+    }
+    else if (varNum==11) {
+	document.tic.sqr11.value = compPiece
+    }
+    else if (varNum==12) {
+	document.tic.sqr12.value = compPiece
+    }
+    else if (varNum==13) {
+	document.tic.sqr13.value = compPiece
+    }
+    else if (varNum==14) {
+	document.tic.sqr14.value = compPiece
+    }
+    else if (varNum==15) {
+	document.tic.sqr15.value = compPiece
+    }
+    else if (varNum==16) {
+	document.tic.sqr16.value = compPiece
+    }
+    else if (varNum==17) {
+	document.tic.sqr17.value = compPiece
+    }
+    else if (varNum==18) {
+	document.tic.sqr18.value = compPiece
+    }
+    else if (varNum==19) {
+	document.tic.sqr19.value = compPiece
+    }
+    else if (varNum==20) {
+	document.tic.sqr20.value = compPiece
+    }
+    else if (varNum==21) {
+	document.tic.sqr21.value = compPiece
+    }
+    else if (varNum==22) {
+	document.tic.sqr22.value = compPiece
+    }
+    else if (varNum==23) {
+	document.tic.sqr23.value = compPiece
+    }
+    else if (varNum==24) {
+	document.tic.sqr24.value = compPiece
+    }
+    else if (varNum==25) {
+	document.tic.sqr25.value = compPiece
+    }
+    else if (varNum==26) {
+	document.tic.sqr26.value = compPiece
+    }
+    else if (varNum==27) {
+	document.tic.sqr27.value = compPiece
+    }
+    else if (varNum==28) {
+	document.tic.sqr28.value = compPiece
+    }
+    else if (varNum==29) {
+	document.tic.sqr29.value = compPiece
+    }
+    else if (varNum==30) {
+	document.tic.sqr30.value = compPiece
+    }
+    else if (varNum==31) {
+	document.tic.sqr31.value = compPiece
+    }
+    else if (varNum==32) {
+	document.tic.sqr32.value = compPiece
+    }
+    else if (varNum==33) {
+	document.tic.sqr33.value = compPiece
+    }
+    else if (varNum==34) {
+	document.tic.sqr34.value = compPiece
+    }
+    else if (varNum==35) {
+	document.tic.sqr35.value = compPiece
+    }
+    else if (varNum==36) {
+	document.tic.sqr36.value = compPiece
+    }
+    else if (varNum==37) {
+	document.tic.sqr37.value = compPiece
+    }
+    else if (varNum==38) {
+	document.tic.sqr38.value = compPiece
+    }
+    else if (varNum==39) {
+	document.tic.sqr39.value = compPiece
+    }
+    else if (varNum==40) {
+	document.tic.sqr40.value = compPiece
+    }
+    else if (varNum==41) {
+	document.tic.sqr41.value = compPiece
+    }
+    else {
+	document.tic.sqr42.value = compPiece
+    }
+}
+
+function check()
+{
+    if (CheckWin(board, piece)) {
+	alert("You win!")
+    }
+    else {
+	makeMoveJavaScript(CompMoveFinal(board, compPiece, piece, 2, .3, 2.5, -10, 0)-1, compPiece)
+	if (CheckWin(board, compPiece)) {
+	    alert("You lose!")
+	}
+    }
+}
+
+function MakeMove(Board, column) {
+    var row=-1;
+    for (var i=5; i>=0; i--) {
+	if (Board[i][column]==" ") {
+	    row=i;
+	    break;
+	}
+    }
+    return row;
 }
