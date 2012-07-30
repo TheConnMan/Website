@@ -242,7 +242,7 @@ function CompMoveFinal(Board, Comp, Player, turns, ratio, win, loss, tie) {
                 var NewVal;
                 if (MakeMove(TempBoard, i)!=-1) {
                     NewVal=CompMoveRec(TempBoard, Comp, Player, ratio, win, loss, tie, turns, 0, i);
-                    if (NewVal>CompMoveVal) {
+		    if (NewVal>CompMoveVal) {
                         CompMoveVal=NewVal;
                         move=i;
                     }
@@ -279,6 +279,7 @@ function makeMoveJavaScript(column, compPiece)
 	    break
 	}
     }
+    alert(column)
     turn = 0
     boardT[column, rowNum]=1
     var varNum=(column+1)*7+rowNum+1
@@ -426,7 +427,7 @@ function check()
 function MakeMove(Board, column) {
     var row=-1;
     for (var i=5; i>=0; i--) {
-	if (Board[i][column]==" ") {
+	if (Board[i][column]=="") {
 	    row=i;
 	    break;
 	}
