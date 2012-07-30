@@ -3,7 +3,7 @@ html {
 	font-family: sans-serif;
 }
 body {
-	
+
 }
 #content {
 	width: 900px;
@@ -16,7 +16,7 @@ body {
 	padding-bottom: 35px;
 }
 #content-header {
-	font-size: x-large;
+	font-size: xx-large;
 	color: #00008B;
 	font-weight: bolder;
 }
@@ -33,4 +33,18 @@ body {
 	background: #FFFFFF;
 	padding: 10px;
 	border-radius: 5px;
+}
+#nav_bar {
+	font-size: normal;
+	font-weight: normal;
+	margin-left: 70%;
+	font-weight: bold;
+}
+li {
+	display: inline;
+}
+a {
+	text-decoration: none;
+	padding-right: 10px;
+	color: #111111;	
 }
