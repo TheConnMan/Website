@@ -3,17 +3,28 @@ html {
 	font-family: sans-serif;
 }
 body {
-
 }
-#content {
+#content-wrapper {
+	margin-top: 0px;
+	background: #999999;
 	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 800px; 
+	border-radius: 15px;
+}
+
+#content {
+	width: 700px;
 	margin-left: auto;
 	margin-right: auto;
 	background: #CCCCCC;
 	padding: 25px;
 	border-radius: 10px;
-	height: 100%;
+	height: 80%;
 	padding-bottom: 35px;
+	padding-top: 20px;
+	border-top: 20px;
 }
 #content-header {
 	font-size: xx-large;
@@ -21,8 +32,8 @@ body {
 	font-weight: bolder;
 }
 #linkedIn_Badge {
-	float: right;
-	padding: 10px;
+	float: left;
+	padding: 5px;
 }
 #blurb {
 	font-weight: normal;
@@ -37,7 +48,7 @@ body {
 #nav_bar {
 	font-size: normal;
 	font-weight: normal;
-	margin-left: 70%;
+	margin-left: 60%;
 	font-weight: bold;
 }
 li {
@@ -46,5 +57,5 @@ li {
 a {
 	text-decoration: none;
 	padding-right: 10px;
-	color: #111111;	
+	color: #111111;
 }
