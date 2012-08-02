@@ -1,0 +1,43 @@
+<html style="font-family: sans-serif;">
+
+	<head>
+	</head>
+
+	<body>
+		<div style="width: 280px; margin-left: auto; margin-right: auto; background: blue; border-radius: 15px; padding: 25px;">
+			<canvas id="connect_four" width="280" height="240"></canvas>
+		</div>
+<!--		<canvas id="connect_four"></canvas>-->
+		<script type="text/javascript">
+			var canvas=document.getElementById("connect_four");
+			var ctx=canvas.getContext("2d");
+
+			ctx.fillStyle="#CCCCCC";
+			ctx.fillRect(0,0,280,240);
+			
+			startLeft = 0;
+			width = 40;
+			for (row = 0; row < 10; row=row+1) {
+				for (col = startLeft; col<10; col=col+1) {
+					ctx.fillRect((row-1)*width,(col-1)*width,(row+0)*width,(col+0)*width);
+					
+					ctx.arc( (row-0.5)*width, (col-0.5)*width, width/2-2, 0, 2*Math.PI, 0 );
+					ctx.fillStyle="#EEEEEE";
+					ctx.fill();
+
+					if ( (col + startLeft) % 2 == 0) {
+						ctx.fillStyle="#000000";
+					} else {
+						ctx.fillStyle="#FF0000";
+					}
+				}
+				if (startLeft == 1) {
+					startLeft = 0;
+				} else {
+					startLeft = 1;
+				}
+			}
+		</script>
+	</body>
+
+</html>
