@@ -1,0 +1,27 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+	<div>TODO write content</div>
+	<script>
+	    var testBoard = [["","","","","","X",""],
+		    ["","","","","","X",""],
+		    ["X","","","","","X",""],
+		    ["X","X","","","","X",""],
+		    ["O","O","X","","","X",""],
+		    ["O","O","X","X","X","X",""]]
+		if (CheckWin(testBoard, "X")) {
+		    alert("Win")
+		}
+		alert(WinNextMove(testBoard,"X"))
+	</script>
+	<script type="text/javascript" defer="defer" src="Scripts/ConnectFour2.js"></script>
+    </body>
+</html>
