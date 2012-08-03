@@ -4,7 +4,9 @@
 	</head>
 
 	<body>
-		<div style="width: 280px; margin-left: auto; margin-right: auto; background: blue; border-radius: 15px; padding: 25px;">
+		<div style="width: 280px; margin-left: auto; margin-right: auto; background: gray; border-radius: 15px; padding: 25px;">
+			Connect 4!
+			<br />
 			<canvas id="connect_four" width="280" height="240"></canvas>
 		</div>
 		<script type="text/javascript">
@@ -19,7 +21,7 @@
 			for (row = 0; row < 10; row=row+1) {
 				for (col = startLeft; col<10; col=col+1) {
 					ctx.fillRect((row-1)*width,(col-1)*width,(row+0)*width,(col+0)*width);
-					
+					ctx.beginPath();
 					ctx.arc( (row-0.5)*width, (col-0.5)*width, width/2-2, 0, 2*Math.PI, 0 );
 					ctx.fillStyle="#EEEEEE";
 					ctx.fill();
@@ -27,7 +29,7 @@
 					if ( (col + startLeft) % 2 == 0) {
 						ctx.fillStyle="#000000";
 					} else {
-						ctx.fillStyle="#FF0000";
+						ctx.fillStyle="#000000";
 					}
 				}
 				if (startLeft == 1) {
@@ -37,6 +39,166 @@
 				}
 			}
 		</script>
+		<script type="text/javascript">
+			// This will contain the rules and board model.
+			
+			rows = 6;
+			cols = 7;
+			// Create the array
+			// Board can be indexed matrix style as Board[x][y]
+			Board = new Array (cols);
+			for (i=0; i<Board.length; ++i) {
+				Board[i]=new Array(rows);
+				for (j=0; j<Board[i].length;++j) {
+					Board[i][j] = 0;
+				}
+			}
+
+			turn = "red"
+			function swapTurn() {
+				if (turn == "red") { turn = "green"; }
+				else { turn = "red"; }
+			}
+
+			function colorBoard(color, column, row) {
+				ctx.beginPath();
+				if (color == "red") { ctx.fillStyle="#FF0000"; }
+				if (color == "green") {ctx.fillStyle="#00FF00"; }
+				ctx.arc( (column+0.5)*width, (row+0.5)*width, width/2-2, 0, 2*Math.PI, 0 );
+				ctx.fill();
+			}
+
+			
+
+			// Check win condition. The win occurs when 4 pieces in a row are the same color.
+			// To make this easier, first there's a getNeighborIndices method.
+			function getNeighborIndices(column, row) {
+				i = 0;
+				output = new Array(1);
+				for (left = column - 1; left < column + 2; ++left) {
+					for (topp = row - 1; topp < row + 2; ++topp) {
+						if (left >= 0 && left < cols && topp >= 0 && topp < rows && !(left == column && topp == row) ) {
+							output[i] = [left,topp];
+							++i;
+						}
+					}
+				}
+				return output;
+			}
+
+			function checkWin(column, row, board) {
+				currentColor = board[column][row];
+				if (currentColor == 0) { return false; }
+				// check the horizontal wins
+				try {
+					if (board[column-3][row] == currentColor && board[column-2][row] == currentColor && board[column-1][row] == currentColor && board[column-0][row] == currentColor) { return true; } 
+				} catch (err) {}
+				try {		
+					if (board[column+1][row] == currentColor && board[column-2][row] == currentColor && board[column-1][row] == currentColor && board[column-0][row] == currentColor) { return true; } 		
+				} catch (err) {}
+				try {		
+					if (board[column+2][row] == currentColor && board[column+1][row] == currentColor && board[column-1][row] == currentColor && board[column-0][row] == currentColor) { return true; } 		
+				} catch (err) {}
+				try {		
+					if (board[column+1][row] == currentColor && board[column+2][row] == currentColor && board[column+3][row] == currentColor && board[column-0][row] == currentColor) { return true; } 		
+				} catch (err) {}
+				// check the vertical wins
+				try {
+					if (board[column][row-3] == currentColor && board[column][row-2] == currentColor && board[column][row-1] == currentColor && board[column][row-0] == currentColor) { return true; } 
+				} catch (err) {}
+				try {		
+					if (board[column][row+1] == currentColor && board[column][row-2] == currentColor && board[column][row-1] == currentColor && board[column][row-0] == currentColor) { return true; } 
+				} catch (err) {}
+				try {		
+					if (board[column][row+1] == currentColor && board[column][row+2] == currentColor && board[column][row-1] == currentColor && board[column][row-0] == currentColor) { return true; } 
+				} catch (err) {}
+				try {		
+					if (board[column][row+1] == currentColor && board[column][row+2] == currentColor && board[column][row+3] == currentColor && board[column][row-0] == currentColor) { return true; } 
+				} catch (err) {}
+				// check the up-left wins
+				try {
+					if (board[column-3][row-3] == currentColor && board[column-2][row-2] == currentColor && board[column-1][row-1] == currentColor && board[column-0][row-0] == currentColor) { return true; } 
+				} catch (err) {}
+				try {		
+					if (board[column+1][row+1] == currentColor && board[column-2][row-2] == currentColor && board[column-1][row-1] == currentColor && board[column-0][row-0] == currentColor) { return true; } 
+				} catch (err) {}
+				try {		
+					if (board[column+1][row+1] == currentColor && board[column+2][row+2] == currentColor && board[column-1][row-1] == currentColor && board[column-0][row-0] == currentColor) { return true; } 
+				} catch (err) {}
+				try {		
+					if (board[column+1][row+1] == currentColor && board[column+2][row+2] == currentColor && board[column+3][row+3] == currentColor && board[column-0][row-0] == currentColor) { return true; } 
+				} catch (err) {}
+				// check the up-right wins
+				try {
+					if (board[column+3][row-3] == currentColor && board[column+2][row-2] == currentColor && board[column+1][row-1] == currentColor && board[column+0][row-0] == currentColor) { return true; } 
+				} catch (err) {}
+				try {		
+					if (board[column-1][row+1] == currentColor && board[column+2][row-2] == currentColor && board[column+1][row-1] == currentColor && board[column-0][row-0] == currentColor) { return true; } 
+				} catch (err) {}
+				try {		
+					if (board[column-1][row+1] == currentColor && board[column-2][row+2] == currentColor && board[column+1][row-1] == currentColor && board[column-0][row-0] == currentColor) { return true; } 
+				} catch (err) {}
+				try {		
+					if (board[column-1][row+1] == currentColor && board[column-2][row+2] == currentColor && board[column-3][row+3] == currentColor && board[column-0][row-0] == currentColor) { return true; } 
+				} catch (err) {}
+				return false;
+			}
+
+
+			// Place piece function consumes a column number (0 indexed) and places the piece.
+			// Returns row if the placement was legal, else returns -1.
+			function placePiece(color, column, board) {
+				// Boundary conditions
+				if (column < 0 || column >= cols) {
+					return -1;
+				}
+				// Too many pieces placed...
+				if (board[column][0] != 0) {
+					return -1;
+				}
+				// Now propagate the piece to the bottom.
+				r = 0;
+				while (r < rows && board[column][r]==0) {
+					r++;
+				}
+				r--;
+				board[column][r] = color;
+				colorBoard(color, column, r);
+				if (checkWin(column, r, board) == true) {
+					alert("Winner: "+color);
+					history.go(0);
+				}
+				swapTurn();
+				return r;
+			}
+
+			function placeOnClick(e) {
+				var x;
+				var y;
+    				if (e.pageX || e.pageY) {
+      					x = e.pageX;
+      					y = e.pageY;
+				}
+				else {
+					x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+      					y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+				}
+				x -= canvas.offsetLeft;
+				y -= canvas.offsetTop;
+				
+				column = Math.floor(x / width) ;
+				row = Math.floor( y / width );
+				placePiece(turn , column , Board) ;
+			}
+
+			canvas.addEventListener("click", placeOnClick, false);
+		</script>
+
+
+
 	</body>
+
+
+
 
 </html>
