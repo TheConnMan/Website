@@ -392,7 +392,6 @@ function CompMoveFinal(Board, Comp, Player, turns, ratio, win, loss, tie) {
                     }
                 }
             }
-	    alert(move)
         }
     }
     return move;
@@ -403,7 +402,6 @@ function WinNextMove(Board, turn) {
     for (var i=0; i<7; i++) {
         var TempBoard=Board.slice()
         var TempMove=MakeMoveBoard(TempBoard, i);
-        alert(TempMove)
         if (TempMove!=-1) {
             TempBoard[TempMove][i]=turn;
             if (CheckWin(TempBoard, turn)) {
