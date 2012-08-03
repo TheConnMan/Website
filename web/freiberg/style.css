@@ -1,0 +1,61 @@
+html {
+	background: #EEEEEE;
+	font-family: sans-serif;
+}
+body {
+}
+#content-wrapper {
+	margin-top: 0px;
+	background: #999999;
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 800px; 
+	border-radius: 15px;
+}
+
+#content {
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	background: #CCCCCC;
+	padding: 25px;
+	border-radius: 10px;
+	height: 80%;
+	padding-bottom: 35px;
+	padding-top: 20px;
+	border-top: 20px;
+}
+#content-header {
+	font-size: xx-large;
+	color: #00008B;
+	font-weight: bolder;
+}
+#linkedIn_Badge {
+	float: left;
+	padding: 5px;
+}
+#blurb {
+	font-weight: normal;
+	font-size: large;
+	text-align: justify;
+	margin-left: 10%;
+	color: #000055;
+	background: #FFFFFF;
+	padding: 10px;
+	border-radius: 5px;
+}
+#nav_bar {
+	font-size: normal;
+	font-weight: normal;
+	margin-left: 60%;
+	font-weight: bold;
+}
+li {
+	display: inline;
+}
+a {
+	text-decoration: none;
+	padding-right: 10px;
+	color: #111111;
+}
