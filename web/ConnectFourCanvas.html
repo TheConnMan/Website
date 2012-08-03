@@ -8,6 +8,7 @@
 			Connect 4!
 			<br />
 			<canvas id="connect_four" width="280" height="240"></canvas>
+			<div id="turn"><span style="color: red;">Red turn</span></div>
 		</div>
 		<script type="text/javascript">
 			var canvas=document.getElementById("connect_four");
@@ -56,8 +57,14 @@
 
 			turn = "red"
 			function swapTurn() {
-				if (turn == "red") { turn = "green"; }
-				else { turn = "red"; }
+				if (turn == "red") { 
+					turn = "green"; 
+					document.getElementById("turn").innerHTML="<span style='color: green;'>Green Turn</span>";
+				}
+				else { 
+					turn = "red"; 
+					document.getElementById("turn").innerHTML="<span style='color: red;'>Red Turn</span>";
+				}
 			}
 
 			function colorBoard(color, column, row) {
