@@ -18,6 +18,7 @@ and open the template in the editor.
 		<button type="button" onclick="mode=1; reset()">Human</button><br />
 		<button type="button" onclick="resetNum=0; turnNum=0; reset(); piece=' X '">X</button>
 		<button type="button" onclick="resetNum=1; turnNum=1; reset(); piece=' O '">O</button><br />
+                <button type="button" onclick="testFunction()"></button><br />
 	    </div>
             <script>
 		var compPiece
@@ -34,6 +35,18 @@ and open the template in the editor.
 		    [" "," "," "," "," "," "," "],
 		    [" "," "," "," "," "," "," "]]
                 var turnNum = 0
+                var testboard = [[" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," X "],
+		    [" "," "," "," "," "," O "," X "],
+		    [" "," "," "," "," O "," O "," X "]]
+                function testFunction() {
+                    alert("Start")
+                    alert(testboard)
+                    makeMove(MakeMoveBoard(testboard, 1), 1, " X ")
+                    alert(testboard)
+                }
             </script>
 
 	    <FORM NAME="tic" style="text-align: center"><br />
