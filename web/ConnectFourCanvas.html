@@ -1,8 +1,11 @@
 <html>
 
 	<head>
-		<meta name="apple-mobile-web-app-capable" content="yes" />	
-		<meta name="viewport" content="width=device-width, initial-scale=2.0">
+
+		<meta name="viewport" content="width=device-width; initial-scale=3.0; maximum-scale=3.0; user-scalable=0;" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
 	</head>
 
 	<body onload="newGame();" style="font-family: sans-serif;">
@@ -115,8 +118,7 @@
 				for ( left = column - 1; left < column + 2; ++left) {
 					for ( topp = row - 1; topp < row + 2; ++topp) {
 						if (left >= 0 && left < cols && topp >= 0 && topp < rows && !(left == column && topp == row)) {
-							output[i] = [left, topp];
-							++i;
+							output[i] = [left, topp]; ++i;
 						}
 					}
 				}
@@ -288,7 +290,8 @@
 				j = 0;
 				for ( i = 0; i < board.length; ++i) {
 					if (board[i][0] == 0) {
-						moves[j] = i; ++j
+						moves[j] = i;
+						++j
 					}
 				}
 				return moves;
