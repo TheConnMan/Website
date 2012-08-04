@@ -1,10 +1,10 @@
-<html style="font-family: sans-serif;">
+<html>
 
 	<head></head>
 
-	<body>
-		<div style="width: 280px; margin-left: auto; margin-right: auto; background: gray; border-radius: 15px; padding: 25px; padding-top: 10px">
-			<div id="div_title">
+	<body onload="newGame();" style="font-family: sans-serif;">
+		<div style="width: 280px; margin-left: auto; margin-right: auto; background: gray; border-radius: 15px; padding: 25px; padding-top: 10px; height:400px;">
+			<div id="div_title" onclick="newGame()">
 				Connect 4!
 			</div>
 			<canvas id="connect_four" width="280" height="240"></canvas>
@@ -16,51 +16,70 @@
 					Random Move
 				</button>
 			</div>
+			<div id="scoreboard" style="margin-top: 50px;">
+				<div id="red_score" style="float: left; background: #660000;"></div>
+				<div id="green_score" style="float: right; background: #006600;"></div>
+			</div>
 		</div>
 		<script type="text/javascript">
-			var canvas = document.getElementById("connect_four");
-			var ctx = canvas.getContext("2d");
+			var canvas;
+			var ctx;
+			var rows;
+			var cols;
+			var width;
+			var Board;
+			var turn;
+			var gameOver;
+			var greenScore = 0;
+			var redScore = 0;
+			canvas = document.getElementById("connect_four");
+			ctx = canvas.getContext("2d");
+			function newGame() {
 
-			ctx.fillStyle = "#CCCCCC";
-			ctx.fillRect(0, 0, 280, 240);
+				ctx.fillStyle = "#CCCCCC";
+				ctx.fillRect(0, 0, 280, 240);
 
-			startLeft = 0;
-			width = 40;
-			for ( row = 0; row < 10; row = row + 1) {
-				for ( col = startLeft; col < 10; col = col + 1) {
-					ctx.fillRect((row - 1) * width, (col - 1) * width, (row + 0) * width, (col + 0) * width);
-					ctx.beginPath();
-					ctx.arc((row - 0.5) * width, (col - 0.5) * width, width / 2 - 2, 0, 2 * Math.PI, 0);
-					ctx.fillStyle = "#EEEEEE";
-					ctx.fill();
+				startLeft = 0;
+				width = 40;
+				for ( row = 0; row < 10; row = row + 1) {
+					for ( col = startLeft; col < 10; col = col + 1) {
+						ctx.fillRect((row - 1) * width, (col - 1) * width, (row + 0) * width, (col + 0) * width);
+						ctx.beginPath();
+						ctx.arc((row - 0.5) * width, (col - 0.5) * width, width / 2 - 2, 0, 2 * Math.PI, 0);
+						ctx.fillStyle = "#EEEEEE";
+						ctx.fill();
 
-					if ((col + startLeft) % 2 == 0) {
-						ctx.fillStyle = "#000000";
+						if ((col + startLeft) % 2 == 0) {
+							ctx.fillStyle = "#000000";
+						} else {
+							ctx.fillStyle = "#000000";
+						}
+					}
+					if (startLeft == 1) {
+						startLeft = 0;
 					} else {
-						ctx.fillStyle = "#000000";
+						startLeft = 1;
 					}
 				}
-				if (startLeft == 1) {
-					startLeft = 0;
-				} else {
-					startLeft = 1;
+				rows = 6;
+				cols = 7;
+				// Create the array
+				// Board can be indexed matrix style as Board[x][y]
+				Board = new Array(cols);
+				for ( i = 0; i < Board.length; ++i) {
+					Board[i] = new Array(rows);
+					for ( j = 0; j < Board[i].length; ++j) {
+						Board[i][j] = 0;
+					}
 				}
+				turn = "red";
+				document.getElementById("turn").innerHTML = "<span style='color: red;'>Red Turn</span>";
+				gameOver = false;
+				document.getElementById("div_title").innerHTML = "Connect 4!";
+				updateScores();
 			}
-		</script>
-		<script type="text/javascript">
-			// This will contain the rules and board model.
 
-			rows = 6;
-			cols = 7;
-			// Create the array
-			// Board can be indexed matrix style as Board[x][y]
-			Board = new Array(cols);
-			for ( i = 0; i < Board.length; ++i) {
-				Board[i] = new Array(rows);
-				for ( j = 0; j < Board[i].length; ++j) {
-					Board[i][j] = 0;
-				}
-			}
+			// This will contain the rules and board model.
 
 			turn = "red"
 			function swapTurn() {
@@ -93,8 +112,7 @@
 				for ( left = column - 1; left < column + 2; ++left) {
 					for ( topp = row - 1; topp < row + 2; ++topp) {
 						if (left >= 0 && left < cols && topp >= 0 && topp < rows && !(left == column && topp == row)) {
-							output[i] = [left, topp];
-							++i;
+							output[i] = [left, topp]; ++i;
 						}
 					}
 				}
@@ -209,8 +227,6 @@
 				return false;
 			}
 
-			gameOver = false;
-
 			// Place piece function consumes a column number (0 indexed) and places the piece.
 			// Returns row if the placement was legal, else returns -1.
 			function placePiece(color, column, board) {
@@ -234,8 +250,9 @@
 				board[column][r] = color;
 				colorBoard(color, column, r);
 				if (checkWin(column, r, board) == true) {
-					document.getElementById("div_title").innerHTML = color + " wins!! click <a href=''>here</a> to play again";
+					document.getElementById("div_title").innerHTML = color + " wins!! click here to play again";
 					gameOver = true;
+					incrementScore(color);
 				}
 				swapTurn();
 				return r;
@@ -267,7 +284,8 @@
 				j = 0;
 				for ( i = 0; i < board.length; ++i) {
 					if (board[i][0] == 0) {
-						moves[j] = i; ++j
+						moves[j] = i;
+						++j
 					}
 				}
 				return moves;
@@ -276,6 +294,19 @@
 			function chooseRandomMove(board) {
 				moves = getMoves(board);
 				return moves[Math.floor(Math.random() * moves.length)];
+			}
+
+			function incrementScore(color) {
+				if (color == "green") {
+					greenScore = greenScore + 1;
+				} else {
+					redScore = redScore + 1;
+				}
+			}
+
+			function updateScores() {
+				document.getElementById("green_score").innerHTML = "<p>Green Team Score:</p><p>" + greenScore.toString() + "</p>";
+				document.getElementById("red_score").innerHTML = "<p>Red Team Score:</p><p>" + redScore.toString() + "</p>";
 			}
 		</script>
 
