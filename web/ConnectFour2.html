@@ -16,13 +16,14 @@ and open the template in the editor.
 	    <div style="text-align: center">Pick your piece to begin or reset<br />
 		<button type="button" onclick="mode=0; reset()">Computer</button>
 		<button type="button" onclick="mode=1; reset()">Human</button><br />
-		<button type="button" onclick="resetNum=0; turnNum=0; reset(); piece=' X '">X</button>
-		<button type="button" onclick="resetNum=1; turnNum=1; reset(); piece=' O '">O</button><br />
-                <button type="button" onclick="testFunction()"></button><br />
+		<button type="button" onclick="resetNum=0; turnNum=0; reset(); piece=' X '; compPiece=' O '">X</button>
+		<button type="button" onclick="resetNum=1; turnNum=1; reset(); piece=' O '; compPiece=' X '">O</button><br />
+                <button type="button" onclick="testFunction()">Test</button><br />
 	    </div>
             <script>
-		var compPiece
-		var mode
+		var compPiece = ' X '
+		var piece = ' O '
+		var mode=0
 		var turnsAhead = 2
 		var ratio = .3
 		var winPoints = 2.5
@@ -38,19 +39,20 @@ and open the template in the editor.
                 var testboard = [[" "," "," "," "," "," "," "],
 		    [" "," "," "," "," "," "," "],
 		    [" "," "," "," "," "," "," "],
-		    [" "," "," "," "," "," "," X "],
-		    [" "," "," "," "," "," O "," X "],
-		    [" "," "," "," "," O "," O "," X "]]
+		    [" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "]]
                 function testFunction() {
                     alert("Start")
                     alert(testboard)
                     makeMove(MakeMoveBoard(testboard, 1), 1, " X ")
+		    vari()
                     alert(testboard)
                 }
             </script>
 
 	    <FORM NAME="tic" style="text-align: center"><br />
-		<INPUT TYPE="button" NAME="sqr1" class="connectfour" value="1" onClick="rowNum=rowCalc(0); if(rowNum!=-1) {makeMove(rowNum, 0, piece); turnNum++; if (turnNum%2==0) {piece=' X '} else {piece=' O '}; vari(); check()}; if (mode==0) {if (piece==' X ') {comPiece=' O '}; if (piece==' O ') {comPiece=' X '}; compColumn=CompMoveFinal(board, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=rowCalc(compColumn); alert(compRow); alert(compColumn); makeMove(compRow, compColumn, compPiece); turnNum++; if (turnNum%2==0) {piece=' X '} else {piece=' O '}; vari(); check();}">
+		<INPUT TYPE="button" NAME="sqr1" class="connectfour" value="1" onClick="rowNum=rowCalc(0); if(rowNum!=-1) {makeMove(rowNum, 0, piece); turnNum++; if (turnNum%2==0) {piece=' X '} else {piece=' O '}; vari(); check()}; if (mode==0) {if (piece==' X ') {comPiece=' O '}; if (piece==' O ') {comPiece=' X '}; compColumn=CompMoveFinal(board, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=rowCalc(compColumn); alert(compRow); makeMove(compRow, compColumn, compPiece); turnNum++; if (turnNum%2==0) {piece=' X '} else {piece=' O '}; vari(); check();}">
                 <INPUT TYPE="button" NAME="sqr2" class="connectfour" value="2" onClick="rowNum=rowCalc(1); if(rowNum!=-1) {makeMove(rowNum, 1, piece); turnNum++; if (turnNum%2==0) {piece=' X '} else {piece=' O '}; vari(); check()}; if (mode==0) {if (piece==' X ') {comPiece=' O '}; if (piece==' O ') {comPiece=' X '}; compColumn=CompMoveFinal(board, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=rowCalc(compColumn); makeMove(compRow, compColumn, compPiece); turnNum++; if (turnNum%2==0) {piece=' X '} else {piece=' O '}; vari(); check();}">
                 <INPUT TYPE="button" NAME="sqr3" class="connectfour" value="3" onClick="rowNum=rowCalc(2); if(rowNum!=-1) {makeMove(rowNum, 2, piece); turnNum++; if (turnNum%2==0) {piece=' X '} else {piece=' O '}; vari(); check()}; if (mode==0) {if (piece==' X ') {comPiece=' O '}; if (piece==' O ') {comPiece=' X '}; compColumn=CompMoveFinal(board, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=rowCalc(compColumn); makeMove(compRow, compColumn, compPiece); turnNum++; if (turnNum%2==0) {piece=' X '} else {piece=' O '}; vari(); check();}">
                 <INPUT TYPE="button" NAME="sqr4" class="connectfour" value="4" onClick="rowNum=rowCalc(3); if(rowNum!=-1) {makeMove(rowNum, 3, piece); turnNum++; if (turnNum%2==0) {piece=' X '} else {piece=' O '}; vari(); check()}; if (mode==0) {if (piece==' X ') {comPiece=' O '}; if (piece==' O ') {comPiece=' X '}; compColumn=CompMoveFinal(board, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=rowCalc(compColumn); makeMove(compRow, compColumn, compPiece); turnNum++; if (turnNum%2==0) {piece=' X '} else {piece=' O '}; vari(); check();}">
