@@ -578,10 +578,15 @@ function drawKing(c, r, color) {
 
 // This should do stuff with removing pieces, etc.
 function movePiece(board, oldC, oldR, newC, newR) {
+	if (board[newC][newR] != null && board[newC][newR].type == "king") {
+		alert("the " + board[newC][newR].color + " king is dead!");
+	}
 	board[newC][newR] = board[oldC][oldR];
 	board[oldC][oldR] = null;
 	board[newC][newR].c = newC;
 	board[newC][newR].r = newR;
+	drawBoard(board);
+	changeTurn();
 	return board;
 }
 
@@ -615,8 +620,6 @@ function randomMove(board) {
 	}
 	newMove = moves[Math.floor(Math.random() * moves.length)];
 	movePiece(board, piece.c, piece.r, newMove[0], newMove[1]);
-	drawBoard(board);
-	changeTurn();
 	return [piece.c, piece.r, newMove[0], newMove[1]];
 }
 
