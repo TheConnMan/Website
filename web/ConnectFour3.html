@@ -17,13 +17,15 @@ and open the template in the editor.
 		<button type="button" onclick="mode=0; reset(); update()">Computer</button>
 		<button type="button" onclick="mode=1; reset(); update()">Human</button><br />
 		<button type="button" onclick="reset(); update(); currentPiece=' X '; piece=' X '; compPiece=' O '">X</button>
-		<button type="button" onclick="reset(); update(); currentPiece=' O '; piece=' O '; compPiece=' X '">O</button><br />	    </div>
+		<button type="button" onclick="reset(); update(); currentPiece=' O '; piece=' O '; compPiece=' X '">O</button><br />
+                <button type="button" onclick="testFunction()">Test Button</button><br />
+            </div>
             <script>
 		var currentPiece = " X "
 		var compPiece = " O "
 		var piece = " X "
 		var mode=0
-		var turnsAhead = 2
+		var turnsAhead = 5
 		var ratio = .3
 		var winPoints = 2.5
 		var tiePoints = 0
@@ -34,21 +36,30 @@ and open the template in the editor.
 		    [" "," "," "," "," "," "," "],
 		    [" "," "," "," "," "," "," "],
 		    [" "," "," "," "," "," "," "]]
-		alert("Start")
-		alert(MakeMove(board, 0))
+                var tempBoard=[[" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "]]
+                CopyArray(board, tempBoard)
 		var move
 		var win=false
 		var turnDone=false
+                function testFunction() {
+                    tempBoard[3][4]=" X "
+                    update()
+                }
             </script>
 
 	    <FORM NAME="tic" style="text-align: center"><br />
-		<INPUT TYPE="button" NAME="sqr1" class="connectfour" value="1" onClick="move=MakeMove(board, 0); alert('here'); if (move!=-1) {alert('Here'); board[move][0]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(board, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=rowCalc(compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}">
-                <INPUT TYPE="button" NAME="sqr2" class="connectfour" value="2" onClick="move=MakeMove(board, 1); if (move!=-1) {board[move][1]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(board, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=rowCalc(compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}">
-                <INPUT TYPE="button" NAME="sqr3" class="connectfour" value="3" onClick="move=MakeMove(board, 2); if (move!=-1) {board[move][2]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(board, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=rowCalc(compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}">
-                <INPUT TYPE="button" NAME="sqr4" class="connectfour" value="4" onClick="move=MakeMove(board, 3); if (move!=-1) {board[move][3]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(board, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=rowCalc(compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}">
-                <INPUT TYPE="button" NAME="sqr5" class="connectfour" value="5" onClick="move=MakeMove(board, 4); if (move!=-1) {board[move][4]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(board, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=rowCalc(compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}">
-                <INPUT TYPE="button" NAME="sqr6" class="connectfour" value="6" onClick="move=MakeMove(board, 5); if (move!=-1) {board[move][5]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(board, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=rowCalc(compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}">
-                <INPUT TYPE="button" NAME="sqr7" class="connectfour" value="7" onClick="move=MakeMove(board, 6); if (move!=-1) {board[move][6]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(board, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=rowCalc(compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}"><br /><br />
+		<INPUT TYPE="button" NAME="sqr1" class="connectfour" value="1" onClick="move=MakeMove(board, 0); if (move!=-1) {board[move][0]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}">
+                <INPUT TYPE="button" NAME="sqr2" class="connectfour" value="2" onClick="move=MakeMove(board, 1); if (move!=-1) {board[move][1]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}">
+                <INPUT TYPE="button" NAME="sqr3" class="connectfour" value="3" onClick="move=MakeMove(board, 2); if (move!=-1) {board[move][2]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}">
+                <INPUT TYPE="button" NAME="sqr4" class="connectfour" value="4" onClick="move=MakeMove(board, 3); if (move!=-1) {board[move][3]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}">
+                <INPUT TYPE="button" NAME="sqr5" class="connectfour" value="5" onClick="move=MakeMove(board, 4); if (move!=-1) {board[move][4]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}">
+                <INPUT TYPE="button" NAME="sqr6" class="connectfour" value="6" onClick="move=MakeMove(board, 5); if (move!=-1) {board[move][5]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}">
+                <INPUT TYPE="button" NAME="sqr7" class="connectfour" value="7" onClick="move=MakeMove(board, 6); if (move!=-1) {board[move][6]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}"><br /><br />
                 <INPUT TYPE="button" NAME="sqr8" class="connectfour" value=" ">
 		<INPUT TYPE="button" NAME="sqr9" class="connectfour" value=" ">
 		<INPUT TYPE="button" NAME="sqr10" class="connectfour" value=" ">

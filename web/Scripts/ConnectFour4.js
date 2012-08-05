@@ -16,44 +16,40 @@ function vari()
 function CheckWin(Board, turn) {
     var maxHeight=0;
     for (var i=0; i<7; i++) {
-	var TempHeight=CheckHeight(Board,i);
-	if (TempHeight>maxHeight) {
-	    maxHeight=CheckHeight(Board, i);
-	}
+        var TempHeight=CheckHeight(Board,i);
+        if (TempHeight>maxHeight) {
+            maxHeight=CheckHeight(Board, i);
+        }
     }
     if (CheckHo(Board, maxHeight, turn)) {
-	return true;
+        return true;
     }
     if (CheckVert(Board, maxHeight, turn)) {
-	return true;
+        return true;
     }
     if (CheckDiagRight(Board, maxHeight, turn)) {
-	return true;
+        return true;
     }
     if (CheckDiagLeft(Board, maxHeight, turn)) {
-	return true;
+        return true;
     }
     else {
-	return false;
+        return false;
     }
 }
 
 function CheckHo(Board, maxHeight, turn) {
     var win=false;
     for (var i=0; i<4; i++) {
-	for (var j=5; j>=6-maxHeight; j--) {
-	    win=RecursiveCheck(Board, j, i, 0, turn, 1);
-	    if (win) {
-		var NewPiece=" ";
-		for (var h=0; h<4; h++) {
-		    Board[j][i+h]=NewPiece;
-		}
-		break;
-	    }
-	}
-	if (win) {
-	    break;
-	}
+        for (var j=5; j>=6-maxHeight; j--) {
+            win=RecursiveCheck(Board, j, i, 0, turn, 1);
+            if (win) {
+                break;
+            }
+        }
+        if (win) {
+            break;
+        }
     }
     return win;
 }
@@ -61,23 +57,19 @@ function CheckHo(Board, maxHeight, turn) {
 function CheckVert(Board, maxHeight, turn) {
     var win=false;
     for (var i=0; i<7; i++) {
-	var height=CheckHeight(Board, i);
-	if (height>=4) {
-	    for (var j=5; j>=9-height; j--) {
-		win=RecursiveCheck(Board, j, i, 0, turn, 2);
-		if (win) {
-		    var NewPiece=" ";
-		    for (var h=0; h<4; h++) {
-			Board[j-h][i]=NewPiece;
-		    }
-		    break;
-		}
-	    }
-	    if (win) {
+        var height=CheckHeight(Board, i);
+        if (height>=4) {
+            for (var j=5; j>=9-height; j--) {
+                win=RecursiveCheck(Board, j, i, 0, turn, 2);
+                if (win) {
+                    break;
+                }
+            }
+            if (win) {
 					
-		break;
-	    }
-	}
+                break;
+            }
+        }
     }
     return win;
 }
@@ -85,21 +77,17 @@ function CheckVert(Board, maxHeight, turn) {
 function CheckDiagRight(Board, maxHeight, turn) {
     var win=false;
     if (maxHeight>=4) {
-	for (var i=3; i<7; i++) {
-	    for (var j=2; j>=6-maxHeight; j--) {
-		win=RecursiveCheck(Board, j, i, 0, turn, 3);
-		if (win) {
-		    var NewPiece=" ";
-		    for (var h=0; h<4; h++) {
-			Board[j+h][i-h]=NewPiece;
-		    }
-		    break;
-		}
-	    }
-	    if (win) {
-		break;
-	    }
-	}
+        for (var i=3; i<7; i++) {
+            for (var j=2; j>=6-maxHeight; j--) {
+                win=RecursiveCheck(Board, j, i, 0, turn, 3);
+                if (win) {
+                    break;
+                }
+            }
+            if (win) {
+                break;
+            }
+        }
     }
     return win;
 }
@@ -107,21 +95,17 @@ function CheckDiagRight(Board, maxHeight, turn) {
 function CheckDiagLeft(Board, maxHeight, turn) {
     var win=false;
     if (maxHeight>=4) {
-	for (var i=0; i<4; i++) {
-	    for (var j=2; j>=6-maxHeight; j--) {
-		win=RecursiveCheck(Board, j, i, 0, turn, 4);
-		if (win) {
-		    var NewPiece=" ";
-		    for (var h=0; h<4; h++) {
-			Board[j+h][i+h]=NewPiece;
-		    }
-		    break;
-		}
-	    }
-	    if (win) {
-		break;
-	    }
-	}
+        for (var i=0; i<4; i++) {
+            for (var j=2; j>=6-maxHeight; j--) {
+                win=RecursiveCheck(Board, j, i, 0, turn, 4);
+                if (win) {
+                    break;
+                }
+            }
+            if (win) {
+                break;
+            }
+        }
     }
     return win;
 }
@@ -129,103 +113,122 @@ function CheckDiagLeft(Board, maxHeight, turn) {
 function CheckHeight(Board, column) {
     var height=0;
     for (var i=0; i<6; i++) {
-	if (Board[i][column]!=" ") {
-	    height++;
-	}
+        if (Board[i][column]!=" ") {
+            height++;
+        }
     }
     return height;
 }
 
 function RecursiveCheck(Board, nextR, nextC, num, turn, type) {
     if (num==4) {
-	return true;
+        return true;
     }
     else if (Board[nextR][nextC]==turn) {
-	if (type==1) {
-	    return RecursiveCheck(Board, nextR, nextC+1, num+1, turn, type);
-	}
-	else if (type==2) {
-	    return RecursiveCheck(Board, nextR-1, nextC, num+1, turn, type);
-	}
-	else if (type==3) {
-	    return RecursiveCheck(Board, nextR+1, nextC-1, num+1, turn, type);
-	}
-	else {
-	    return RecursiveCheck(Board, nextR+1, nextC+1, num+1, turn, type);
-	}
+        if (type==1) {
+            return RecursiveCheck(Board, nextR, nextC+1, num+1, turn, type);
+        }
+        else if (type==2) {
+            return RecursiveCheck(Board, nextR-1, nextC, num+1, turn, type);
+        }
+        else if (type==3) {
+            return RecursiveCheck(Board, nextR+1, nextC-1, num+1, turn, type);
+        }
+        else {
+            return RecursiveCheck(Board, nextR+1, nextC+1, num+1, turn, type);
+        }
     }
     else {
-	return false;
+        return false;
     }
 }
 
 function WinNextMove(Board, turn) {
     var move=-1;
     for (var i=0; i<7; i++) {
-	var TempBoard=Board.slice()
-	var TempMove=MakeMove(TempBoard, i);
-	if (TempMove!=-1) {
-	    TempBoard[TempMove][i]=turn;
-	    if (CheckWin(TempBoard, turn)) {
-		move=i;
-		break;
-	    }
-	}
+        var TempBoard=[[" "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "]]
+        CopyArray(Board, TempBoard)
+        var TempMove=MakeMove(TempBoard, i);
+        if (TempMove!=-1) {
+            TempBoard[TempMove][i]=turn;
+            if (CheckWin(TempBoard, turn)) {
+                move=i;
+                break;
+            }
+        }
     }
     return move;
 }
 
 function CompMoveRec(Board, Comp, Player, ratio, win, loss, tie, turns, count, move) {
     var WhosTurn=count%2;
-    var TempBoard=Board.slice()
+    var TempBoard=[[" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "]]
+    CopyArray(Board, TempBoard)
     var TempMove=MakeMove(TempBoard, move);
     if (TempMove!=-1) {
-	if (WhosTurn==0) {
-	    TempBoard[TempMove][move]=Comp;
-	}
-	else {
-	    TempBoard[TempMove][move]=Player;
-	}
-	if (CheckWin(TempBoard, Comp)) {
-	    return win;
-	}
-	else if (CheckWin(TempBoard, Player)) {
-	    return loss;
-	}
-	else {
-	    if (turns==count) {
-		return tie;
-	    }
-	    else {
-		count++;
-		return ratio*(CompMoveRec(TempBoard, Comp, Player, ratio, win, loss, tie, turns, count, 0)+CompMoveRec(TempBoard, Comp, Player, ratio, win, loss, tie, turns, count, 1)+CompMoveRec(TempBoard, Comp, Player, ratio, win, loss, tie, turns, count, 2)+CompMoveRec(TempBoard, Comp, Player, ratio, win, loss, tie, turns, count, 3)+CompMoveRec(TempBoard, Comp, Player, ratio, win, loss, tie, turns, count, 4)+CompMoveRec(TempBoard, Comp, Player, ratio, win, loss, tie, turns, count, 5)+CompMoveRec(TempBoard, Comp, Player, ratio, win, loss, tie, turns, count, 6));
-	    }
-	}
+        if (WhosTurn==0) {
+            TempBoard[TempMove][move]=Comp;
+        }
+        else {
+            TempBoard[TempMove][move]=Player;
+        }
+        if (CheckWin(TempBoard, Comp)) {
+            return win;
+        }
+        else if (CheckWin(TempBoard, Player)) {
+            return loss;
+        }
+        else {
+            if (turns==count) {
+                return tie;
+            }
+            else {
+                count++;
+                return ratio*(CompMoveRec(TempBoard, Comp, Player, ratio, win, loss, tie, turns, count, 0)+CompMoveRec(TempBoard, Comp, Player, ratio, win, loss, tie, turns, count, 1)+CompMoveRec(TempBoard, Comp, Player, ratio, win, loss, tie, turns, count, 2)+CompMoveRec(TempBoard, Comp, Player, ratio, win, loss, tie, turns, count, 3)+CompMoveRec(TempBoard, Comp, Player, ratio, win, loss, tie, turns, count, 4)+CompMoveRec(TempBoard, Comp, Player, ratio, win, loss, tie, turns, count, 5)+CompMoveRec(TempBoard, Comp, Player, ratio, win, loss, tie, turns, count, 6));
+            }
+        }
     }
     else {
-	return 0;
+        return 0;
     }
 }
 
 function CompMoveFinal(Board, Comp, Player, turns, ratio, win, loss, tie) {
-    var TempBoard=Board.slice()
+    var TempBoard=[[" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "]]
+    CopyArray(Board, TempBoard)
     var move=WinNextMove(TempBoard, Comp);
     if (move==-1) {
-	move=WinNextMove(TempBoard, Player);
-	if (move==-1) {
-	    var CompMoveVal=-10000;
-	    for (var i=0; i<7; i++) {
-		var NewVal;
-		if (MakeMove(TempBoard, i)!=-1) {
-		    NewVal=CompMoveRec(TempBoard, Comp, Player, ratio, win, loss, tie, turns, 0, i);
-		    if (NewVal>CompMoveVal) {
-			CompMoveVal=NewVal;
-			move=i;
-		    }
-		}
-	    }
-	}
+        move=WinNextMove(TempBoard, Player);
+        if (move==-1) {
+            var CompMoveVal=-10000;
+            for (var i=0; i<7; i++) {
+                var NewVal;
+                if (MakeMove(TempBoard, i)!=-1) {
+                    NewVal=CompMoveRec(TempBoard, Comp, Player, ratio, win, loss, tie, turns, 0, i);
+                    if (NewVal>CompMoveVal) {
+                        CompMoveVal=NewVal;
+                        move=i;
+                    }
+                }
+            }
+        }
     }
+    //var move=Math.floor(Math.random()*7)
     return move;
 }
 
@@ -242,43 +245,49 @@ function reset()
 
 function check()
 {
-    var tempCheckBoard=board.slice()
+    var tempCheckBoard=[[" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "]]
+    CopyArray(board, tempCheckBoard)
     if (mode==0) {
-	if (CheckWin(tempCheckBoard, piece)) {
-	    alert("You win!")
-	    win=true
-	}
-	else if (CheckWin(tempCheckBoard, compPiece)) {
-	    alert("You lose!")
-	}
+        if (CheckWin(tempCheckBoard, piece)) {
+            alert("You win!")
+            win=true
+        }
+        else if (CheckWin(tempCheckBoard, compPiece)) {
+            alert("You lose!")
+        }
     }
     else if (mode==1) {
-	if (CheckWin(tempCheckBoard, ' X ')) {
-	    alert("X's Win!")
-	}
-	else if (CheckWin(tempCheckBoard, ' O ')) {
-	    alert("O's Win!")
-	}
+        if (CheckWin(tempCheckBoard, ' X ')) {
+            alert("X's Win!")
+        }
+        else if (CheckWin(tempCheckBoard, ' O ')) {
+            alert("O's Win!")
+        }
     }
 }
 
 function MakeMove(Board, column) {
     var row=-1;
     for (var i=5; i>=0; i--) {
-	if (Board[i][column]==" ") {
-	    row=i;
-	    break;
-	}
+        if (Board[i][column]==" ") {
+            row=i;
+            break;
+        }
     }
     return row;
 }
 
 function switchPiece() {
     if (currentPiece==" X ") {
-	currentPiece=" O "
+        currentPiece=" O "
     }
     else {
-	currentPiece=" X "
+        currentPiece=" X "
     }
 }
 
@@ -286,7 +295,15 @@ function endOfTurn() {
     update()
     switchPiece()
     check()
-    tempBoard=board.slice()
+    CopyArray(board, tempBoard)
+}
+
+function CopyArray(Board, TempBoard) {
+    for (var i=0; i<7; i++) {
+        for (var j=0; j<6; j++) {
+            TempBoard[j][i]=Board[j][i];
+        }
+    }
 }
 
 function update() {
