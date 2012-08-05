@@ -14,10 +14,11 @@ and open the template in the editor.
             <div id="header" style="text-align: center"></div>
 	    <h1 style="text-align: center">Connect Four</h1>
 	    <div style="text-align: center">Pick your piece to begin or reset<br />
-		<button type="button" onclick="mode=0; reset(); update()">Computer</button>
-		<button type="button" onclick="mode=1; reset(); update()">Human</button><br />
-		<button type="button" onclick="reset(); update(); currentPiece=' X '; piece=' X '; compPiece=' O '">X</button>
-		<button type="button" onclick="reset(); update(); currentPiece=' O '; piece=' O '; compPiece=' X '">O</button><br />
+		<button type="button" onclick="mode=0; reset(); buttons.style.visibility='visible'">Computer</button>
+		<button type="button" onclick="mode=1; reset(); buttons.style.visibility='hidden'">Human</button><br />
+		<button type="button" onclick="reset(); currentPiece=' X '; piece=' X '; compPiece=' O '">X</button>
+		<button type="button" onclick="reset(); currentPiece=' O '; piece=' O '; compPiece=' X '">O</button>
+		<button type="button" onclick="reset()">Reset</button><br />
             </div>
             <script>
 		var currentPiece = " X "
@@ -98,8 +99,30 @@ and open the template in the editor.
 		<INPUT TYPE="button" NAME="sqr48" class="connectfour" value=" ">
 		<INPUT TYPE="button" NAME="sqr49" class="connectfour" value=" ">
 	    </form>
-	    
-
+	    <form name="buttonsArea" id="buttons" style="text-align: center">
+		<br />
+		<button class="settings" type="button" onclick="setDefault()">Reset Values</button><br />
+		<button class="settings" type="button">Turns Ahead</button>
+		<button class="settings" type="button">Ratio</button>
+		<button class="settings" type="button">Win Points</button>
+		<button class="settings" type="button">Tie Points</button>
+		<button class="settings" type="button">Loss Points</button><br />
+		<button class="settings" type="button" onclick="turnsAhead+=1; updateButtons()">+</button>
+		<button class="settings" type="button" onclick="ratio+=.05; updateButtons()">+</button>
+		<button class="settings" type="button" onclick="winPoints+=.5; updateButtons()">+</button>
+		<button class="settings" type="button" onclick="tiePoints+=.5; updateButtons()">+</button>
+		<button class="settings" type="button" onclick="lossPoints+=.5; updateButtons()">+</button><br />
+		<INPUT TYPE="button" NAME="turns" class="settings" value=5>
+		<INPUT TYPE="button" NAME="ratioButton" class="settings" value=0.3>
+		<INPUT TYPE="button" NAME="win" class="settings" value=2.5>
+		<INPUT TYPE="button" NAME="tie" class="settings" value=0>
+		<INPUT TYPE="button" NAME="loss" class="settings" value=-10><br />
+		<button class="settings" type="button" onclick="if (turnsAhead>0) {turnsAhead-=1; updateButtons()}">-</button>
+		<button class="settings" type="button" onclick="if (ratio>0.01) {ratio-=.05; updateButtons()}">-</button>
+		<button class="settings" type="button" onclick="winPoints-=.5; updateButtons()">-</button>
+		<button class="settings" type="button" onclick="tiePoints-=.5; updateButtons()">-</button>
+		<button class="settings" type="button" onclick="lossPoints-=.5; updateButtons()">-</button>
+	    </form>
         </div>
         <div class="footer">
             <div id="footer" style="text-align: center"></div>

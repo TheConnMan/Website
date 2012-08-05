@@ -3,14 +3,21 @@
  * and open the template in the editor.
  */
 
-function vari()
-{
-    board = [[document.tic.sqr1.value,document.tic.sqr2.value,document.tic.sqr3.value,document.tic.sqr4.value,document.tic.sqr5.value,document.tic.sqr6.value,document.tic.sqr7.value],
-    [document.tic.sqr8.value,document.tic.sqr9.value,document.tic.sqr10.value,document.tic.sqr11.value,document.tic.sqr12.value,document.tic.sqr13.value,document.tic.sqr14.value],
-    [document.tic.sqr15.value,document.tic.sqr16.value,document.tic.sqr17.value,document.tic.sqr18.value,document.tic.sqr19.value,document.tic.sqr20.value,document.tic.sqr21.value],
-    [document.tic.sqr22.value,document.tic.sqr23.value,document.tic.sqr24.value,document.tic.sqr25.value,document.tic.sqr26.value,document.tic.sqr27.value,document.tic.sqr28.value],
-    [document.tic.sqr29.value,document.tic.sqr30.value,document.tic.sqr31.value,document.tic.sqr32.value,document.tic.sqr33.value,document.tic.sqr34.value,document.tic.sqr35.value],
-    [document.tic.sqr36.value,document.tic.sqr37.value,document.tic.sqr38.value,document.tic.sqr39.value,document.tic.sqr40.value,document.tic.sqr41.value,document.tic.sqr42.value]]
+function updateButtons() {
+    document.buttonsArea.turns.value=turnsAhead
+    document.buttonsArea.ratioButton.value=Math.round(100*ratio)/100
+    document.buttonsArea.win.value=winPoints
+    document.buttonsArea.tie.value=tiePoints
+    document.buttonsArea.loss.value=lossPoints
+}
+
+function setDefault() {
+    turnsAhead = 5
+    ratio = .3
+    winPoints = 2.5
+    tiePoints = 0
+    lossPoints = -10
+    updateButtons()
 }
 
 function CheckWin(Board, turn) {
@@ -240,6 +247,7 @@ function reset()
     [" "," "," "," "," "," "," "],
     [" "," "," "," "," "," "," "]]
     update()
+    win=false
 }
 
 function check()
@@ -267,6 +275,9 @@ function check()
         else if (CheckWin(tempCheckBoard, ' O ')) {
             alert("O's Win!")
         }
+    }
+    if (board[0][0]!=" "&&board[0][1]!=" "&&board[0][2]!=" "&&board[0][3]!=" "&&board[0][4]!=" "&&board[0][5]!=" "&&board[0][6]!=" ") {
+	alert("Tie!")
     }
 }
 
