@@ -14,77 +14,91 @@ and open the template in the editor.
             <div id="header" style="text-align: center"></div>
 	    <h1 style="text-align: center">Connect Four</h1>
 	    <div style="text-align: center">Pick your piece to begin or reset<br />
-		<button type="button" onclick="piece=' X '; compPiece=' O '; reset()">X</button>
-		<button type="button" onclick="piece=' O '; compPiece=' X '; reset()">O</button><br />
-	    </div>
+		<button type="button" onclick="mode=0; reset(); update()">Computer</button>
+		<button type="button" onclick="mode=1; reset(); update()">Human</button><br />
+		<button type="button" onclick="reset(); update(); currentPiece=' X '; piece=' X '; compPiece=' O '">X</button>
+		<button type="button" onclick="reset(); update(); currentPiece=' O '; piece=' O '; compPiece=' X '">O</button><br />
+            </div>
             <script>
-		var piece = ' X '; var compPiece = ' O '
-                var board = [["","","","","","",""],
-		    ["","","","","","",""],
-		    ["","","","","","",""],
-		    ["","","","","","",""],
-		    ["","","","","","",""],
-		    ["","","","","","",""]]
-                var sqr1; var sqr2; var sqr3; var sqr4; var sqr5; var sqr6; var sqr7; var sqr8; var sqr9
-                var sqr11; var sqr12; var sqr13; var sqr14; var sqr15; var sqr16; var sqr17; var sqr18; var sqr19
-                var sqr21; var sqr22; var sqr23; var sqr24; var sqr25; var sqr26; var sqr27; var sqr28; var sqr29
-                var sqr31; var sqr32; var sqr33; var sqr34; var sqr35; var sqr36; var sqr37; var sqr38; var sqr39
-                var sqr41; var sqr42
-		var boardT = [[0,0,0,0,0,0,0],
-		    [0,0,0,0,0,0,0],
-		    [0,0,0,0,0,0,0],
-		    [0,0,0,0,0,0,0],
-		    [0,0,0,0,0,0,0],
-		    [0,0,0,0,0,0,0]]
-                var moveCount = 0
-                var turn = 0
+		var currentPiece = " X "
+		var compPiece = " O "
+		var piece = " X "
+		var mode=0
+		var turnsAhead = 5
+		var ratio = .3
+		var winPoints = 2.5
+		var tiePoints = 0
+		var lossPoints = -10
+                var board = [[" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "]]
+                var tempBoard=[[" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "],
+		    [" "," "," "," "," "," "," "]]
+                CopyArray(board, tempBoard)
+		var move
+		var win=false
+		var turnDone=false
             </script>
 
-
-            <FORM NAME="tic" style="text-align: center"><br />
-                <INPUT TYPE="button" NAME="sqr1" class="connectfour" value="     " onClick="if(document.tic.sqr1.value == '     ' && turn == 0 && document.tic.sqr8.value != '     ') {document.tic.sqr1.value = piece; boardT[0,0] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr2" class="connectfour" value="     " onClick="if(document.tic.sqr2.value == '     ' && turn == 0 && document.tic.sqr9.value != '     ') {document.tic.sqr2.value = piece; boardT[0,1] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr3" class="connectfour" value="     " onClick="if(document.tic.sqr3.value == '     ' && turn == 0 && document.tic.sqr10.value != '     ') {document.tic.sqr3.value = piece; boardT[0,2] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr4" class="connectfour" value="     " onClick="if(document.tic.sqr4.value == '     ' && turn == 0 && document.tic.sqr11.value != '     ') {document.tic.sqr4.value = piece; boardT[0,3] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr5" class="connectfour" value="     " onClick="if(document.tic.sqr5.value == '     ' && turn == 0 && document.tic.sqr12.value != '     ') {document.tic.sqr5.value = piece; boardT[0,4] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr6" class="connectfour" value="     " onClick="if(document.tic.sqr6.value == '     ' && turn == 0 && document.tic.sqr13.value != '     ') {document.tic.sqr6.value = piece; boardT[0,5] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr7" class="connectfour" value="     " onClick="if(document.tic.sqr7.value == '     ' && turn == 0 && document.tic.sqr14.value != '     ') {document.tic.sqr7.value = piece; boardT[0,6] = 1; turn = 1; vari(); check();}"><br />
-                <INPUT TYPE="button" NAME="sqr8" class="connectfour" value="     " onClick="if(document.tic.sqr8.value == '     ' && turn == 0 && document.tic.sqr15.value != '     ') {document.tic.sqr8.value = piece; boardT[1,0] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr9" class="connectfour" value="     " onClick="if(document.tic.sqr9.value == '     ' && turn == 0 && document.tic.sqr16.value != '     ') {document.tic.sqr9.value = piece; boardT[1,1] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr10" class="connectfour" value="     " onClick="if(document.tic.sqr10.value == '     ' && turn == 0 && document.tic.sqr17.value != '     ') {document.tic.sqr10.value = piece; boardT[1,2] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr11" class="connectfour" value="     " onClick="if(document.tic.sqr11.value == '     ' && turn == 0 && document.tic.sqr18.value != '     ') {document.tic.sqr11.value = piece; boardT[1,3] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr12" class="connectfour" value="     " onClick="if(document.tic.sqr12.value == '     ' && turn == 0 && document.tic.sqr19.value != '     ') {document.tic.sqr12.value = piece; boardT[1,4] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr13" class="connectfour" value="     " onClick="if(document.tic.sqr13.value == '     ' && turn == 0 && document.tic.sqr20.value != '     ') {document.tic.sqr13.value = piece; boardT[1,5] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr14" class="connectfour" value="     " onClick="if(document.tic.sqr14.value == '     ' && turn == 0 && document.tic.sqr21.value != '     ') {document.tic.sqr14.value = piece; boardT[1,6] = 1; turn = 1; vari(); check();}"><br />
-                <INPUT TYPE="button" NAME="sqr15" class="connectfour" value="     " onClick="if(document.tic.sqr15.value == '     ' && turn == 0 && document.tic.sqr22.value != '     ') {document.tic.sqr15.value = piece; boardT[2,0] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr16" class="connectfour" value="     " onClick="if(document.tic.sqr16.value == '     ' && turn == 0 && document.tic.sqr23.value != '     ') {document.tic.sqr16.value = piece; boardT[2,1] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr17" class="connectfour" value="     " onClick="if(document.tic.sqr17.value == '     ' && turn == 0 && document.tic.sqr24.value != '     ') {document.tic.sqr17.value = piece; boardT[2,2] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr18" class="connectfour" value="     " onClick="if(document.tic.sqr18.value == '     ' && turn == 0 && document.tic.sqr25.value != '     ') {document.tic.sqr18.value = piece; boardT[2,3] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr19" class="connectfour" value="     " onClick="if(document.tic.sqr19.value == '     ' && turn == 0 && document.tic.sqr26.value != '     ') {document.tic.sqr19.value = piece; boardT[2,4] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr20" class="connectfour" value="     " onClick="if(document.tic.sqr20.value == '     ' && turn == 0 && document.tic.sqr27.value != '     ') {document.tic.sqr20.value = piece; boardT[2,5] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr21" class="connectfour" value="     " onClick="if(document.tic.sqr21.value == '     ' && turn == 0 && document.tic.sqr28.value != '     ') {document.tic.sqr21.value = piece; boardT[2,6] = 1; turn = 1; vari(); check();}"><br />
-                <INPUT TYPE="button" NAME="sqr22" class="connectfour" value="     " onClick="if(document.tic.sqr22.value == '     ' && turn == 0 && document.tic.sqr29.value != '     ') {document.tic.sqr22.value = piece; boardT[3,0] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr23" class="connectfour" value="     " onClick="if(document.tic.sqr23.value == '     ' && turn == 0 && document.tic.sqr30.value != '     ') {document.tic.sqr23.value = piece; boardT[3,1] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr24" class="connectfour" value="     " onClick="if(document.tic.sqr24.value == '     ' && turn == 0 && document.tic.sqr31.value != '     ') {document.tic.sqr24.value = piece; boardT[3,2] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr25" class="connectfour" value="     " onClick="if(document.tic.sqr25.value == '     ' && turn == 0 && document.tic.sqr32.value != '     ') {document.tic.sqr25.value = piece; boardT[3,3] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr26" class="connectfour" value="     " onClick="if(document.tic.sqr26.value == '     ' && turn == 0 && document.tic.sqr33.value != '     ') {document.tic.sqr26.value = piece; boardT[3,4] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr27" class="connectfour" value="     " onClick="if(document.tic.sqr27.value == '     ' && turn == 0 && document.tic.sqr34.value != '     ') {document.tic.sqr27.value = piece; boardT[3,5] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr28" class="connectfour" value="     " onClick="if(document.tic.sqr28.value == '     ' && turn == 0 && document.tic.sqr35.value != '     ') {document.tic.sqr28.value = piece; boardT[3,6] = 1; turn = 1; vari(); check();}"><br />
-                <INPUT TYPE="button" NAME="sqr29" class="connectfour" value="     " onClick="if(document.tic.sqr29.value == '     ' && turn == 0 && document.tic.sqr36.value != '     ') {document.tic.sqr29.value = piece; boardT[4,0] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr30" class="connectfour" value="     " onClick="if(document.tic.sqr30.value == '     ' && turn == 0 && document.tic.sqr37.value != '     ') {document.tic.sqr30.value = piece; boardT[4,1] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr31" class="connectfour" value="     " onClick="if(document.tic.sqr31.value == '     ' && turn == 0 && document.tic.sqr38.value != '     ') {document.tic.sqr31.value = piece; boardT[4,2] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr32" class="connectfour" value="     " onClick="if(document.tic.sqr32.value == '     ' && turn == 0 && document.tic.sqr39.value != '     ') {document.tic.sqr32.value = piece; boardT[4,3] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr33" class="connectfour" value="     " onClick="if(document.tic.sqr33.value == '     ' && turn == 0 && document.tic.sqr40.value != '     ') {document.tic.sqr33.value = piece; boardT[4,4] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr34" class="connectfour" value="     " onClick="if(document.tic.sqr34.value == '     ' && turn == 0 && document.tic.sqr41.value != '     ') {document.tic.sqr34.value = piece; boardT[4,5] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr35" class="connectfour" value="     " onClick="if(document.tic.sqr35.value == '     ' && turn == 0 && document.tic.sqr42.value != '     ') {document.tic.sqr35.value = piece; boardT[4,6] = 1; turn = 1; vari(); check();}"><br />
-                <INPUT TYPE="button" NAME="sqr36" class="connectfour" value="     " onClick="if(document.tic.sqr36.value == '     ' && turn == 0) {document.tic.sqr36.value = piece; boardT[5,0] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr37" class="connectfour" value="     " onClick="if(document.tic.sqr37.value == '     ' && turn == 0) {document.tic.sqr37.value = piece; boardT[5,1] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr38" class="connectfour" value="     " onClick="if(document.tic.sqr38.value == '     ' && turn == 0) {document.tic.sqr38.value = piece; boardT[5,2] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr39" class="connectfour" value="     " onClick="if(document.tic.sqr39.value == '     ' && turn == 0) {document.tic.sqr39.value = piece; boardT[5,3] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr40" class="connectfour" value="     " onClick="if(document.tic.sqr40.value == '     ' && turn == 0) {document.tic.sqr40.value = piece; boardT[5,4] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr41" class="connectfour" value="     " onClick="if(document.tic.sqr41.value == '     ' && turn == 0) {document.tic.sqr41.value = piece; boardT[5,5] = 1; turn = 1; vari(); check();}">
-                <INPUT TYPE="button" NAME="sqr42" class="connectfour" value="     " onClick="if(document.tic.sqr42.value == '     ' && turn == 0) {document.tic.sqr42.value = piece; boardT[5,6] = 1; turn = 1; vari(); check();}">
+	    <FORM NAME="tic" style="text-align: center"><br />
+		<INPUT TYPE="button" NAME="sqr1" class="connectfour" value="1" onClick="move=MakeMove(board, 0); if (move!=-1) {board[move][0]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}">
+                <INPUT TYPE="button" NAME="sqr2" class="connectfour" value="2" onClick="move=MakeMove(board, 1); if (move!=-1) {board[move][1]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}">
+                <INPUT TYPE="button" NAME="sqr3" class="connectfour" value="3" onClick="move=MakeMove(board, 2); if (move!=-1) {board[move][2]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}">
+                <INPUT TYPE="button" NAME="sqr4" class="connectfour" value="4" onClick="move=MakeMove(board, 3); if (move!=-1) {board[move][3]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}">
+                <INPUT TYPE="button" NAME="sqr5" class="connectfour" value="5" onClick="move=MakeMove(board, 4); if (move!=-1) {board[move][4]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}">
+                <INPUT TYPE="button" NAME="sqr6" class="connectfour" value="6" onClick="move=MakeMove(board, 5); if (move!=-1) {board[move][5]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}">
+                <INPUT TYPE="button" NAME="sqr7" class="connectfour" value="7" onClick="move=MakeMove(board, 6); if (move!=-1) {board[move][6]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}"><br /><br />
+                <INPUT TYPE="button" NAME="sqr8" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr9" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr10" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr11" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr12" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr13" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr14" class="connectfour" value=" "><br />
+		<INPUT TYPE="button" NAME="sqr15" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr16" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr17" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr18" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr19" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr20" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr21" class="connectfour" value=" "><br />
+		<INPUT TYPE="button" NAME="sqr22" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr23" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr24" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr25" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr26" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr27" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr28" class="connectfour" value=" "><br />
+		<INPUT TYPE="button" NAME="sqr29" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr30" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr31" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr32" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr33" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr34" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr35" class="connectfour" value=" "><br />
+		<INPUT TYPE="button" NAME="sqr36" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr37" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr38" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr39" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr40" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr41" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr42" class="connectfour" value=" "><br />
+		<INPUT TYPE="button" NAME="sqr43" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr44" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr45" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr46" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr47" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr48" class="connectfour" value=" ">
+		<INPUT TYPE="button" NAME="sqr49" class="connectfour" value=" ">
 	    </form>
+	    
 
         </div>
         <div class="footer">
