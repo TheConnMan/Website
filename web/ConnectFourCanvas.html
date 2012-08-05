@@ -10,7 +10,7 @@
 
 	<body onload="newGame();" style="font-family: sans-serif;">
 		<div style="width: 280px; margin-left: auto; margin-right: auto; background: gray; border-radius: 15px; padding: 25px; padding-top: 10px; height:400px;">
-			<div id="div_title" onclick="newGame()">
+			<div id="div_title" onclick="if (gameOver) {newGame();}">
 				Connect 4!
 			</div>
 			<canvas id="connect_four" width="280" height="240"></canvas>
