@@ -291,6 +291,7 @@ function reset()
     [" "," "," "," "," "," "," "]]
     update()
     win=false
+    turnNum=0
 }
 
 function check()

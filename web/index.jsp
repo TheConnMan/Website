@@ -34,7 +34,7 @@
             }
 	    function redirectConnectFour()
 	    {
-		window.location = './ConnectFour.html'
+		window.location = './ConnectFour/ConnectFour.html'
 	    }
             </script>
             <div class="push"></div>
