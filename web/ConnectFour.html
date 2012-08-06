@@ -5,7 +5,7 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>Connect Four</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link type="text/css" rel="stylesheet" href="CSS.css">
     </head>
@@ -13,9 +13,10 @@ and open the template in the editor.
         <div class="wrapper">
             <div id="header" style="text-align: center"></div>
 	    <h1 style="text-align: center">Connect Four</h1>
-	    <div style="text-align: center">Pick your piece to begin or reset<br />
-		<button type="button" onclick="mode=0; reset(); buttons.style.visibility='visible'">Computer</button>
-		<button type="button" onclick="mode=1; reset(); buttons.style.visibility='hidden'">Human</button><br />
+	    <div style="text-align: center">
+		<button type="button" onclick="mode=0; reset(); buttons.style.display='block'; buttons2.style.display='none'">Computer</button>
+		<button type="button" onclick="mode=1; reset(); buttons.style.display='none'; buttons2.style.display='none'">Human</button>
+		<button type="button" onclick="mode=2; reset(); buttons.style.display='none'; buttons2.style.display='block'">Trials</button><br />
 		<button type="button" onclick="reset(); currentPiece=' X '; piece=' X '; compPiece=' O '">X</button>
 		<button type="button" onclick="reset(); currentPiece=' O '; piece=' O '; compPiece=' X '">O</button>
 		<button type="button" onclick="reset()">Reset</button><br />
@@ -24,12 +25,13 @@ and open the template in the editor.
 		var currentPiece = " X "
 		var compPiece = " O "
 		var piece = " X "
+		var turnNum = 0
 		var mode=0
-		var turnsAhead = 5
-		var ratio = .3
-		var winPoints = 2.5
-		var tiePoints = 0
-		var lossPoints = -10
+		var turnsAhead = 5; var turnsAhead1 = 5; var turnsAhead2 = 5
+		var ratio = .3; var ratio1 = .3; var ratio2 = .3
+		var winPoints = 2.5; var winPoints1 = 2.5; var winPoints2 = 2.5
+		var tiePoints = 0; var tiePoints1 = 0; var tiePoints2 = 0
+		var lossPoints = -10; var lossPoints1 = -10; var lossPoints2 = -10
                 var board = [[" "," "," "," "," "," "," "],
 		    [" "," "," "," "," "," "," "],
 		    [" "," "," "," "," "," "," "],
@@ -123,8 +125,55 @@ and open the template in the editor.
 		<button class="settings" type="button" onclick="tiePoints-=.5; updateButtons()">-</button>
 		<button class="settings" type="button" onclick="lossPoints-=.5; updateButtons()">-</button>
 	    </form>
+	    <form name="buttonsAreaTrials" id="buttons2" style="text-align: center; display: none">
+		<br />
+		<button class="settings" type="button" onclick="setDefault()">Reset Values</button>
+		<button class="settings" type="button" onclick="runTrials()">Next Round</button><br />
+		<button class="settings" type="button">X</button>
+		<button class="settings" type="button">O</button><br />
+		<button class="settings" type="button">Turns Ahead</button>
+		<button class="settings" type="button">Ratio</button>
+		<button class="settings" type="button">Win Points</button>
+		<button class="settings" type="button">Tie Points</button>
+		<button class="settings" type="button">Loss Points</button>
+		<button class="settings" type="button">Turns Ahead</button>
+		<button class="settings" type="button">Ratio</button>
+		<button class="settings" type="button">Win Points</button>
+		<button class="settings" type="button">Tie Points</button>
+		<button class="settings" type="button">Loss Points</button><br />
+		<button class="settings" type="button" onclick="turnsAhead1+=1; updateButtons()">+</button>
+		<button class="settings" type="button" onclick="ratio1+=.05; updateButtons()">+</button>
+		<button class="settings" type="button" onclick="winPoints1+=.5; updateButtons()">+</button>
+		<button class="settings" type="button" onclick="tiePoints1+=.5; updateButtons()">+</button>
+		<button class="settings" type="button" onclick="lossPoints1+=.5; updateButtons()">+</button>
+		<button class="settings" type="button" onclick="turnsAhead2+=1; updateButtons()">+</button>
+		<button class="settings" type="button" onclick="ratio2+=.05; updateButtons()">+</button>
+		<button class="settings" type="button" onclick="winPoints2+=.5; updateButtons()">+</button>
+		<button class="settings" type="button" onclick="tiePoints2+=.5; updateButtons()">+</button>
+		<button class="settings" type="button" onclick="lossPoints2+=.5; updateButtons()">+</button><br />
+		<INPUT TYPE="button" NAME="turns1" class="settings" value=5>
+		<INPUT TYPE="button" NAME="ratioButton1" class="settings" value=0.3>
+		<INPUT TYPE="button" NAME="win1" class="settings" value=2.5>
+		<INPUT TYPE="button" NAME="tie1" class="settings" value=0>
+		<INPUT TYPE="button" NAME="loss1" class="settings" value=-10>
+		<INPUT TYPE="button" NAME="turns2" class="settings" value=5>
+		<INPUT TYPE="button" NAME="ratioButton2" class="settings" value=0.3>
+		<INPUT TYPE="button" NAME="win2" class="settings" value=2.5>
+		<INPUT TYPE="button" NAME="tie2" class="settings" value=0>
+		<INPUT TYPE="button" NAME="loss2" class="settings" value=-10><br />
+		<button class="settings" type="button" onclick="if (turnsAhead1>0) {turnsAhead1-=1; updateButtons()}">-</button>
+		<button class="settings" type="button" onclick="if (ratio1>0.01) {ratio1-=.05; updateButtons()}">-</button>
+		<button class="settings" type="button" onclick="winPoints1-=.5; updateButtons()">-</button>
+		<button class="settings" type="button" onclick="tiePoints1-=.5; updateButtons()">-</button>
+		<button class="settings" type="button" onclick="lossPoints1-=.5; updateButtons()">-</button>
+		<button class="settings" type="button" onclick="if (turnsAhead2>0) {turnsAhead2-=1; updateButtons()}">-</button>
+		<button class="settings" type="button" onclick="if (ratio2>0.01) {ratio2-=.05; updateButtons()}">-</button>
+		<button class="settings" type="button" onclick="winPoints2-=.5; updateButtons()">-</button>
+		<button class="settings" type="button" onclick="tiePoints2-=.5; updateButtons()">-</button>
+		<button class="settings" type="button" onclick="lossPoints2-=.5; updateButtons()">-</button>
+	    </form>
         </div>
-        <div class="footer">
+        <div class="footer" style="text-align: center">
             <div id="footer" style="text-align: center"></div>
         </div>
         <script type="text/javascript" defer="defer" src="Scripts/Header%20and%20Footer.js"></script>
