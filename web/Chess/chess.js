@@ -585,6 +585,24 @@ function movePiece(board, oldC, oldR, newC, newR) {
 	board[oldC][oldR] = null;
 	board[newC][newR].c = newC;
 	board[newC][newR].r = newR;
+
+	// make pawns into queens
+	if (board[newC][newR].type == "pawn") {
+		if (whiteOnTop) {
+			if (board[newC][newR].r == 7 && board[newC][newR].color == "white") {
+				board[newC][newR] = new piece("queen", newC, newR, "white");
+			} else if (board[newC][newR].r == 0 && board[newC][newR].color == "black") {
+				board[newC][newR] = new piece("queen", newC, newR, "black");
+			}
+		} else {
+			if (board[newC][newR].r == 0 && board[newC][newR].color == "white") {
+				board[newC][newR] = new piece("queen", newC, newR, "white");
+			} else if (board[newC][newR].r == 7 && board[newC][newR].color == "black") {
+				board[newC][newR] = new piece("queen", newC, newR, "black");
+			}
+		}
+	}
+
 	drawBoard(board);
 	changeTurn();
 	return board;
