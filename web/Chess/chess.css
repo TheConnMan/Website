@@ -1,0 +1,16 @@
+body {
+	font-family: sans-serif;
+}
+
+#chess_board_wrap {
+	width: 324px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px;
+}
+
+#board {
+	border-color: #AAAAAA;
+	border-width: 2px;
+	border-style: solid;
+}
