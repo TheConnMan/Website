@@ -118,7 +118,7 @@ function piece(type, col, row, color) {
 					if (board[this.c][this.r + 1] == null) {
 						moves[i] = [this.c, this.r + 1]; ++i;
 					}
-					if (board[this.c][this.r + 2] == null) {
+					if (board[this.c][this.r + 2] == null && this.r == 1) {
 						moves[i] = [this.c, this.r + 2]; ++i;
 					}
 					try {
@@ -136,7 +136,7 @@ function piece(type, col, row, color) {
 					if (board[this.c][this.r - 1] == null) {
 						moves[i] = [this.c, this.r - 1]; ++i;
 					}
-					if (board[this.c][this.r - 2] == null) {
+					if (board[this.c][this.r - 2] == null && this.r == 6) {
 						moves[i] = [this.c, this.r - 2]; ++i;
 					}
 					try {
@@ -156,7 +156,7 @@ function piece(type, col, row, color) {
 					if (board[this.c][this.r + 1] == null) {
 						moves[i] = [this.c, this.r + 1]; ++i;
 					}
-					if (board[this.c][this.r + 2] == null) {
+					if (board[this.c][this.r + 2] == null && this.r == 1) {
 						moves[i] = [this.c, this.r + 2]; ++i;
 					}
 					try {
@@ -175,7 +175,7 @@ function piece(type, col, row, color) {
 					if (board[this.c][this.r - 1] == null) {
 						moves[i] = [this.c, this.r - 1]; ++i;
 					}
-					if (board[this.c][this.r - 2] == null) {
+					if (board[this.c][this.r - 2] == null && this.r == 6) {
 						moves[i] = [this.c, this.r - 2]; ++i;
 					}
 					try {
