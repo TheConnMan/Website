@@ -109,7 +109,7 @@ and open the template in the editor.
 		<button class="settings" type="button">Win Points</button>
 		<button class="settings" type="button">Tie Points</button>
 		<button class="settings" type="button">Loss Points</button><br />
-		<button class="settings" type="button" onclick="turnsAhead+=1; updateButtons()">+</button>
+		<button class="settings" type="button" onclick="if (turnsAhead<7) {turnsAhead+=1; updateButtons()}">+</button>
 		<button class="settings" type="button" onclick="ratio+=.05; updateButtons()">+</button>
 		<button class="settings" type="button" onclick="winPoints+=.5; updateButtons()">+</button>
 		<button class="settings" type="button" onclick="tiePoints+=.5; updateButtons()">+</button>
@@ -141,12 +141,12 @@ and open the template in the editor.
 		<button class="settings" type="button">Win Points</button>
 		<button class="settings" type="button">Tie Points</button>
 		<button class="settings" type="button">Loss Points</button><br />
-		<button class="settings" type="button" onclick="turnsAhead1+=1; updateButtons()">+</button>
+		<button class="settings" type="button" onclick="if (turnsAhead1<7) {turnsAhead1+=1; updateButtons()}">+</button>
 		<button class="settings" type="button" onclick="ratio1+=.05; updateButtons()">+</button>
 		<button class="settings" type="button" onclick="winPoints1+=.5; updateButtons()">+</button>
 		<button class="settings" type="button" onclick="tiePoints1+=.5; updateButtons()">+</button>
 		<button class="settings" type="button" onclick="lossPoints1+=.5; updateButtons()">+</button>
-		<button class="settings" type="button" onclick="turnsAhead2+=1; updateButtons()">+</button>
+		<button class="settings" type="button" onclick="if (turnsAhead2<7) {turnsAhead2+=1; updateButtons()}">+</button>
 		<button class="settings" type="button" onclick="ratio2+=.05; updateButtons()">+</button>
 		<button class="settings" type="button" onclick="winPoints2+=.5; updateButtons()">+</button>
 		<button class="settings" type="button" onclick="tiePoints2+=.5; updateButtons()">+</button>
