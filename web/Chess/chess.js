@@ -92,7 +92,7 @@ function piece(type, col, row, color) {
 	this.color = color;
 	this.type = type;
 
-	this.draw = function draw() {
+	this.draw = function() {
 		if (type == "pawn") {
 			drawPawn(this.c, this.r, this.color);
 		} else if (type == "rook") {
@@ -108,7 +108,7 @@ function piece(type, col, row, color) {
 		}
 	}
 
-	this.getLegalMoves = function getLegalMoves(board) {
+	this.getLegalMoves = function(board) {
 		moves = new Array();
 		if (this.type == "pawn") {
 			if (whiteOnTop) {
@@ -116,17 +116,21 @@ function piece(type, col, row, color) {
 					// white piece, must move down.
 					i = 0;
 					if (board[this.c][this.r + 1] == null) {
-						moves[i] = [this.c, this.r + 1]; ++i;
+						moves[i] = [this.c, this.r + 1];
+						++i;
 					}
 					if (board[this.c][this.r + 2] == null && this.r == 1) {
-						moves[i] = [this.c, this.r + 2]; ++i;
+						moves[i] = [this.c, this.r + 2];
+						++i;
 					}
 					try {
 						if (board[this.c+1][this.r + 1] != null && board[this.c+1][this.r + 1].color == "black") {
-							moves[i] = [this.c + 1, this.r + 1]; ++i;
+							moves[i] = [this.c + 1, this.r + 1];
+							++i;
 						}
 						if (board[this.c-1][this.r + 1] != null && board[this.c-1][this.r + 1].color == "black") {
-							moves[i] = [this.c - 1, this.r + 1]; ++i;
+							moves[i] = [this.c - 1, this.r + 1];
+							++i;
 						}
 					} catch (e) {
 					}
@@ -134,17 +138,21 @@ function piece(type, col, row, color) {
 					// black piece, must move up.
 					i = 0;
 					if (board[this.c][this.r - 1] == null) {
-						moves[i] = [this.c, this.r - 1]; ++i;
+						moves[i] = [this.c, this.r - 1];
+						++i;
 					}
 					if (board[this.c][this.r - 2] == null && this.r == 6) {
-						moves[i] = [this.c, this.r - 2]; ++i;
+						moves[i] = [this.c, this.r - 2];
+						++i;
 					}
 					try {
 						if (board[this.c+1][this.r - 1] != null && board[this.c+1][this.r - 1].color == "white") {
-							moves[i] = [this.c + 1, this.r - 1]; ++i;
+							moves[i] = [this.c + 1, this.r - 1];
+							++i;
 						}
 						if (board[this.c-1][this.r - 1] != null && board[this.c-1][this.r - 1].color == "white") {
-							moves[i] = [this.c - 1, this.r - 1]; ++i;
+							moves[i] = [this.c - 1, this.r - 1];
+							++i;
 						}
 					} catch (e) {
 					}
@@ -154,17 +162,21 @@ function piece(type, col, row, color) {
 					// black piece, must move down.
 					i = 0;
 					if (board[this.c][this.r + 1] == null) {
-						moves[i] = [this.c, this.r + 1]; ++i;
+						moves[i] = [this.c, this.r + 1];
+						++i;
 					}
 					if (board[this.c][this.r + 2] == null && this.r == 1) {
-						moves[i] = [this.c, this.r + 2]; ++i;
+						moves[i] = [this.c, this.r + 2];
+						++i;
 					}
 					try {
 						if (board[this.c+1][this.r + 1] != null && board[this.c+1][this.r + 1].color == "white") {
-							moves[i] = [this.c + 1, this.r + 1]; ++i;
+							moves[i] = [this.c + 1, this.r + 1];
+							++i;
 						}
 						if (board[this.c-1][this.r + 1] != null && board[this.c-1][this.r + 1].color == "white") {
-							moves[i] = [this.c - 1, this.r + 1]; ++i;
+							moves[i] = [this.c - 1, this.r + 1];
+							++i;
 						}
 					} catch (e) {
 					}
@@ -173,17 +185,21 @@ function piece(type, col, row, color) {
 					// white piece, must move up.
 					i = 0;
 					if (board[this.c][this.r - 1] == null) {
-						moves[i] = [this.c, this.r - 1]; ++i;
+						moves[i] = [this.c, this.r - 1];
+						++i;
 					}
 					if (board[this.c][this.r - 2] == null && this.r == 6) {
-						moves[i] = [this.c, this.r - 2]; ++i;
+						moves[i] = [this.c, this.r - 2];
+						++i;
 					}
 					try {
 						if (board[this.c+1][this.r - 1] != null && board[this.c+1][this.r - 1].color == "black") {
-							moves[i] = [this.c + 1, this.r - 1]; ++i;
+							moves[i] = [this.c + 1, this.r - 1];
+							++i;
 						}
 						if (board[this.c-1][this.r - 1] != null && board[this.c-1][this.r - 1].color == "black") {
-							moves[i] = [this.c - 1, this.r - 1]; ++i;
+							moves[i] = [this.c - 1, this.r - 1];
+							++i;
 						}
 					} catch (e) {
 					}
@@ -199,12 +215,13 @@ function piece(type, col, row, color) {
 				if (this.r - j < 0 || board[this.c][this.r - j] != null) {
 					if (this.r - j >= 0 && board[this.c][this.r - j].color != this.color) {
 						// then this is an opponent
-						moves[i] = [this.c, this.r - j]; ++i;
+						moves[i] = [this.c, this.r - j];
+						++i;
 					}
 					break;
 				}
-				moves[i] = [this.c, this.r - j];
-				++i; ++j;
+				moves[i] = [this.c, this.r - j]; ++i;
+				++j;
 			}
 			// south
 			j = 1;
@@ -212,12 +229,13 @@ function piece(type, col, row, color) {
 				if (this.r + j >= rows || board[this.c][this.r + j] != null) {
 					if (this.r + j < rows && board[this.c][this.r + j].color != this.color) {
 						// then this is an opponent
-						moves[i] = [this.c, this.r + j]; ++i;
+						moves[i] = [this.c, this.r + j];
+						++i;
 					}
 					break;
 				}
-				moves[i] = [this.c, this.r + j];
-				++i; ++j;
+				moves[i] = [this.c, this.r + j]; ++i;
+				++j;
 			}
 			// east
 			j = 1;
@@ -225,12 +243,13 @@ function piece(type, col, row, color) {
 				if (this.c + j >= cols || board[this.c+j][this.r] != null) {
 					if (this.c + j < cols && board[this.c+j][this.r].color != this.color) {
 						// then this is an opponent
-						moves[i] = [this.c + j, this.r]; ++i;
+						moves[i] = [this.c + j, this.r];
+						++i;
 					}
 					break;
 				}
-				moves[i] = [this.c + j, this.r];
-				++i; ++j;
+				moves[i] = [this.c + j, this.r]; ++i;
+				++j;
 			}
 			// west
 			j = 1;
@@ -238,13 +257,14 @@ function piece(type, col, row, color) {
 				if (this.c - j < 0 || board[this.c-j][this.r] != null) {
 					if (this.c - j >= 0 && board[this.c-j][this.r].color != this.color) {
 						// then this is an opponent
-						moves[i] = [this.c - j, this.r]; ++i;
+						moves[i] = [this.c - j, this.r];
+						++i;
 
 					}
 					break;
 				}
-				moves[i] = [this.c - j, this.r];
-				++i; ++j;
+				moves[i] = [this.c - j, this.r]; ++i;
+				++j;
 			}
 		}
 		if (this.type == "bishop") {
@@ -255,12 +275,13 @@ function piece(type, col, row, color) {
 				if (this.r - j < 0 || this.c - j < 0 || board[this.c- j][this.r - j] != null) {
 					if ((this.r - j >= 0) && (this.c - j >= 0) && board[this.c-j][this.r - j].color != this.color) {
 						// then this is an opponent
-						moves[i] = [this.c - j, this.r - j]; ++i;
+						moves[i] = [this.c - j, this.r - j];
+						++i;
 					}
 					break;
 				}
-				moves[i] = [this.c - j, this.r - j];
-				++i; ++j;
+				moves[i] = [this.c - j, this.r - j]; ++i;
+				++j;
 			}
 			// southeast (++)
 			j = 1;
@@ -268,12 +289,13 @@ function piece(type, col, row, color) {
 				if (this.r + j >= rows || this.c + j >= cols || board[this.c+j][this.r + j] != null) {
 					if ((this.r + j < rows) && (this.c + j < cols) && board[this.c+j][this.r + j].color != this.color) {
 						// then this is an opponent
-						moves[i] = [this.c + j, this.r + j]; ++i;
+						moves[i] = [this.c + j, this.r + j];
+						++i;
 					}
 					break;
 				}
-				moves[i] = [this.c + j, this.r + j];
-				++i; ++j;
+				moves[i] = [this.c + j, this.r + j]; ++i;
+				++j;
 			}
 			// northeast (+-)
 			j = 1;
@@ -281,12 +303,13 @@ function piece(type, col, row, color) {
 				if (this.c + j >= cols || this.r - j < 0 || board[this.c+j][this.r - j] != null) {
 					if (this.c + j < cols && this.r - j >= 0 && board[this.c+j][this.r - j].color != this.color) {
 						// then this is an opponent
-						moves[i] = [this.c + j, this.r - j]; ++i;
+						moves[i] = [this.c + j, this.r - j];
+						++i;
 					}
 					break;
 				}
-				moves[i] = [this.c + j, this.r - j];
-				++i; ++j;
+				moves[i] = [this.c + j, this.r - j]; ++i;
+				++j;
 			}
 			// southwest (-+)
 			j = 1;
@@ -294,12 +317,13 @@ function piece(type, col, row, color) {
 				if (this.c - j < 0 || this.r + j >= rows || board[this.c-j][this.r + j] != null) {
 					if (this.c - j >= 0 && this.r + j < rows && board[this.c-j][this.r + j].color != this.color) {
 						// then this is an opponent
-						moves[i] = [this.c - j, this.r + j]; ++i;
+						moves[i] = [this.c - j, this.r + j];
+						++i;
 					}
 					break;
 				}
-				moves[i] = [this.c - j, this.r + j];
-				++i; ++j;
+				moves[i] = [this.c - j, this.r + j]; ++i;
+				++j;
 			}
 		}
 		if (this.type == "queen") {
@@ -310,12 +334,13 @@ function piece(type, col, row, color) {
 				if (this.r - j < 0 || board[this.c][this.r - j] != null) {
 					if (this.r - j >= 0 && board[this.c][this.r - j].color != this.color) {
 						// then this is an opponent
-						moves[i] = [this.c, this.r - j]; ++i;
+						moves[i] = [this.c, this.r - j];
+						++i;
 					}
 					break;
 				}
-				moves[i] = [this.c, this.r - j];
-				++i; ++j;
+				moves[i] = [this.c, this.r - j]; ++i;
+				++j;
 			}
 			// south
 			j = 1;
@@ -323,12 +348,13 @@ function piece(type, col, row, color) {
 				if (this.r + j >= rows || board[this.c][this.r + j] != null) {
 					if (this.r + j < rows && board[this.c][this.r + j].color != this.color) {
 						// then this is an opponent
-						moves[i] = [this.c, this.r + j]; ++i;
+						moves[i] = [this.c, this.r + j];
+						++i;
 					}
 					break;
 				}
-				moves[i] = [this.c, this.r + j];
-				++i; ++j;
+				moves[i] = [this.c, this.r + j]; ++i;
+				++j;
 			}
 			// east
 			j = 1;
@@ -336,12 +362,13 @@ function piece(type, col, row, color) {
 				if (this.c + j >= cols || board[this.c+j][this.r] != null) {
 					if (this.c + j < cols && board[this.c+j][this.r].color != this.color) {
 						// then this is an opponent
-						moves[i] = [this.c + j, this.r]; ++i;
+						moves[i] = [this.c + j, this.r];
+						++i;
 					}
 					break;
 				}
-				moves[i] = [this.c + j, this.r];
-				++i; ++j;
+				moves[i] = [this.c + j, this.r]; ++i;
+				++j;
 			}
 			// west
 			j = 1;
@@ -349,12 +376,13 @@ function piece(type, col, row, color) {
 				if (this.c - j < 0 || board[this.c-j][this.r] != null) {
 					if (this.c - j >= 0 && board[this.c-j][this.r].color != this.color) {
 						// then this is an opponent
-						moves[i] = [this.c - j, this.r]; ++i;
+						moves[i] = [this.c - j, this.r];
+						++i;
 					}
 					break;
 				}
-				moves[i] = [this.c - j, this.r];
-				++i; ++j;
+				moves[i] = [this.c - j, this.r]; ++i;
+				++j;
 			}
 			// northwest (--)
 			j = 1;
@@ -362,12 +390,13 @@ function piece(type, col, row, color) {
 				if (this.r - j < 0 || this.c - j < 0 || board[this.c- j][this.r - j] != null) {
 					if ((this.r - j >= 0) && (this.c - j >= 0) && board[this.c-j][this.r - j].color != this.color) {
 						// then this is an opponent
-						moves[i] = [this.c - j, this.r - j]; ++i;
+						moves[i] = [this.c - j, this.r - j];
+						++i;
 					}
 					break;
 				}
-				moves[i] = [this.c - j, this.r - j];
-				++i; ++j;
+				moves[i] = [this.c - j, this.r - j]; ++i;
+				++j;
 			}
 			// southeast (++)
 			j = 1;
@@ -375,12 +404,13 @@ function piece(type, col, row, color) {
 				if (this.r + j >= rows || this.c + j >= cols || board[this.c+j][this.r + j] != null) {
 					if ((this.r + j < rows) && (this.c + j < cols) && board[this.c+j][this.r + j].color != this.color) {
 						// then this is an opponent
-						moves[i] = [this.c + j, this.r + j]; ++i;
+						moves[i] = [this.c + j, this.r + j];
+						++i;
 					}
 					break;
 				}
-				moves[i] = [this.c + j, this.r + j];
-				++i; ++j;
+				moves[i] = [this.c + j, this.r + j]; ++i;
+				++j;
 			}
 			// northeast (+-)
 			j = 1;
@@ -388,12 +418,13 @@ function piece(type, col, row, color) {
 				if (this.c + j >= cols || this.r - j < 0 || board[this.c+j][this.r - j] != null) {
 					if (this.c + j < cols && this.r - j >= 0 && board[this.c+j][this.r - j].color != this.color) {
 						// then this is an opponent
-						moves[i] = [this.c + j, this.r - j]; ++i;
+						moves[i] = [this.c + j, this.r - j];
+						++i;
 					}
 					break;
 				}
-				moves[i] = [this.c + j, this.r - j];
-				++i; ++j;
+				moves[i] = [this.c + j, this.r - j]; ++i;
+				++j;
 			}
 			// southwest (-+)
 			j = 1;
@@ -401,12 +432,13 @@ function piece(type, col, row, color) {
 				if (this.c - j < 0 || this.r + j >= rows || board[this.c-j][this.r + j] != null) {
 					if (this.c - j >= 0 && this.r + j < rows && board[this.c-j][this.r + j].color != this.color) {
 						// then this is an opponent
-						moves[i] = [this.c - j, this.r + j]; ++i;
+						moves[i] = [this.c - j, this.r + j];
+						++i;
 					}
 					break;
 				}
-				moves[i] = [this.c - j, this.r + j];
-				++i; ++j;
+				moves[i] = [this.c - j, this.r + j]; ++i;
+				++j;
 			}
 			return moves;
 		}
@@ -414,35 +446,43 @@ function piece(type, col, row, color) {
 			i = 0;
 			// north
 			if (this.r - 1 >= 0 && (board[this.c][this.r - 1] == null || board[this.c][this.r - 1].color != this.color)) {
-				moves[i] = [this.c, this.r - 1]; ++i;
+				moves[i] = [this.c, this.r - 1];
+				++i;
 			}
 			// northeast
 			if (this.r - 1 >= 0 && this.c + 1 < cols && (board[this.c+1][this.r - 1] == null || board[this.c+1][this.r - 1].color != this.color)) {
-				moves[i] = [this.c + 1, this.r - 1]; ++i;
+				moves[i] = [this.c + 1, this.r - 1];
+				++i;
 			}
 			// east
 			if (this.c + 1 < cols && (board[this.c+1][this.r] == null || board[this.c+1][this.r].color != this.color)) {
-				moves[i] = [this.c + 1, this.r]; ++i;
+				moves[i] = [this.c + 1, this.r];
+				++i;
 			}
 			// southeast
 			if (this.r + 1 < rows && this.c + 1 < cols && (board[this.c+1][this.r + 1] == null || board[this.c+1][this.r + 1].color != this.color)) {
-				moves[i] = [this.c + 1, this.r + 1]; ++i;
+				moves[i] = [this.c + 1, this.r + 1];
+				++i;
 			}
 			// south
 			if (this.r + 1 < rows && (board[this.c][this.r + 1] == null || board[this.c][this.r + 1].color != this.color)) {
-				moves[i] = [this.c, this.r + 1]; ++i;
+				moves[i] = [this.c, this.r + 1];
+				++i;
 			}
 			// southwest
 			if (this.r + 1 < rows && this.c - 1 >= 0 && (board[this.c-1][this.r + 1] == null || board[this.c-1][this.r + 1].color != this.color)) {
-				moves[i] = [this.c - 1, this.r + 1]; ++i;
+				moves[i] = [this.c - 1, this.r + 1];
+				++i;
 			}
 			// west
 			if (this.c - 1 >= 0 && (board[this.c-1][this.r] == null || board[this.c-1][this.r].color != this.color)) {
-				moves[i] = [this.c - 1, this.r]; ++i;
+				moves[i] = [this.c - 1, this.r];
+				++i;
 			}
 			// northwest
 			if (this.r - 1 >= 0 && this.c - 1 >= 0 && (board[this.c-1][this.r - 1] == null || board[this.c-1][this.r - 1].color != this.color)) {
-				moves[i] = [this.c - 1, this.r - 1]; ++i;
+				moves[i] = [this.c - 1, this.r - 1];
+				++i;
 			}
 			return moves;
 		}
@@ -450,35 +490,43 @@ function piece(type, col, row, color) {
 			i = 0;
 			// NNE
 			if (this.r - 2 >= 0 && this.c + 1 < cols && (board[this.c+1][this.r - 2] == null || board[this.c+1][this.r - 2].color != this.color)) {
-				moves[i] = [this.c + 1, this.r - 2]; ++i;
+				moves[i] = [this.c + 1, this.r - 2];
+				++i;
 			}
 			// ENE
 			if (this.r - 1 >= 0 && this.c + 2 < cols && (board[this.c+2][this.r - 1] == null || board[this.c+2][this.r - 1].color != this.color)) {
-				moves[i] = [this.c + 2, this.r - 1]; ++i;
+				moves[i] = [this.c + 2, this.r - 1];
+				++i;
 			}
 			// ESE
 			if (this.c + 2 < cols && this.r + 1 < rows && (board[this.c+2][this.r + 1] == null || board[this.c+2][this.r + 1].color != this.color)) {
-				moves[i] = [this.c + 2, this.r + 1]; ++i;
+				moves[i] = [this.c + 2, this.r + 1];
+				++i;
 			}
 			// SSE
 			if (this.r + 2 < rows && this.c + 1 < cols && (board[this.c+1][this.r + 2] == null || board[this.c+1][this.r + 2].color != this.color)) {
-				moves[i] = [this.c + 1, this.r + 2]; ++i;
+				moves[i] = [this.c + 1, this.r + 2];
+				++i;
 			}
 			// SSW
 			if (this.r + 2 < rows && this.c - 1 >= 0 && (board[this.c-1][this.r + 2] == null || board[this.c-1][this.r + 2].color != this.color)) {
-				moves[i] = [this.c - 1, this.r + 2]; ++i;
+				moves[i] = [this.c - 1, this.r + 2];
+				++i;
 			}
 			// WSW
 			if (this.r + 1 < rows && this.c - 2 >= 0 && (board[this.c-2][this.r + 1] == null || board[this.c-2][this.r + 1].color != this.color)) {
-				moves[i] = [this.c - 2, this.r + 1]; ++i;
+				moves[i] = [this.c - 2, this.r + 1];
+				++i;
 			}
 			// WNW
 			if (this.c - 2 >= 0 && this.r - 1 >= 0 && (board[this.c-2][this.r - 1] == null || board[this.c-2][this.r - 1].color != this.color)) {
-				moves[i] = [this.c - 2, this.r - 1]; ++i;
+				moves[i] = [this.c - 2, this.r - 1];
+				++i;
 			}
 			// NNW
 			if (this.r - 2 >= 0 && this.c - 1 >= 0 && (board[this.c-1][this.r - 2] == null || board[this.c-1][this.r - 2].color != this.color)) {
-				moves[i] = [this.c - 1, this.r - 2]; ++i;
+				moves[i] = [this.c - 1, this.r - 2];
+				++i;
 			}
 			return moves;
 		}
@@ -626,8 +674,8 @@ function selectRandomPiece(color, board) {
 function randomMove(board) {
 	i = 0;
 	while (true) {
-		piece = selectRandomPiece(turn, board);
-		moves = piece.getLegalMoves(board);
+		p = selectRandomPiece(turn, board);
+		moves = p.getLegalMoves(board);
 		if (moves.length > 0) {
 			break;
 		}++i;
@@ -637,8 +685,8 @@ function randomMove(board) {
 		}
 	}
 	newMove = moves[Math.floor(Math.random() * moves.length)];
-	movePiece(board, piece.c, piece.r, newMove[0], newMove[1]);
-	return [piece.c, piece.r, newMove[0], newMove[1]];
+	movePiece(board, p.c, p.r, newMove[0], newMove[1]);
+	return [p.c, p.r, newMove[0], newMove[1]];
 }
 
 function changeTurn() {
