@@ -128,14 +128,8 @@ and open the template in the editor.
 	    <form name="buttonsAreaTrials" id="buttons2" style="text-align: center; display: none">
 		<br />
 		<button class="settings" type="button" onclick="setDefault()">Reset Values</button>
-		<button class="settings" type="button" onclick="runTrials()">Next Round</button><br />
-		<button class="settings" type="button">X</button>
-		<button class="settings" type="button">O</button><br />
-		<button class="settings" type="button">Turns Ahead</button>
-		<button class="settings" type="button">Ratio</button>
-		<button class="settings" type="button">Win Points</button>
-		<button class="settings" type="button">Tie Points</button>
-		<button class="settings" type="button">Loss Points</button>
+		<button class="settings" type="button" onclick="runTrials()">Next Round</button><br /><br />
+		<button class="settings" type="button">X</button><br />
 		<button class="settings" type="button">Turns Ahead</button>
 		<button class="settings" type="button">Ratio</button>
 		<button class="settings" type="button">Win Points</button>
@@ -145,27 +139,33 @@ and open the template in the editor.
 		<button class="settings" type="button" onclick="ratio1+=.05; updateButtons()">+</button>
 		<button class="settings" type="button" onclick="winPoints1+=.5; updateButtons()">+</button>
 		<button class="settings" type="button" onclick="tiePoints1+=.5; updateButtons()">+</button>
-		<button class="settings" type="button" onclick="lossPoints1+=.5; updateButtons()">+</button>
+		<button class="settings" type="button" onclick="lossPoints1+=.5; updateButtons()">+</button><br />
+		<INPUT TYPE="button" NAME="turns1" class="settings" value=5>
+		<INPUT TYPE="button" NAME="ratioButton1" class="settings" value=0.3>
+		<INPUT TYPE="button" NAME="win1" class="settings" value=2.5>
+		<INPUT TYPE="button" NAME="tie1" class="settings" value=0>
+		<INPUT TYPE="button" NAME="loss1" class="settings" value=-10><br />
+		<button class="settings" type="button" onclick="if (turnsAhead1>0) {turnsAhead1-=1; updateButtons()}">-</button>
+		<button class="settings" type="button" onclick="if (ratio1>0.01) {ratio1-=.05; updateButtons()}">-</button>
+		<button class="settings" type="button" onclick="winPoints1-=.5; updateButtons()">-</button>
+		<button class="settings" type="button" onclick="tiePoints1-=.5; updateButtons()">-</button>
+		<button class="settings" type="button" onclick="lossPoints1-=.5; updateButtons()">-</button><br /><br />
+		<button class="settings" type="button">O</button><br />
+		<button class="settings" type="button">Turns Ahead</button>
+		<button class="settings" type="button">Ratio</button>
+		<button class="settings" type="button">Win Points</button>
+		<button class="settings" type="button">Tie Points</button>
+		<button class="settings" type="button">Loss Points</button><br />
 		<button class="settings" type="button" onclick="if (turnsAhead2<7) {turnsAhead2+=1; updateButtons()}">+</button>
 		<button class="settings" type="button" onclick="ratio2+=.05; updateButtons()">+</button>
 		<button class="settings" type="button" onclick="winPoints2+=.5; updateButtons()">+</button>
 		<button class="settings" type="button" onclick="tiePoints2+=.5; updateButtons()">+</button>
 		<button class="settings" type="button" onclick="lossPoints2+=.5; updateButtons()">+</button><br />
-		<INPUT TYPE="button" NAME="turns1" class="settings" value=5>
-		<INPUT TYPE="button" NAME="ratioButton1" class="settings" value=0.3>
-		<INPUT TYPE="button" NAME="win1" class="settings" value=2.5>
-		<INPUT TYPE="button" NAME="tie1" class="settings" value=0>
-		<INPUT TYPE="button" NAME="loss1" class="settings" value=-10>
 		<INPUT TYPE="button" NAME="turns2" class="settings" value=5>
 		<INPUT TYPE="button" NAME="ratioButton2" class="settings" value=0.3>
 		<INPUT TYPE="button" NAME="win2" class="settings" value=2.5>
 		<INPUT TYPE="button" NAME="tie2" class="settings" value=0>
 		<INPUT TYPE="button" NAME="loss2" class="settings" value=-10><br />
-		<button class="settings" type="button" onclick="if (turnsAhead1>0) {turnsAhead1-=1; updateButtons()}">-</button>
-		<button class="settings" type="button" onclick="if (ratio1>0.01) {ratio1-=.05; updateButtons()}">-</button>
-		<button class="settings" type="button" onclick="winPoints1-=.5; updateButtons()">-</button>
-		<button class="settings" type="button" onclick="tiePoints1-=.5; updateButtons()">-</button>
-		<button class="settings" type="button" onclick="lossPoints1-=.5; updateButtons()">-</button>
 		<button class="settings" type="button" onclick="if (turnsAhead2>0) {turnsAhead2-=1; updateButtons()}">-</button>
 		<button class="settings" type="button" onclick="if (ratio2>0.01) {ratio2-=.05; updateButtons()}">-</button>
 		<button class="settings" type="button" onclick="winPoints2-=.5; updateButtons()">-</button>
