@@ -28,17 +28,29 @@
 
 			<div id="chess_board_wrap">
 				<canvas id="board" width="320" height="320"></canvas>
+				<div id="turn_indicator">
+					white turn
+				</div>
 			</div>
-			<div id="turn_indicator">White Turn</div>
 			<br />
 			<br />
-			<button style="float: left;" id="random" onClick="randomMove(boardModel);">
-				Random Move
-			</button>
+			<div id="button_wrap">
+				<button id="random" onClick="randomMove(boardModel);">
+					random move
+				</button>
+				<button id="new_game" onClick="newGame();">
+					new game
+				</button>
+				<br />
+				<br />
+				<button id="swap_direction" onClick="swapSides();">
+					swap sides
+				</button>
+			</div>
 			<br />
 			<footer>
 				<p>
-					&copy; Copyright  by saf
+					&copy; copyright  by saf
 				</p>
 			</footer>
 		</div>

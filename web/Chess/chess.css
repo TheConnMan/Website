@@ -14,3 +14,23 @@ body {
 	border-width: 2px;
 	border-style: solid;
 }
+
+#random {
+	float: left;
+}
+
+#new_game {
+	float: right;
+}
+
+#turn_indicator {
+	text-align: center;
+	margin: 0px auto;
+}
+#button_wrap {
+	width: 320px; 
+	margin: 0px auto;
+}
+#swap_direction {
+	float: left;
+}
