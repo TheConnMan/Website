@@ -738,6 +738,11 @@ canvas.onmouseup = function(e) {
 };
 
 function swapSides() {
+	if (whiteOnTop) {
+		whiteOnTop = false;
+	} else {
+		whiteOnTop = true;
+	}
 	board = new Array(cols);
 	for ( i = 0; i < board.length; ++i) {
 		board[i] = new Array(rows);
