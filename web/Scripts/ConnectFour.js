@@ -3,14 +3,21 @@
  * and open the template in the editor.
  */
 
-function vari()
-{
-    board = [[document.tic.sqr1.value,document.tic.sqr2.value,document.tic.sqr3.value,document.tic.sqr4.value,document.tic.sqr5.value,document.tic.sqr6.value,document.tic.sqr7.value],
-            [document.tic.sqr8.value,document.tic.sqr9.value,document.tic.sqr10.value,document.tic.sqr11.value,document.tic.sqr12.value,document.tic.sqr13.value,document.tic.sqr14.value],
-            [document.tic.sqr15.value,document.tic.sqr16.value,document.tic.sqr17.value,document.tic.sqr18.value,document.tic.sqr19.value,document.tic.sqr20.value,document.tic.sqr21.value],
-            [document.tic.sqr22.value,document.tic.sqr23.value,document.tic.sqr24.value,document.tic.sqr25.value,document.tic.sqr26.value,document.tic.sqr27.value,document.tic.sqr28.value],
-            [document.tic.sqr29.value,document.tic.sqr30.value,document.tic.sqr31.value,document.tic.sqr32.value,document.tic.sqr33.value,document.tic.sqr34.value,document.tic.sqr35.value],
-            [document.tic.sqr36.value,document.tic.sqr37.value,document.tic.sqr38.value,document.tic.sqr39.value,document.tic.sqr40.value,document.tic.sqr41.value,document.tic.sqr42.value]]
+function updateButtons() {
+    document.buttonsArea.turns.value=turnsAhead
+    document.buttonsArea.ratioButton.value=Math.round(100*ratio)/100
+    document.buttonsArea.win.value=winPoints
+    document.buttonsArea.tie.value=tiePoints
+    document.buttonsArea.loss.value=lossPoints
+}
+
+function setDefault() {
+    turnsAhead = 5
+    ratio = .3
+    winPoints = 2.5
+    tiePoints = 0
+    lossPoints = -10
+    updateButtons()
 }
 
 function CheckWin(Board, turn) {
@@ -19,7 +26,7 @@ function CheckWin(Board, turn) {
         var TempHeight=CheckHeight(Board,i);
         if (TempHeight>maxHeight) {
             maxHeight=CheckHeight(Board, i);
-	}
+        }
     }
     if (CheckHo(Board, maxHeight, turn)) {
         return true;
@@ -44,16 +51,6 @@ function CheckHo(Board, maxHeight, turn) {
         for (var j=5; j>=6-maxHeight; j--) {
             win=RecursiveCheck(Board, j, i, 0, turn, 1);
             if (win) {
-                var NewPiece=" ";
-                if (turn=="X") {
-                    NewPiece="+";
-                }
-                else {
-                    NewPiece="@";
-                }
-                for (var h=0; h<4; h++) {
-                    Board[j][i+h]=NewPiece;
-                }
                 break;
             }
         }
@@ -72,16 +69,6 @@ function CheckVert(Board, maxHeight, turn) {
             for (var j=5; j>=9-height; j--) {
                 win=RecursiveCheck(Board, j, i, 0, turn, 2);
                 if (win) {
-                    var NewPiece=" ";
-                    if (turn=="X") {
-                        NewPiece="+";
-                    }
-                    else {
-                        NewPiece="@";
-                    }
-                    for (var h=0; h<4; h++) {
-                        Board[j-h][i]=NewPiece;
-                    }
                     break;
                 }
             }
@@ -101,16 +88,6 @@ function CheckDiagRight(Board, maxHeight, turn) {
             for (var j=2; j>=6-maxHeight; j--) {
                 win=RecursiveCheck(Board, j, i, 0, turn, 3);
                 if (win) {
-                    var NewPiece=" ";
-                    if (turn=="X") {
-                        NewPiece="+";
-                    }
-                    else {
-                        NewPiece="@";
-                    }
-                    for (var h=0; h<4; h++) {
-                        Board[j+h][i-h]=NewPiece;
-                    }
                     break;
                 }
             }
@@ -129,16 +106,6 @@ function CheckDiagLeft(Board, maxHeight, turn) {
             for (var j=2; j>=6-maxHeight; j--) {
                 win=RecursiveCheck(Board, j, i, 0, turn, 4);
                 if (win) {
-                    var NewPiece=" ";
-                    if (turn=="X") {
-                        NewPiece="+";
-                    }
-                    else {
-                        NewPiece="@";
-                    }
-                    for (var h=0; h<4; h++) {
-                        Board[j+h][i+h]=NewPiece;
-                    }
                     break;
                 }
             }
@@ -186,7 +153,13 @@ function RecursiveCheck(Board, nextR, nextC, num, turn, type) {
 function WinNextMove(Board, turn) {
     var move=-1;
     for (var i=0; i<7; i++) {
-        var TempBoard=Board.slice()
+        var TempBoard=[[" "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "]]
+        CopyArray(Board, TempBoard)
         var TempMove=MakeMove(TempBoard, i);
         if (TempMove!=-1) {
             TempBoard[TempMove][i]=turn;
@@ -201,7 +174,13 @@ function WinNextMove(Board, turn) {
 
 function CompMoveRec(Board, Comp, Player, ratio, win, loss, tie, turns, count, move) {
     var WhosTurn=count%2;
-    var TempBoard=Board.slice()
+    var TempBoard=[[" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "]]
+    CopyArray(Board, TempBoard)
     var TempMove=MakeMove(TempBoard, move);
     if (TempMove!=-1) {
         if (WhosTurn==0) {
@@ -232,7 +211,13 @@ function CompMoveRec(Board, Comp, Player, ratio, win, loss, tie, turns, count, m
 }
 
 function CompMoveFinal(Board, Comp, Player, turns, ratio, win, loss, tie) {
-    var TempBoard=Board.slice()
+    var TempBoard=[[" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "]]
+    CopyArray(Board, TempBoard)
     var move=WinNextMove(TempBoard, Comp);
     if (move==-1) {
         move=WinNextMove(TempBoard, Player);
@@ -242,7 +227,7 @@ function CompMoveFinal(Board, Comp, Player, turns, ratio, win, loss, tie) {
                 var NewVal;
                 if (MakeMove(TempBoard, i)!=-1) {
                     NewVal=CompMoveRec(TempBoard, Comp, Player, ratio, win, loss, tie, turns, 0, i);
-		    if (NewVal>CompMoveVal) {
+                    if (NewVal>CompMoveVal) {
                         CompMoveVal=NewVal;
                         move=i;
                     }
@@ -255,182 +240,123 @@ function CompMoveFinal(Board, Comp, Player, turns, ratio, win, loss, tie) {
 
 function reset()
 {
-  document.tic.sqr1.value = "     "; document.tic.sqr2.value = "     "; document.tic.sqr3.value = "     "; document.tic.sqr4.value = "     "; document.tic.sqr5.value = "     "; document.tic.sqr6.value = "     ";  document.tic.sqr7.value = "     "; document.tic.sqr8.value = "     "; document.tic.sqr9.value = "     "
-  document.tic.sqr11.value = "     "; document.tic.sqr12.value = "     "; document.tic.sqr13.value = "     "; document.tic.sqr14.value = "     "; document.tic.sqr15.value = "     "; document.tic.sqr16.value = "     ";  document.tic.sqr17.value = "     "; document.tic.sqr18.value = "     "; document.tic.sqr19.value = "     "
-  document.tic.sqr21.value = "     "; document.tic.sqr22.value = "     "; document.tic.sqr23.value = "     "; document.tic.sqr24.value = "     "; document.tic.sqr25.value = "     "; document.tic.sqr26.value = "     ";  document.tic.sqr27.value = "     "; document.tic.sqr28.value = "     "; document.tic.sqr29.value = "     "
-  document.tic.sqr31.value = "     "; document.tic.sqr32.value = "     "; document.tic.sqr33.value = "     "; document.tic.sqr34.value = "     "; document.tic.sqr35.value = "     "; document.tic.sqr36.value = "     ";  document.tic.sqr37.value = "     "; document.tic.sqr38.value = "     "; document.tic.sqr39.value = "     "
-  document.tic.sqr41.value = "     "; document.tic.sqr42.value = "     "
-  sqr1T = 0; sqr2T = 0; sqr3T = 0; sqr4T = 0; sqr5T = 0; sqr6T = 0; sqr7T = 0; sqr8T = 0; sqr9T = 0
-  sqr11T = 0; sqr12T = 0; sqr13T = 0; sqr14T = 0; sqr15T = 0; sqr16T = 0; sqr17T = 0; sqr18T = 0; sqr19T = 0
-  sqr21T = 0; sqr22T = 0; sqr23T = 0; sqr24T = 0; sqr25T = 0; sqr26T = 0; sqr27T = 0; sqr28T = 0; sqr29T = 0
-  sqr31T = 0; sqr32T = 0; sqr33T = 0; sqr34T = 0; sqr35T = 0; sqr36T = 0; sqr37T = 0; sqr38T = 0; sqr39T = 0
-  sqr41T = 0; sqr42T = 0
-  vari()
-  turn = 0
-  moveCount = 0
-}
-
-function makeMoveJavaScript(column, compPiece)
-{
-    var rowNum=0;
-    for (var i=6; i>0; i--) {
-	if (boardT[column,i]==0) {
-	    rowNum=i
-	    break
-	}
-    }
-    alert(column)
-    turn = 0
-    boardT[column, rowNum]=1
-    var varNum=(column+1)*7+rowNum+1
-    if (varNum==1) {
-	document.tic.sqr1.value = compPiece
-    }
-    else if (varNum==2) {
-	document.tic.sqr2.value = compPiece
-    }
-    else if (varNum==3) {
-	document.tic.sqr3.value = compPiece
-    }
-    else if (varNum==4) {
-	document.tic.sqr4.value = compPiece
-    }
-    else if (varNum==5) {
-	document.tic.sqr5.value = compPiece
-    }
-    else if (varNum==6) {
-	document.tic.sqr6.value = compPiece
-    }
-    else if (varNum==7) {
-	document.tic.qr7.value = compPiece
-    }
-    else if (varNum==8) {
-	document.tic.sqr8.value = compPiece
-    }
-    else if (varNum==9) {
-	document.tic.sqr9.value = compPiece
-    }
-    else if (varNum==10) {
-	document.tic.sqr10.value = compPiece
-    }
-    else if (varNum==11) {
-	document.tic.sqr11.value = compPiece
-    }
-    else if (varNum==12) {
-	document.tic.sqr12.value = compPiece
-    }
-    else if (varNum==13) {
-	document.tic.sqr13.value = compPiece
-    }
-    else if (varNum==14) {
-	document.tic.sqr14.value = compPiece
-    }
-    else if (varNum==15) {
-	document.tic.sqr15.value = compPiece
-    }
-    else if (varNum==16) {
-	document.tic.sqr16.value = compPiece
-    }
-    else if (varNum==17) {
-	document.tic.sqr17.value = compPiece
-    }
-    else if (varNum==18) {
-	document.tic.sqr18.value = compPiece
-    }
-    else if (varNum==19) {
-	document.tic.sqr19.value = compPiece
-    }
-    else if (varNum==20) {
-	document.tic.sqr20.value = compPiece
-    }
-    else if (varNum==21) {
-	document.tic.sqr21.value = compPiece
-    }
-    else if (varNum==22) {
-	document.tic.sqr22.value = compPiece
-    }
-    else if (varNum==23) {
-	document.tic.sqr23.value = compPiece
-    }
-    else if (varNum==24) {
-	document.tic.sqr24.value = compPiece
-    }
-    else if (varNum==25) {
-	document.tic.sqr25.value = compPiece
-    }
-    else if (varNum==26) {
-	document.tic.sqr26.value = compPiece
-    }
-    else if (varNum==27) {
-	document.tic.sqr27.value = compPiece
-    }
-    else if (varNum==28) {
-	document.tic.sqr28.value = compPiece
-    }
-    else if (varNum==29) {
-	document.tic.sqr29.value = compPiece
-    }
-    else if (varNum==30) {
-	document.tic.sqr30.value = compPiece
-    }
-    else if (varNum==31) {
-	document.tic.sqr31.value = compPiece
-    }
-    else if (varNum==32) {
-	document.tic.sqr32.value = compPiece
-    }
-    else if (varNum==33) {
-	document.tic.sqr33.value = compPiece
-    }
-    else if (varNum==34) {
-	document.tic.sqr34.value = compPiece
-    }
-    else if (varNum==35) {
-	document.tic.sqr35.value = compPiece
-    }
-    else if (varNum==36) {
-	document.tic.sqr36.value = compPiece
-    }
-    else if (varNum==37) {
-	document.tic.sqr37.value = compPiece
-    }
-    else if (varNum==38) {
-	document.tic.sqr38.value = compPiece
-    }
-    else if (varNum==39) {
-	document.tic.sqr39.value = compPiece
-    }
-    else if (varNum==40) {
-	document.tic.sqr40.value = compPiece
-    }
-    else if (varNum==41) {
-	document.tic.sqr41.value = compPiece
-    }
-    else {
-	document.tic.sqr42.value = compPiece
-    }
+    board = [[" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "]]
+    update()
+    win=false
 }
 
 function check()
 {
-    if (CheckWin(board, piece)) {
-	alert("You win!")
+    var tempCheckBoard=[[" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "]]
+    CopyArray(board, tempCheckBoard)
+    if (mode==0) {
+        if (CheckWin(tempCheckBoard, piece)) {
+            alert("You win!")
+            win=true
+        }
+        else if (CheckWin(tempCheckBoard, compPiece)) {
+            alert("You lose!")
+        }
     }
-    else {
-	makeMoveJavaScript(CompMoveFinal(board, compPiece, piece, 2, .3, 2.5, -10, 0)-1, compPiece)
-	if (CheckWin(board, compPiece)) {
-	    alert("You lose!")
-	}
+    else if (mode==1) {
+        if (CheckWin(tempCheckBoard, ' X ')) {
+            alert("X's Win!")
+        }
+        else if (CheckWin(tempCheckBoard, ' O ')) {
+            alert("O's Win!")
+        }
+    }
+    if (board[0][0]!=" "&&board[0][1]!=" "&&board[0][2]!=" "&&board[0][3]!=" "&&board[0][4]!=" "&&board[0][5]!=" "&&board[0][6]!=" ") {
+	alert("Tie!")
     }
 }
 
 function MakeMove(Board, column) {
     var row=-1;
     for (var i=5; i>=0; i--) {
-	if (Board[i][column]=="") {
-	    row=i;
-	    break;
-	}
+        if (Board[i][column]==" ") {
+            row=i;
+            break;
+        }
     }
     return row;
+}
+
+function switchPiece() {
+    if (currentPiece==" X ") {
+        currentPiece=" O "
+    }
+    else {
+        currentPiece=" X "
+    }
+}
+
+function endOfTurn() {
+    update()
+    switchPiece()
+    check()
+    CopyArray(board, tempBoard)
+}
+
+function CopyArray(Board, TempBoard) {
+    for (var i=0; i<7; i++) {
+        for (var j=0; j<6; j++) {
+            TempBoard[j][i]=Board[j][i];
+        }
+    }
+}
+
+function update() {
+    document.tic.sqr8.value = board[0][0]
+    document.tic.sqr9.value = board[0][1]
+    document.tic.sqr10.value = board[0][2]
+    document.tic.sqr11.value = board[0][3]
+    document.tic.sqr12.value = board[0][4]
+    document.tic.sqr13.value = board[0][5]
+    document.tic.sqr14.value = board[0][6]
+    document.tic.sqr15.value = board[1][0]
+    document.tic.sqr16.value = board[1][1]
+    document.tic.sqr17.value = board[1][2]
+    document.tic.sqr18.value = board[1][3]
+    document.tic.sqr19.value = board[1][4]
+    document.tic.sqr20.value = board[1][5]
+    document.tic.sqr21.value = board[1][6]
+    document.tic.sqr22.value = board[2][0]
+    document.tic.sqr23.value = board[2][1]
+    document.tic.sqr24.value = board[2][2]
+    document.tic.sqr25.value = board[2][3]
+    document.tic.sqr26.value = board[2][4]
+    document.tic.sqr27.value = board[2][5]
+    document.tic.sqr28.value = board[2][6]
+    document.tic.sqr29.value = board[3][0]
+    document.tic.sqr30.value = board[3][1]
+    document.tic.sqr31.value = board[3][2]
+    document.tic.sqr32.value = board[3][3]
+    document.tic.sqr33.value = board[3][4]
+    document.tic.sqr34.value = board[3][5]
+    document.tic.sqr35.value = board[3][6]
+    document.tic.sqr36.value = board[4][0]
+    document.tic.sqr37.value = board[4][1]
+    document.tic.sqr38.value = board[4][2]
+    document.tic.sqr39.value = board[4][3]
+    document.tic.sqr40.value = board[4][4]
+    document.tic.sqr41.value = board[4][5]
+    document.tic.sqr42.value = board[4][6]
+    document.tic.sqr43.value = board[5][0]
+    document.tic.sqr44.value = board[5][1]
+    document.tic.sqr45.value = board[5][2]
+    document.tic.sqr46.value = board[5][3]
+    document.tic.sqr47.value = board[5][4]
+    document.tic.sqr48.value = board[5][5]
+    document.tic.sqr49.value = board[5][6]
 }
