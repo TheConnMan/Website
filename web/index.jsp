@@ -26,15 +26,15 @@
             }
             function redirect()
             {
-                window.location = './Web%20Page.html'
+                window.location = './Web%20Page.php'
             }
             function redirect2()
             {
-                window.location = './Template.html'
+                window.location = './Template.php'
             }
 	    function redirectConnectFour()
 	    {
-		window.location = './ConnectFour/ConnectFour.html'
+		window.location = './ConnectFour/ConnectFour.php'
 	    }
             </script>
             <div class="push"></div>
