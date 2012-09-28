@@ -16,7 +16,7 @@ root {
 
 html, body
 {
-    color: blue;
+    color: ;
     background-color: white;
     min-height: 100%;
 }
@@ -45,12 +45,14 @@ h2 {
 }
 
 .menuitem {
-    
+    float: left;
+    padding: 10px;
 }
 
 #container {
    min-height:100%;
    position:relative;
+   background: lightgray;
 }
 #header {
    background:#ff0;
@@ -64,18 +66,27 @@ h2 {
    position:absolute;
    bottom:0;
    width:100%;
-   height:60px;   /* Height of the footer */
-   background:#6cf;
+   height:50px;   /* Height of the footer */
+   background: lightgrey;
+   color: blue;
 }
 
 #menu {
-    float: left;
-    width: 150px;
-    height: auto;
+    width: 80%;
+    text-align: left;
+    border-radius: 8px;
+    background: mintcream;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
 }
 
 #content {
-    float: left;
+    width: 80%;
     text-align: center;
-    padding-left: 150px;
+    border-radius: 8px;
+    background: mintcream;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid;
 }

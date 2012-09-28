@@ -3,7 +3,6 @@
  * and open the template in the editor.
  */
 
-
 function updateButtons() {
     if (mode==0) {
 	document.buttonsArea.turns.value=turnsAhead
@@ -292,6 +291,7 @@ function reset()
     update()
     win=false
     turnNum=0
+    gameOver=false
 }
 
 function check()
@@ -307,23 +307,28 @@ function check()
 	if (CheckWin(tempCheckBoard, piece)) {
 	    alert("You win!")
 	    win=true
+	    gameOver=true
 	}
 	else if (CheckWin(tempCheckBoard, compPiece)) {
 	    alert("You lose!")
+	    gameOver=true
 	}
     }
     else if (mode==1||mode==2) {
 	if (CheckWin(tempCheckBoard, ' X ')) {
 	    alert("X's Win!")
+	    gameOver=true
 	    win=true
 	}
 	else if (CheckWin(tempCheckBoard, ' O ')) {
 	    alert("O's Win!")
+	    gameOver=true
 	    win=true
 	}
     }
     if (board[0][0]!=" "&&board[0][1]!=" "&&board[0][2]!=" "&&board[0][3]!=" "&&board[0][4]!=" "&&board[0][5]!=" "&&board[0][6]!=" ") {
 	alert("Tie!")
+	    gameOver=true
     }
 }
 

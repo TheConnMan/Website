@@ -5,4 +5,7 @@
     <div class="menuitem">
 	<a title="Connect Four" href="../ConnectFour/ConnectFour.php">Connect Four</a>
     </div>
+    <div class="menuitem">
+	<a title="About" href="../Setup/about.php">About</a>
+    </div>
 </div>
