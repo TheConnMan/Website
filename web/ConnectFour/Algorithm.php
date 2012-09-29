@@ -18,16 +18,16 @@
             "Misery loves warm mochas" I staved off the cold and having to spend more than
             three consecutive hours with my family by joining him in the quite confines of 
             a local cafe.<br>
-            There I began explore <alt id="pun" onMouseOver="Change()"></alt>. I learned
+            There I began explore <alt id="pun" onMouseOver="Change()"></alt> I learned
         </div>
     </div>
 </div>
 <script>
-    $('#pun').html("Java");
+    $('#pun').html("Java.");
     var counter=0
     function Change() {
         if (counter%2==0) {
-            message="Java"
+            message="Java."
         }
         else {
             message="IT'S A PUN!!"
