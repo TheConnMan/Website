@@ -1,25 +1,13 @@
+<?php include("../Setup/preheader.php"); ?>
+<title>Home</title>
 <?php include("header.php"); ?>
-<h1>Hello World!</h1>
-<button type="button" onclick="myFunction()">Try it</button>
-<button type="button" onclick="redirect()">Redirect Me</button><br />
-<button type="button" onclick="redirect2()">Check this out</button>
-<button type="button" onclick="redirectConnectFour()">Yo, play some Connect Four</button>
-<script type="text/javascript">
-    function myFunction()
-    {
-	document.getElementById("demo").innerHTML="My First JavaScript Function";
-    }
-    function redirect()
-    {
-	window.location = './Web%20Page.php'
-    }
-    function redirect2()
-    {
-	window.location = './Template.php'
-    }
-    function redirectConnectFour()
-    {
-	window.location = '../ConnectFour/ConnectFour.php'
-    }
-</script>
+<h1 style="padding-bottom: 5px">Welcome to my website!</h1>
+<div style="padding-bottom: 30px">
+<div style="float: left; width: 47%; border: 1px solid; padding: 1%">
+    Here's the left side!
+</div>
+<div style="float: right; width: 47%; border: 1px solid; padding: 1%">
+    Here's the right side!
+</div>
+</div>
 <?php include("footer.php"); ?>

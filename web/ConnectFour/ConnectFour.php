@@ -1,3 +1,5 @@
+<?php include("../Setup/preheader.php"); ?>
+<title>The Game</title>
 <?php include("../Setup/header.php"); ?>
 <head>
     <title>Connect Four</title>

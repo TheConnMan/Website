@@ -1,5 +1,5 @@
 <?php include("../Setup/preheader.php"); ?>
-<title>Connect Four</title>
+<title>Development</title>
 <?php include("../Setup/header.php"); ?>
 <h1>Header in here</h1>
 <p>Paragraph in here</p>

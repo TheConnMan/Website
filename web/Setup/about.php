@@ -1,3 +1,5 @@
+<?php include("../Setup/preheader.php"); ?>
+<title>About The Author</title>
 <?php include("header.php"); ?>
 <h1>About The Author</h1>
 <div style="text-align: left">
