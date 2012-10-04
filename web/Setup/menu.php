@@ -7,6 +7,6 @@
             <li><a href="../ConnectFour/Development.php">Development</a></li>
         </ul>
     </li>
-    <li><a href="#">Chess</a></li>
+    <li><a href="../Chess/chess.php">Chess</a></li>
     <li><a href="../Setup/about.php">About</a></li>
 </ul>

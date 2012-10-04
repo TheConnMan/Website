@@ -1,5 +1,5 @@
 <?php include("../Setup/preheader.php"); ?>
-<title>About The Author</title>
+<title>The Code</title>
 <?php include("../Setup/header.php"); ?>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <table width="970" border="0">
@@ -19,9 +19,10 @@
 	</td><td width="3%"></td>
 	<td id="rightcolumn">
 	    <div id="rightcontent">
-		<h1 style="text-align: center">The Author</h1>
+		<h1 style="text-align: center">The Algorithm</h1>
+		<h4 style="text-align: center">(Bum bum bummmmm)</h4>
 		<div style="text-align: left">
-		    <h2 id="connectfourlabel">Brian Conn</h2>
+		    <h2 id="connectfourlabel">Connect Four</h2>
 		    <h3 id="backstory">Backstory</h3>
 		    <div style="padding-top: 5px; padding-left: 5px">
 			<p>

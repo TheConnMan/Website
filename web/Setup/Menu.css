@@ -14,7 +14,7 @@ html, body
    min-height:100%;
    position:relative;
    background: lightgray;
-   min-width: 770px;
+   width: 100%;
 }
 #header {
    background: lightgray;
@@ -22,7 +22,7 @@ html, body
 }
 #body {
    padding:10px;
-   padding-bottom:60px;   /* Height of the footer */
+   padding-bottom:40px;   /* Height of the footer */
 }
 #footer {
    position:absolute;
@@ -32,9 +32,37 @@ html, body
    background: lightgrey;
    color: blue;
 }
-
+#leftcolumn {
+    width: 20%;
+    float: left;
+}
+#leftmenu, #rightcontent {
+    text-align: left;
+    border: 1px solid;
+    border-radius: 8px;
+    padding: 20px;
+    background: mintcream;
+}
+#rightcolumn {
+    width: 77%;
+}
+td ul li ul li a, td ul li a {
+    color: #000;
+    text-decoration: none;
+}
+td ul li ul {
+    padding-left: 20px;
+}
+td div ul li ul li a:hover {
+    color: #2f8be8;
+    text-decoration: none;
+}
+td div ul li a:hover {
+    color: red;
+    text-decoration: none;
+}
 #menu {
-    width: 80%;
+    width: 970px;
     text-align: left;
     border-radius: 8px;
     background: mintcream;
@@ -44,13 +72,12 @@ html, body
 }
 
 #content {
-    width: 80%;
+    width: 1000px;
     text-align: center;
-    border-radius: 8px;
-    background: mintcream;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid;
+    overflow: auto;
+    padding-bottom: 10px;
 }
 #menu,
 #menu ul {
