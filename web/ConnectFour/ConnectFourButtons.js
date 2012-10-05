@@ -1,3 +1,8 @@
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 function updateButtons() {
     if (mode==0) {
 	document.buttonsArea.turns.value=turnsAhead
@@ -311,19 +316,19 @@ function check()
     }
     else if (mode==1||mode==2) {
 	if (CheckWin(tempCheckBoard, ' X ')) {
-	    alert("Red's Win!")
+	    alert("X's Win!")
 	    gameOver=true
 	    win=true
 	}
 	else if (CheckWin(tempCheckBoard, ' O ')) {
-	    alert("Blue's Win!")
+	    alert("O's Win!")
 	    gameOver=true
 	    win=true
 	}
     }
     if (board[0][0]!=" "&&board[0][1]!=" "&&board[0][2]!=" "&&board[0][3]!=" "&&board[0][4]!=" "&&board[0][5]!=" "&&board[0][6]!=" ") {
 	alert("Tie!")
-	gameOver=true
+	    gameOver=true
     }
 }
 
@@ -363,58 +368,46 @@ function CopyArray(Board, TempBoard) {
 }
 
 function update() {
-    document.getElementById('sqr8').style.backgroundColor = colorScheme(board[0][0])
-    document.getElementById('sqr9').style.backgroundColor = colorScheme(board[0][1])
-    document.getElementById('sqr10').style.backgroundColor = colorScheme(board[0][2])
-    document.getElementById('sqr11').style.backgroundColor = colorScheme(board[0][3])
-    document.getElementById('sqr12').style.backgroundColor = colorScheme(board[0][4])
-    document.getElementById('sqr13').style.backgroundColor = colorScheme(board[0][5])
-    document.getElementById('sqr14').style.backgroundColor = colorScheme(board[0][6])
-    document.getElementById('sqr15').style.backgroundColor = colorScheme(board[1][0])
-    document.getElementById('sqr16').style.backgroundColor = colorScheme(board[1][1])
-    document.getElementById('sqr17').style.backgroundColor = colorScheme(board[1][2])
-    document.getElementById('sqr18').style.backgroundColor = colorScheme(board[1][3])
-    document.getElementById('sqr19').style.backgroundColor = colorScheme(board[1][4])
-    document.getElementById('sqr20').style.backgroundColor = colorScheme(board[1][5])
-    document.getElementById('sqr21').style.backgroundColor = colorScheme(board[1][6])
-    document.getElementById('sqr22').style.backgroundColor = colorScheme(board[2][0])
-    document.getElementById('sqr23').style.backgroundColor = colorScheme(board[2][1])
-    document.getElementById('sqr24').style.backgroundColor = colorScheme(board[2][2])
-    document.getElementById('sqr25').style.backgroundColor = colorScheme(board[2][3])
-    document.getElementById('sqr26').style.backgroundColor = colorScheme(board[2][4])
-    document.getElementById('sqr27').style.backgroundColor = colorScheme(board[2][5])
-    document.getElementById('sqr28').style.backgroundColor = colorScheme(board[2][6])
-    document.getElementById('sqr29').style.backgroundColor = colorScheme(board[3][0])
-    document.getElementById('sqr30').style.backgroundColor = colorScheme(board[3][1])
-    document.getElementById('sqr31').style.backgroundColor = colorScheme(board[3][2])
-    document.getElementById('sqr32').style.backgroundColor = colorScheme(board[3][3])
-    document.getElementById('sqr33').style.backgroundColor = colorScheme(board[3][4])
-    document.getElementById('sqr34').style.backgroundColor = colorScheme(board[3][5])
-    document.getElementById('sqr35').style.backgroundColor = colorScheme(board[3][6])
-    document.getElementById('sqr36').style.backgroundColor = colorScheme(board[4][0])
-    document.getElementById('sqr37').style.backgroundColor = colorScheme(board[4][1])
-    document.getElementById('sqr38').style.backgroundColor = colorScheme(board[4][2])
-    document.getElementById('sqr39').style.backgroundColor = colorScheme(board[4][3])
-    document.getElementById('sqr40').style.backgroundColor = colorScheme(board[4][4])
-    document.getElementById('sqr41').style.backgroundColor = colorScheme(board[4][5])
-    document.getElementById('sqr42').style.backgroundColor = colorScheme(board[4][6])
-    document.getElementById('sqr43').style.backgroundColor = colorScheme(board[5][0])
-    document.getElementById('sqr44').style.backgroundColor = colorScheme(board[5][1])
-    document.getElementById('sqr45').style.backgroundColor = colorScheme(board[5][2])
-    document.getElementById('sqr46').style.backgroundColor = colorScheme(board[5][3])
-    document.getElementById('sqr47').style.backgroundColor = colorScheme(board[5][4])
-    document.getElementById('sqr48').style.backgroundColor = colorScheme(board[5][5])
-    document.getElementById('sqr49').style.backgroundColor = colorScheme(board[5][6])
-}
-
-function colorScheme(piece) {
-    if (piece==' X ') {
-	return 'red'
-    }
-    else if (piece==' O ') {
-	return 'blue'
-    }
-    else {
-	return 'white'
-    }
+    document.tic.sqr8.value = board[0][0]
+    document.tic.sqr9.value = board[0][1]
+    document.tic.sqr10.value = board[0][2]
+    document.tic.sqr11.value = board[0][3]
+    document.tic.sqr12.value = board[0][4]
+    document.tic.sqr13.value = board[0][5]
+    document.tic.sqr14.value = board[0][6]
+    document.tic.sqr15.value = board[1][0]
+    document.tic.sqr16.value = board[1][1]
+    document.tic.sqr17.value = board[1][2]
+    document.tic.sqr18.value = board[1][3]
+    document.tic.sqr19.value = board[1][4]
+    document.tic.sqr20.value = board[1][5]
+    document.tic.sqr21.value = board[1][6]
+    document.tic.sqr22.value = board[2][0]
+    document.tic.sqr23.value = board[2][1]
+    document.tic.sqr24.value = board[2][2]
+    document.tic.sqr25.value = board[2][3]
+    document.tic.sqr26.value = board[2][4]
+    document.tic.sqr27.value = board[2][5]
+    document.tic.sqr28.value = board[2][6]
+    document.tic.sqr29.value = board[3][0]
+    document.tic.sqr30.value = board[3][1]
+    document.tic.sqr31.value = board[3][2]
+    document.tic.sqr32.value = board[3][3]
+    document.tic.sqr33.value = board[3][4]
+    document.tic.sqr34.value = board[3][5]
+    document.tic.sqr35.value = board[3][6]
+    document.tic.sqr36.value = board[4][0]
+    document.tic.sqr37.value = board[4][1]
+    document.tic.sqr38.value = board[4][2]
+    document.tic.sqr39.value = board[4][3]
+    document.tic.sqr40.value = board[4][4]
+    document.tic.sqr41.value = board[4][5]
+    document.tic.sqr42.value = board[4][6]
+    document.tic.sqr43.value = board[5][0]
+    document.tic.sqr44.value = board[5][1]
+    document.tic.sqr45.value = board[5][2]
+    document.tic.sqr46.value = board[5][3]
+    document.tic.sqr47.value = board[5][4]
+    document.tic.sqr48.value = board[5][5]
+    document.tic.sqr49.value = board[5][6]
 }

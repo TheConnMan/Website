@@ -35,6 +35,12 @@ h4 {
     width: 50px;
     height: 50px;
 }
+.piece {
+    border-radius: 40px;
+    background: white;
+    width:40px;
+    height:40px;
+}
 .col {
     width: 47%;
     border: 1px solid;
