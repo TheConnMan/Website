@@ -38,7 +38,7 @@
 		    var turnNum = 0
 		    var mode=0
 		    var turnsAhead = 5; var turnsAhead1 = 5; var turnsAhead2 = 5
-		    var ratio = .3; var ratio1 = .3; var ratio2 = .3
+		    var ratio = .3; var ratio1 = .3; var ratio2 = .3;
 		    var winPoints = 2.5; var winPoints1 = 2.5; var winPoints2 = 2.5
 		    var tiePoints = 0; var tiePoints1 = 0; var tiePoints2 = 0
 		    var lossPoints = -10; var lossPoints1 = -10; var lossPoints2 = -10
@@ -60,60 +60,60 @@
 		    var turnDone=false
 		    var gameOver=false
 		</script>
-		<div style="width: 280px; margin-left: auto; margin-right: auto; padding: 20px; background-color: tan">
+		<div style="width: 308px; margin-left: auto; margin-right: auto; padding: 20px; background-color: tan">
 		    <div style="text-align: center; height: 40px;">
-			<div class="piece" id="sqr8" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr8')=='#ffffff') {move=MakeMove(board, 0)}; if (move!=-1) {board[move][0]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr9" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr9')=='#ffffff') {move=MakeMove(board, 1)}; if (move!=-1) {board[move][1]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr10" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr10')=='#ffffff') {move=MakeMove(board, 2)}; if (move!=-1) {board[move][2]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr11" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr11')=='#ffffff') {move=MakeMove(board, 3)}; if (move!=-1) {board[move][3]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr12" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr12')=='#ffffff') {move=MakeMove(board, 4)}; if (move!=-1) {board[move][4]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr13" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr13')=='#ffffff') {move=MakeMove(board, 5)}; if (move!=-1) {board[move][5]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr14" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr14')=='#ffffff') {move=MakeMove(board, 6)}; if (move!=-1) {board[move][6]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
+                        <div class="piece" id="sqr8" style="float: left" onClick="buttonClicked('sqr8', 0)"></div><div class="space"></div>
+			<div class="piece" id="sqr9" style="float: left" onClick="buttonClicked('sqr9', 1)"></div><div class="space"></div>
+			<div class="piece" id="sqr10" style="float: left" onClick="buttonClicked('sqr10', 2)"></div><div class="space"></div>
+			<div class="piece" id="sqr11" style="float: left" onClick="buttonClicked('sqr11', 3)"></div><div class="space"></div>
+			<div class="piece" id="sqr12" style="float: left" onClick="buttonClicked('sqr12', 4)"></div><div class="space"></div>
+			<div class="piece" id="sqr13" style="float: left" onClick="buttonClicked('sqr13', 5)"></div><div class="space"></div>
+			<div class="piece" id="sqr14" style="float: left" onClick="buttonClicked('sqr14', 6)"></div><div class="space"></div>
 		    </div>
 		    <div style="text-align: center; height: 40px;">
-			<div class="piece" id="sqr15" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr8')=='#ffffff') {move=MakeMove(board, 0)}; if (move!=-1) {board[move][0]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr16" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr9')=='#ffffff') {move=MakeMove(board, 1)}; if (move!=-1) {board[move][1]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr17" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr10')=='#ffffff') {move=MakeMove(board, 2)}; if (move!=-1) {board[move][2]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr18" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr11')=='#ffffff') {move=MakeMove(board, 3)}; if (move!=-1) {board[move][3]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr19" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr12')=='#ffffff') {move=MakeMove(board, 4)}; if (move!=-1) {board[move][4]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr20" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr13')=='#ffffff') {move=MakeMove(board, 5)}; if (move!=-1) {board[move][5]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr21" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr14')=='#ffffff') {move=MakeMove(board, 6)}; if (move!=-1) {board[move][6]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
+			<div class="piece" id="sqr15" style="float: left" onClick="buttonClicked('sqr15', 0)"></div><div class="space"></div>
+			<div class="piece" id="sqr16" style="float: left" onClick="buttonClicked('sqr16', 1)"></div><div class="space"></div>
+			<div class="piece" id="sqr17" style="float: left" onClick="buttonClicked('sqr17', 2)"></div><div class="space"></div>
+			<div class="piece" id="sqr18" style="float: left" onClick="buttonClicked('sqr18', 3)"></div><div class="space"></div>
+			<div class="piece" id="sqr19" style="float: left" onClick="buttonClicked('sqr19', 4)"></div><div class="space"></div>
+			<div class="piece" id="sqr20" style="float: left" onClick="buttonClicked('sqr20', 5)"></div><div class="space"></div>
+			<div class="piece" id="sqr21" style="float: left" onClick="buttonClicked('sqr21', 6)"></div><div class="space"></div>
 		    </div>
 		    <div style="text-align: center; height: 40px;">
-			<div class="piece" id="sqr22" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr8')=='#ffffff') {move=MakeMove(board, 0)}; if (move!=-1) {board[move][0]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr23" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr9')=='#ffffff') {move=MakeMove(board, 1)}; if (move!=-1) {board[move][1]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr24" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr10')=='#ffffff') {move=MakeMove(board, 2)}; if (move!=-1) {board[move][2]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr25" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr11')=='#ffffff') {move=MakeMove(board, 3)}; if (move!=-1) {board[move][3]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr26" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr12')=='#ffffff') {move=MakeMove(board, 4)}; if (move!=-1) {board[move][4]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr27" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr13')=='#ffffff') {move=MakeMove(board, 5)}; if (move!=-1) {board[move][5]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr28" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr14')=='#ffffff') {move=MakeMove(board, 6)}; if (move!=-1) {board[move][6]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
+			<div class="piece" id="sqr22" style="float: left" onClick="buttonClicked('sqr22', 0)"></div><div class="space"></div>
+			<div class="piece" id="sqr23" style="float: left" onClick="buttonClicked('sqr23', 1)"></div><div class="space"></div>
+			<div class="piece" id="sqr24" style="float: left" onClick="buttonClicked('sqr24', 2)"></div><div class="space"></div>
+			<div class="piece" id="sqr25" style="float: left" onClick="buttonClicked('sqr25', 3)"></div><div class="space"></div>
+			<div class="piece" id="sqr26" style="float: left" onClick="buttonClicked('sqr26', 4)"></div><div class="space"></div>
+			<div class="piece" id="sqr27" style="float: left" onClick="buttonClicked('sqr27', 5)"></div><div class="space"></div>
+			<div class="piece" id="sqr28" style="float: left" onClick="buttonClicked('sqr28', 6)"></div><div class="space"></div>
 		    </div>
 		    <div style="text-align: center; height: 40px;">
-			<div class="piece" id="sqr29" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr8')=='#ffffff') {move=MakeMove(board, 0)}; if (move!=-1) {board[move][0]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr30" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr9')=='#ffffff') {move=MakeMove(board, 1)}; if (move!=-1) {board[move][1]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr31" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr10')=='#ffffff') {move=MakeMove(board, 2)}; if (move!=-1) {board[move][2]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr32" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr11')=='#ffffff') {move=MakeMove(board, 3)}; if (move!=-1) {board[move][3]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr33" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr12')=='#ffffff') {move=MakeMove(board, 4)}; if (move!=-1) {board[move][4]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr34" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr13')=='#ffffff') {move=MakeMove(board, 5)}; if (move!=-1) {board[move][5]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr35" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr14')=='#ffffff') {move=MakeMove(board, 6)}; if (move!=-1) {board[move][6]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
+			<div class="piece" id="sqr29" style="float: left" onClick="buttonClicked('sqr29', 0)"></div><div class="space"></div>
+			<div class="piece" id="sqr30" style="float: left" onClick="buttonClicked('sqr30', 1)"></div><div class="space"></div>
+			<div class="piece" id="sqr31" style="float: left" onClick="buttonClicked('sqr31', 2)"></div><div class="space"></div>
+			<div class="piece" id="sqr32" style="float: left" onClick="buttonClicked('sqr32', 3)"></div><div class="space"></div>
+			<div class="piece" id="sqr33" style="float: left" onClick="buttonClicked('sqr33', 4)"></div><div class="space"></div>
+			<div class="piece" id="sqr34" style="float: left" onClick="buttonClicked('sqr34', 5)"></div><div class="space"></div>
+			<div class="piece" id="sqr35" style="float: left" onClick="buttonClicked('sqr35', 6)"></div><div class="space"></div>
 		    </div>
 		    <div style="text-align: center; height: 40px;">
-			<div class="piece" id="sqr36" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr8')=='#ffffff') {move=MakeMove(board, 0)}; if (move!=-1) {board[move][0]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr37" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr9')=='#ffffff') {move=MakeMove(board, 1)}; if (move!=-1) {board[move][1]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr38" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr10')=='#ffffff') {move=MakeMove(board, 2)}; if (move!=-1) {board[move][2]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr39" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr11')=='#ffffff') {move=MakeMove(board, 3)}; if (move!=-1) {board[move][3]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr40" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr12')=='#ffffff') {move=MakeMove(board, 4)}; if (move!=-1) {board[move][4]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr41" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr13')=='#ffffff') {move=MakeMove(board, 5)}; if (move!=-1) {board[move][5]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr42" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr14')=='#ffffff') {move=MakeMove(board, 6)}; if (move!=-1) {board[move][6]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
+			<div class="piece" id="sqr36" style="float: left" onClick="buttonClicked('sqr36', 0)"></div><div class="space"></div>
+			<div class="piece" id="sqr37" style="float: left" onClick="buttonClicked('sqr37', 1)"></div><div class="space"></div>
+			<div class="piece" id="sqr38" style="float: left" onClick="buttonClicked('sqr38', 2)"></div><div class="space"></div>
+			<div class="piece" id="sqr39" style="float: left" onClick="buttonClicked('sqr39', 3)"></div><div class="space"></div>
+			<div class="piece" id="sqr40" style="float: left" onClick="buttonClicked('sqr40', 4)"></div><div class="space"></div>
+			<div class="piece" id="sqr41" style="float: left" onClick="buttonClicked('sqr41', 5)"></div><div class="space"></div>
+			<div class="piece" id="sqr42" style="float: left" onClick="buttonClicked('sqr42', 6)"></div><div class="space"></div>
 		    </div>
 		    <div style="text-align: center; height: 40px;">
-			<div class="piece" id="sqr43" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr8')=='#ffffff') {move=MakeMove(board, 0)}; if (move!=-1) {board[move][0]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr44" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr9')=='#ffffff') {move=MakeMove(board, 1)}; if (move!=-1) {board[move][1]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr45" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr10')=='#ffffff') {move=MakeMove(board, 2)}; if (move!=-1) {board[move][2]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr46" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr11')=='#ffffff') {move=MakeMove(board, 3)}; if (move!=-1) {board[move][3]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr47" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr12')=='#ffffff') {move=MakeMove(board, 4)}; if (move!=-1) {board[move][4]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr48" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr13')=='#ffffff') {move=MakeMove(board, 5)}; if (move!=-1) {board[move][5]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
-			<div class="piece" id="sqr49" style="float: left" onClick="if (!gameOver) {move=-1; if (getColor('sqr14')=='#ffffff') {move=MakeMove(board, 6)}; if (move!=-1) {board[move][6]=currentPiece; turnDone=true; endOfTurn()}; if (mode==0 && !win && turnDone) {compColumn=CompMoveFinal(tempBoard, compPiece, piece, turnsAhead, ratio, winPoints, lossPoints, tiePoints); compRow=MakeMove(board, compColumn); board[compRow][compColumn]=currentPiece; turnDone=false; endOfTurn()}}"></div>
+			<div class="piece" id="sqr43" style="float: left" onClick="buttonClicked('sqr43', 0)"></div><div class="space"></div>
+			<div class="piece" id="sqr44" style="float: left" onClick="buttonClicked('sqr44', 1)"></div><div class="space"></div>
+			<div class="piece" id="sqr45" style="float: left" onClick="buttonClicked('sqr45', 2)"></div><div class="space"></div>
+			<div class="piece" id="sqr46" style="float: left" onClick="buttonClicked('sqr46', 3)"></div><div class="space"></div>
+			<div class="piece" id="sqr47" style="float: left" onClick="buttonClicked('sqr47', 4)"></div><div class="space"></div>
+			<div class="piece" id="sqr48" style="float: left" onClick="buttonClicked('sqr48', 5)"></div><div class="space"></div>
+			<div class="piece" id="sqr49" style="float: left" onClick="buttonClicked('sqr49', 6)"></div><div class="space"></div>
 		    </div>
 		</div>
 		<form name="buttonsArea" id="buttons" style="text-align: center">
@@ -198,24 +198,6 @@
     });
     $.resetleft=function(){
 	$("#leftmenu").height($("#rightcontent").height())
-    }
-    var color = '';
-    function getColor(idName) {
-	var element=document.getElementById(idName);
-	var style=window.getComputedStyle(element,"");
-	var x=style.getPropertyValue("background-color");
-	hexc(x);
-	return color
-    }
-
-    function hexc(colorval) {
-	var parts = colorval.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-	delete(parts[0]);
-	for (var i = 1; i <= 3; ++i) {
-	    parts[i] = parseInt(parts[i]).toString(16);
-	    if (parts[i].length == 1) parts[i] = '0' + parts[i];
-	}
-	color = '#' + parts.join('');
     }
 </script>
 <script type="text/javascript" defer="defer" src="ConnectFour.js"></script>

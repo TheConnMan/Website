@@ -41,6 +41,13 @@ h4 {
     width:40px;
     height:40px;
 }
+.piece:hover {
+    cursor: pointer;
+}
+.space {
+    float: left;
+    padding: 2px;
+}
 .col {
     width: 47%;
     border: 1px solid;

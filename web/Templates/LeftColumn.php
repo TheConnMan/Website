@@ -52,8 +52,13 @@
 </table>
 <script>
     $(document).ready(function(){
-	$("#leftmenu").height($("#rightcontent").height())
-	
+        var rightCon=$("#rightcontent").height()
+        var leftCon=$("#leftmenu").height()
+        if (rightCon<leftCon) {
+            $("#rightcontent").height(leftCon)
+        } else {
+            $("#leftmenu").height(rightCon)
+        }
     });
 </script>
 <?php include("../Setup/footer.php"); ?>
