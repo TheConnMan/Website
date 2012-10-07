@@ -20,7 +20,6 @@
 	<td id="rightcolumn">
 	    <div id="rightcontent">
 		<h1 style="text-align: center">The Algorithm</h1>
-		<h4 style="text-align: center">(Bum bum bummmmm)</h4>
 		<div style="text-align: left">
 		    <h2 id="connectfourlabel">Connect Four</h2>
 		    <h3 id="backstory">Backstory</h3>
@@ -43,7 +42,9 @@
 			<p>
 			    The base algorithm is a recursive point based system. The actual code for that 
 			    part of the AI is only 32 lines, the rest is just the (inefficiently written) 
-			    rules and producing the board. 
+			    rules and producing the board. The final function which computes which column 
+			    to move to can be found <a href="../ConnectFour/CompMoveRec.js">here</a>. There 
+			    are five important inputs to the function: turnsAhead
 			</p>
 		    </div>
 		</div>
