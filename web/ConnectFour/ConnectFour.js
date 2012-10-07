@@ -1,5 +1,5 @@
 function buttonClicked(sqr, col) {
-    if (!gameOver) {
+    if (!gameOver && mode!=2) {
         move=-1
         if (getColor(sqr)=='#ffffff') {
             move=MakeMove(board, col)

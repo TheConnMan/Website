@@ -22,7 +22,6 @@
 		<h1 style="text-align: center">The Author</h1>
 		<div style="text-align: left">
 		    <h2 id="connectfourlabel">Brian Conn</h2>
-		    <h3 id="backstory">Backstory</h3>
 		    <div style="padding-top: 5px; padding-left: 5px">
 			<p>
 			    Enter the Winter of '11:
@@ -34,14 +33,6 @@
 			    "Misery loves warm mochas" I staved off the cold and having to spend more than
 			    three consecutive hours with my family by joining him in the quite confines of 
 			    a local cafe.
-			</p>
-		    </div>
-		    <h3 style="padding-top: 15px" id="actualcode">The Actual Code</h3>
-		    <div style="padding-top: 5px; padding-left: 5px">
-			<p>
-			    The base algorithm is a recursive point based system. The actual code for that 
-			    part of the AI is only 32 lines, the rest is just the (inefficiently written) 
-			    rules and producing the board. 
 			</p>
 		    </div>
 		</div>

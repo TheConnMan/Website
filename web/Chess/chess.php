@@ -11,7 +11,7 @@
     /*<!--*/ if(!window.hcb_user){hcb_user={  };}
     (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "http://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})();
 </script>-->
-<div>
+<!--<div>
     <?php
 	$con = mysql_connect('localhost', 'root', 'lambda30panda') or die(mysql_error());
 	mysql_select_db("comments", $con);
@@ -20,7 +20,7 @@
 	$results = mysql_query($query) or die(mysql_error());
 	print_r($results);
 	echo $results[author];
-    ?>
+    ?>-->
 </div>
 <!-- end htmlcommentbox.com -->
 <?php include("../Setup/footer.php"); ?>
