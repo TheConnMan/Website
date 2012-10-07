@@ -1,8 +1,3 @@
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 function updateButtons() {
     if (mode==0) {
 	document.buttonsArea.turns.value=turnsAhead
@@ -278,6 +273,10 @@ function CompMoveFinal(Board, Comp, Player, turns, ratio, win, loss, tie) {
 	}
     }
     return move;
+}
+
+function CompMoveFinalMinMax(Board, Comp, Player, turns, ratio, win, loss, tie) {
+    
 }
 
 function reset()

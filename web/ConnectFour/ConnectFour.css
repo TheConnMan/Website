@@ -1,0 +1,20 @@
+.connectfour {
+    width: 50px;
+    height: 50px;
+}
+.piece {
+    border-radius: 40px;
+    background: white;
+    width:40px;
+    height:40px;
+}
+.piece:hover {
+    cursor: pointer;
+}
+.space {
+    float: left;
+    padding: 2px;
+}
+.buttonNames {
+    text-align: center;
+}

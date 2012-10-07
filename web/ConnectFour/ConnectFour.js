@@ -89,7 +89,33 @@ function setDefault() {
     winPoints = 2.5
     tiePoints = 0
     lossPoints = -10
-    updateButtons()
+    $('#turns-ahead').text(turnsAhead)
+    $('#ratio').text(ratio)
+    $('#win-points').text(winPoints)
+    $('#tie-points').text(tiePoints)
+    $('#loss-points').text(lossPoints)
+}
+function setAllDefault() {
+    turnsAhead1 = 5
+    ratio1 = .3
+    winPoints1 = 2.5
+    tiePoints1 = 0
+    lossPoints1 = -10
+    $('#turns-ahead1').text(turnsAhead1)
+    $('#ratio1').text(ratio1)
+    $('#win-points1').text(winPoints1)
+    $('#tie-points1').text(tiePoints1)
+    $('#loss-points1').text(lossPoints1)
+    turnsAhead2 = 5
+    ratio2 = .3
+    winPoints2 = 2.5
+    tiePoints2 = 0
+    lossPoints2 = -10
+    $('#turns-ahead2').text(turnsAhead2)
+    $('#ratio2').text(ratio2)
+    $('#win-points2').text(winPoints2)
+    $('#tie-points2').text(tiePoints2)
+    $('#loss-points2').text(lossPoints2)
 }
 function CheckWin(Board, turn) {
     var maxHeight=0;
