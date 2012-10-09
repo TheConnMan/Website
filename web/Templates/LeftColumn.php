@@ -20,11 +20,9 @@
 	<td id="rightcolumn">
 	    <div id="rightcontent">
 		<h1 style="text-align: center">The Algorithm</h1>
-		<h4 style="text-align: center">(Bum bum bummmmm)</h4>
 		<div style="text-align: left">
-		    <h2 id="connectfourlabel">Connect Four</h2>
-		    <h3 id="backstory">Backstory</h3>
-		    <div style="padding-top: 5px; padding-left: 5px">
+		    <h2 id="backstory">Backstory</h2>
+		    <div class="bodyparagraph">
 			<p>
 			    Enter the Winter of '11:
 			    In the bitter, mild cold of Michigan I toiled away trying to find things to do. 
@@ -37,8 +35,8 @@
 			    a local cafe.
 			</p>
 		    </div>
-		    <h3 style="padding-top: 15px" id="actualcode">The Actual Code</h3>
-		    <div style="padding-top: 5px; padding-left: 5px">
+		    <h2 style="padding-top: 15px" id="actualcode">The Actual Code</h2>
+		    <div class="bodyparagraph">
 			<p>
 			    The base algorithm is a recursive point based system. The actual code for that 
 			    part of the AI is only 32 lines, the rest is just the (inefficiently written) 

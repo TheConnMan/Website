@@ -17,6 +17,7 @@ and open the template in the editor.
 	    assertEquals(3, calculatePoints('jwidjt'));
 	    assertEquals(0, calculatePoints('to'));
 	}
+	
     </script>
     </body>
 </html>

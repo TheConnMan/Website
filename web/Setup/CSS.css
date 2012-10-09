@@ -46,6 +46,10 @@ h4 {
 .clickable:hover {
     cursor: pointer;
 }
+.bodyparagraph {
+    padding-top: 5px;
+    padding-left: 5px;
+}
 
 
 /* html5doctor.com Reset v1.6.1 (http://html5doctor.com/html-5-reset-stylesheet/) - http://cssreset.com */

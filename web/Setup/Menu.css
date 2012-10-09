@@ -46,12 +46,16 @@ html, body
 #rightcolumn {
     width: 77%;
 }
-td ul li ul li a, td ul li a {
+td ul li ul li ul li a, td ul li ul li a, td ul li a {
     color: #000;
     text-decoration: none;
 }
 td ul li ul {
     padding-left: 20px;
+}
+td ul li ul li ul li a:hover {
+    color: purple;
+    text-decoration: none;
 }
 td div ul li ul li a:hover {
     color: #2f8be8;
