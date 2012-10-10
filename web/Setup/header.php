@@ -3,7 +3,7 @@
 	<link type="text/css" rel="stylesheet" href="../Setup/Menu.css">
 	<link type="text/css" rel="stylesheet" href="../Setup/Shapes.css">
 	<link type="text/css" rel="stylesheet" href="../ConnectFour/ConnectFour.css">
-        <link href="../favicon.ico" rel="icon" type="image/x-icon" />
+        <link href="../Setup/favicon.ico" rel="icon" type="image/x-icon" />
     </head>
     <div id="container">
 	<div id="header" style="text-align: center">
