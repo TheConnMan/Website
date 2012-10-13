@@ -2,7 +2,7 @@
 <title>Home</title>
 <?php include("../Setup/header.php"); ?>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<table width="970" border="0">
+<table border="0">
     <tr>
 	<td id="leftcolumn">
 	    <div id="leftmenu">
@@ -25,7 +25,7 @@
 		    <div style="padding-top: 5px; padding-left: 5px">
 			<p>
 			    This site is a staging site for projects that I've put together as well as a 
-			    way to learn html and php. Right now there's just connect four, but there 
+			    way to learn html, php, and JavaScript. Right now there's just connect four, but there 
 			    will be more to come.
 			</p>
 		    </div>
