@@ -18,3 +18,15 @@
 .buttonNames {
     text-align: center;
 }
+#rollpoints:hover #popout {
+    display: block;
+}
+#popout {
+    margin-left: 200px;
+    display: none;
+    position: absolute;
+    background-color: lightsteelblue;
+    border-radius: 8px;
+    border: 1px solid;
+    padding: 10px;
+}

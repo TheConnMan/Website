@@ -16,8 +16,15 @@
 				<ul>
 				    <li><a href="#obvious">The Obvious Move</a></li>
 				    <li><a href="#theblock">The Block</a></li>
+				    <li><a href="#thetrick">The Trick</a></li>
 				</ul>
 			    </li>
+			    <li><a href="#variables">The Variables</a></li>
+				<ul>
+				    <li><a href="#turnsahead">Turns Ahead</a></li>
+				    <li><a href="#points">Points</a></li>
+				    <li><a href="#ratio">Ratio</a></li>
+				</ul>
 			    <li><a href="#backstory">Backstory</a></li>
 			</ul>
 		    </li>
@@ -64,7 +71,53 @@
 			<h3 style="padding-top: 15px" id="theblock">The Block</h3>
 			<div class="bodyparagraph">
 			    If the computer can't win, it sure isn't going to let you. After searching for winning 
-			    move it will look to block you. The only way to beat it is to set a trap for it.
+			    move it will look to block you. It does this before running the full recursive algorithm,
+			    so it's much faster. You can tell it stops at this part of the code by how quickly the 
+			    computer makes its move when it blocks you when playing on 5 or 6 "turns ahead".
+			</div>
+			<h3 style="padding-top: 15px" id="thetrick">The Trick</h3>
+			<div class="bodyparagraph">
+			    The classic way to beat an opponent in Connect Four is to set a trap where if they don't 
+			    move somewhere you win, but if they do you win as well, and by classic way I mean the only 
+			    I've ever been able to win. The problem with the AI is that it sees ahead and doesn't make 
+			    setting a trap very easy. I've only beaten the level 5 AI twice, and both times it was by setting 
+			    a trap <i>while having 2- and 3-in-a-rows in other places</i>. Of course I did this by 
+			    accident both times, but it makes sense why it would work. Enough threats elsewhere ups the 
+			    points in those columns, increasing the chance that more real threats will outweigh disrupting 
+			    your trap setup. This strategy probably seems obvious: keep them occupied, set a trap, win, 
+			    but not it can be quantified by points why it works. Humans make mistakes, though, which makes 
+			    them easier to beat.
+			</div>
+		    </div>
+		    <h2 style="padding-top: 15px" id="variables">But What Do The Variables Mean?</h2>
+		    <div class="bodyparagraph">
+			<p>
+			    You may be asking yourself <i>"So now I know how the algorithm works, but what do each of them 
+			    represent?"</i>. Ok, so you probably weren't thinking anything close to that, but maybe you're 
+			    still interested so I'll explain anyways.
+			</p>
+			<h3 style="padding-top: 15px" id="turnsahead">Turns Ahead</h3>
+			<div class="bodyparagraph">
+			    Turns ahead represents the intelligence of the AI. The further it looks in the future the more 
+			    accurately it can calculate the point value for each column, making a better move. It takes into 
+			    account all moves (even letting an opponent stack four in a row without challenge) so it only 
+			    roughly translates to intelligence. Nevertheless, it is still more difficult to beat an AI 
+			    with a higher "turns ahead" value.
+			</div>
+			<h3 style="padding-top: 15px" id="points">Win, Tie, and Loss Points</h3>
+			<div class="bodyparagraph">
+			    The win, tie, and loss points variables represent the AI's play style. If "win points" is higher 
+			    then more aggressive moves are rewarded. The AI will make moves that yield more possible wins, 
+			    even if it means there are more ways to lose.<br>Higher "loss points" has the opposite <roll id="rollpoints">effect; 
+			    the AI<div id="popout">Yeah, I just used a semicolon</div></roll> makes more defensive moves. 
+			    A loss in the future of a move greatly reduces its point value, so the AI won't go there. 
+			    The AI will move to block more than move to win.<br>Finally, there are "tie points". Higher tie 
+			    points will steer the game away from anyone winning. Quite frankly I don't know what this does. 
+			    My best guess is that it has the same effects as higher "loss points".
+			</div>
+			<h3 style="padding-top: 15px" id="ratio">Ratio</h3>
+			<div class="bodyparagraph">
+			    
 			</div>
 		    </div>
                     <h2 style="padding-top: 15px" id="backstory">Backstory</h2>

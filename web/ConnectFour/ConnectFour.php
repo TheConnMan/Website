@@ -7,7 +7,7 @@
     </style>
 </head>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<table width="970" border="0">
+<table border="0">
     <tr>
 	<td id="leftcolumn">
 	    <div id="leftmenu">

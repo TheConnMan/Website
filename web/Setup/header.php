@@ -7,7 +7,7 @@
     </head>
     <div id="container">
 	<div id="header" style="text-align: center">
-	    A Work In Progress
+	    <h1>A Work In Progress</h1>
 	</div>
 	<div id="body">
 	    <?php include("menu.php"); ?> <br>
