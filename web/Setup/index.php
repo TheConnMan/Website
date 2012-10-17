@@ -11,8 +11,8 @@
 		    <li style="padding-top: 15px">
 			<a href="#connectfourlabel">Connect Four</a>
 			<ul>
-			    <li><a href="#backstory">Backstory</a></li>
-			    <li><a href="#actualcode">The Actual Code</a></li>
+			    <li><a href="../ConnectFour/Algorithm.php#backstory">Backstory</a></li>
+			    <li><a href="../ConnectFour/Algorithm.php#actualcode">The Actual Code</a></li>
 			</ul>
 		    </li>
 		</ul>
