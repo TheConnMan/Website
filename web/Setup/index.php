@@ -20,7 +20,7 @@
 	</td><td width="3%"></td>
 	<td id="rightcolumn">
 	    <div id="rightcontent">
-		<h1 style="text-align: center">Welcome to my website!!!!</h1>
+		<h1 style="text-align: center">Welcome to my website!</h1>
 		<div style="text-align: left">
 		    <div style="padding-top: 5px; padding-left: 5px">
 			<p>
