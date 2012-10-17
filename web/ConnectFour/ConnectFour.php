@@ -148,7 +148,7 @@
 			    <td style="padding: 3px"><div id="loss-points" style="text-align: center">-10</div></td>
 			</tr>
 			<tr>
-			    <td style="padding: 3px"><div class="arrow-down" onclick="if (turnsAhead>0) {turnsAhead-=1; $('#turns-ahead').text(turnsAhead)}"></div></td>
+			    <td style="padding: 3px"><div class="arrow-down" onclick="if (turnsAhead>1) {turnsAhead-=1; $('#turns-ahead').text(turnsAhead)}"></div></td>
 			    <td style="padding: 3px"><div class="arrow-down" onclick="if (ratio>.1) {ratio-=.05; $('#ratio').text(ratio.toFixed(2))}"></div></td>
 			    <td style="padding: 3px"><div class="arrow-down" onclick="winPoints-=.5; $('#win-points').text(winPoints)"></div></td>
 			    <td style="padding: 3px"><div class="arrow-down" onclick="tiePoints-=.5; $('#tie-points').text(tiePoints)"></div></td>
@@ -193,7 +193,7 @@
 			    <td style="padding: 3px"><div id="loss-points1" style="text-align: center">-10</div></td>
 			</tr>
 			<tr>
-			    <td style="padding: 3px"><div class="arrow-down" onclick="if (turnsAhead1>0) {turnsAhead1-=1; $('#turns-ahead1').text(turnsAhead1)}"></div></td>
+			    <td style="padding: 3px"><div class="arrow-down" onclick="if (turnsAhead1>1) {turnsAhead1-=1; $('#turns-ahead1').text(turnsAhead1)}"></div></td>
 			    <td style="padding: 3px"><div class="arrow-down" onclick="if (ratio1>.1) {ratio1-=.05; $('#ratio1').text(ratio1.toFixed(2))}"></div></td>
 			    <td style="padding: 3px"><div class="arrow-down" onclick="winPoints1-=.5; $('#win-points1').text(winPoints1)"></div></td>
 			    <td style="padding: 3px"><div class="arrow-down" onclick="tiePoints1-=.5; $('#tie-points1').text(tiePoints1)"></div></td>
@@ -226,7 +226,7 @@
 			    <td style="padding: 3px"><div id="loss-points2" style="text-align: center">-10</div></td>
 			</tr>
 			<tr>
-			    <td style="padding: 3px"><div class="arrow-down" onclick="if (turnsAhead2>0) {turnsAhead2-=1; $('#turns-ahead2').text(turnsAhead2)}"></div></td>
+			    <td style="padding: 3px"><div class="arrow-down" onclick="if (turnsAhead2>1) {turnsAhead2-=1; $('#turns-ahead2').text(turnsAhead2)}"></div></td>
 			    <td style="padding: 3px"><div class="arrow-down" onclick="if (ratio2>.1) {ratio2-=.05; $('#ratio2').text(ratio2.toFixed(2))}"></div></td>
 			    <td style="padding: 3px"><div class="arrow-down" onclick="winPoints2-=.5; $('#win-points2').text(winPoints2)"></div></td>
 			    <td style="padding: 3px"><div class="arrow-down" onclick="tiePoints2-=.5; $('#tie-points2').text(tiePoints2)"></div></td>
