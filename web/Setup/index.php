@@ -9,7 +9,7 @@
 		<ul style="list-style: none">
 		    <h3 style="padding-top: 15px">At A Glance</h3>
 		    <li style="padding-top: 15px">
-			<a href="#connectfourlabel">Connect Four</a>
+			<a href="../ConnectFour/ConnectFour.php">Connect Four</a>
 			<ul>
 			    <li><a href="../ConnectFour/Algorithm.php#backstory">Backstory</a></li>
 			    <li><a href="../ConnectFour/Algorithm.php#actualcode">The Actual Code</a></li>
