@@ -25,6 +25,7 @@
 				    <li><a href="#points">Points</a></li>
 				    <li><a href="#ratio">Ratio</a></li>
 				</ul>
+			    <li><a href="#minmax">Min-Max Algorithm</a></li>
 			    <li><a href="#backstory">Backstory</a></li>
 			</ul>
 		    </li>
@@ -117,8 +118,18 @@
 			</div>
 			<h3 style="padding-top: 15px" id="ratio">Ratio</h3>
 			<div class="bodyparagraph">
-			    
+			    The "ratio" variable discounts the value of points in the future. Each turn ahead a win, tie, 
+			    or loss is it's multiplied by "ratio". Higher values make future results more 
+			    important, meaning the AI plays the longer game, while lower values cause the AI to play the 
+			    short game.
 			</div>
+		    </div>
+		    <h2 id="minmax">Min-Max Algorithm</h2>
+		    <div class="bodyparagraph">
+			<p>
+			    Whenever I get around to it I hope to writing a connect four game which uses a 
+			    min-max algorithm as an AI. 
+			</p>
 		    </div>
                     <h2 style="padding-top: 15px" id="backstory">Backstory</h2>
 		    <div class="bodyparagraph">
