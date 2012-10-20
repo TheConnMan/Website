@@ -1,4 +1,4 @@
-<?php include("../Setup/preheader.php"); ?>
+<?php $path_parts = pathinfo(__FILE__); include("../Setup/preheader.php"); ?>
 <title>The Game</title>
 <?php include("../Setup/header.php"); ?>
 <head>
@@ -234,6 +234,7 @@
 			</tr>
 		    </table>
 		</div>
+		<?php include("../Comments/commentbox.php"); ?>
 	    </div>
 	</td>
     </tr>
@@ -248,4 +249,4 @@
     }
 </script>
 <script type="text/javascript" defer="defer" src="ConnectFour.js"></script>
-<?php $path_parts = pathinfo(__FILE__); include("../Setup/footer.php"); ?>
+<?php include("../Setup/footer.php"); ?>

@@ -1,4 +1,4 @@
-<?php include("../Setup/preheader.php"); ?>
+<?php $path_parts = pathinfo(__FILE__); include("../Setup/preheader.php"); ?>
 <title>The Code</title>
 <?php include("../Setup/header.php"); ?>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -175,4 +175,4 @@
         }
     });
 </script>
-<?php $path_parts = pathinfo(__FILE__); include("../Setup/footer.php"); ?>
+<?php include("../Setup/footer.php"); ?>

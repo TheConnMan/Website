@@ -1,0 +1,31 @@
+#previouscomments {
+    width: 500px;
+}
+#commentauthor {
+    float: left;
+}
+#commentbody {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+#commentdate {
+    float: right;
+}
+#singlecomment {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+#comments {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+#topcommentline {
+    height: 15px;
+    padding: 10px;
+    width: 400px;
+    border-radius: 5px;
+    background-color: lightblue;
+}

@@ -1,4 +1,4 @@
-<?php include("../Setup/preheader.php"); ?>
+<?php $path_parts = pathinfo(__FILE__); include("../Setup/preheader.php"); ?>
 <title>Connect Four</title>
 <?php include("../Setup/header.php"); ?>
 <h1>No chess yet</h1>
@@ -23,4 +23,4 @@
     ?>-->
 </div>
 <!-- end htmlcommentbox.com -->
-<?php $path_parts = pathinfo(__FILE__); include("../Setup/footer.php"); ?>
+<?php include("../Setup/footer.php"); ?>

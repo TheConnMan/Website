@@ -11,4 +11,5 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 $query = sprintf("UPDATE ViewCounts SET ViewCount=$count WHERE page='$page_name'");
 mysql_query($query);
+mysql_close($con);
 ?>
