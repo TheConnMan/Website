@@ -23,4 +23,4 @@
     ?>-->
 </div>
 <!-- end htmlcommentbox.com -->
-<?php include("../Setup/footer.php"); ?>
+<?php $path_parts = pathinfo(__FILE__); include("../Setup/footer.php"); ?>

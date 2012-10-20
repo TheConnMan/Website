@@ -248,4 +248,4 @@
     }
 </script>
 <script type="text/javascript" defer="defer" src="ConnectFour.js"></script>
-<?php include("../Setup/footer.php"); ?>
+<?php $path_parts = pathinfo(__FILE__); include("../Setup/footer.php"); ?>
