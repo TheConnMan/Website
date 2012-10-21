@@ -1,4 +1,5 @@
 <div id="comments">
+    <h2 style="padding-top: 15px">Leave a comment</h2>
     <?php
     $page_name = $path_parts['filename'];
     $protocol = strpos(strtolower($_SERVER['SERVER_PROTOCOL']), 'https') === FALSE ? 'http' : 'https';
