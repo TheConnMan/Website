@@ -29,7 +29,7 @@
                             it.
 			</p>
 		    </div>
-		    <?php include("../Comments/bugscommentbox.php"); ?>
+		    <?php include("../Comments/commentbox.php"); ?>
 		</div>
 	    </div>
 	</td>

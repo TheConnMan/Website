@@ -40,8 +40,8 @@
     border-radius: 5px;
     background-color: lightgreen;
 }
-#relatedcomments {
-
+.relatedcomments {
+    display: none;
 }
 #singlerelatedcomment {
     width: 420px;
