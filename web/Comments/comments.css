@@ -1,5 +1,8 @@
+.commentaction:hover {
+    color: red;
+}
 #previouscomments {
-    width: 500px;
+    width: 620px;
 }
 #commentauthor {
     float: left;
@@ -26,4 +29,34 @@
     width: 400px;
     border-radius: 5px;
     background-color: lightblue;
+}
+#bugtopcommentline {
+    width: 530px;
+
+}
+#typeline {
+    height: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: lightgreen;
+}
+#relatedcomments {
+
+}
+#singlerelatedcomment {
+    width: 420px;
+    margin-left: 50px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+#reltopcommentline {
+    height: 15px;
+    padding: 10px;
+    width: 400px;
+    border-radius: 5px;
+    background-color: lightsteelblue;
+}
+#makerelcomment {
+    margin-left: 55px;
 }
