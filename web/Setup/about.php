@@ -8,10 +8,10 @@
 	    <div id="leftmenu">
 		<ul style="list-style: none">
 		    <li style="padding-top: 15px">
-			<a href="#connectfourlabel">Connect Four</a>
+			About
 			<ul>
-			    <li><a href="#backstory">Backstory</a></li>
-			    <li><a href="#actualcode">The Actual Code</a></li>
+			    <li><a href="#author">Author</a></li>
+			    <li><a href="../Setup/Resume.pdf">Resume</a></li>
 			</ul>
 		    </li>
 		</ul>
@@ -21,18 +21,18 @@
 	    <div id="rightcontent">
 		<h1 style="text-align: center">The Author</h1>
 		<div style="text-align: left">
-		    <h2 id="connectfourlabel">Brian Conn</h2>
+		    <h2 id="author">Brian Conn</h2>
 		    <div style="padding-top: 5px; padding-left: 5px">
 			<p>
-			    Enter the Winter of '11:
-			    In the bitter, mild cold of Michigan I toiled away trying to find things to do. 
-			    My time away from school had taken a toll on my workload and I was stranded in 
-			    the unforgiving land of boredom. My friend, a student on break from school in 
-			    our nation's capital, had not yet taken his finals and so was studying for much 
-			    of his winter break. Following in the footsteps of the old American proverb 
-			    "Misery loves warm mochas" I staved off the cold and having to spend more than
-			    three consecutive hours with my family by joining him in the quite confines of 
-			    a local cafe.
+			    I'm currently an MIT senior taking a semester off to continue my summer internship doing IT
+			    consulting. I'm planning on graduating next semester with majors in 8 and 18 as well as minors 
+			    in 14 and 15 (that's physics, math, econ, and management respectively for non-MITers). One of 
+			    my hobbies is coding and learning as many programming languages as I can. So far I've worked 
+			    (at least briefly) with Java, HTML, PHP, JavaScript, Python, C, MatLab, LaTex, as well as others.
+			    I don't really have an end goal with all of it, but so far the programming experience has 
+			    helped in both school and work and I enjoy it, so I'll continue. I'm also open to any suggested 
+			    features, so please leave a comment in the bugs/features section and I'll do my best to 
+			    incorporate it.
 			</p>
 		    </div>
 		</div>
