@@ -1,5 +1,12 @@
 .commentaction:hover {
     color: red;
+    cursor: pointer;
+}
+.commentaction {
+    display: inline-block;
+}
+.relatedcomments {
+    display: none;
 }
 #previouscomments {
     width: 620px;
@@ -39,9 +46,6 @@
     padding: 10px;
     border-radius: 5px;
     background-color: lightgreen;
-}
-.relatedcomments {
-    display: none;
 }
 #singlerelatedcomment {
     width: 420px;

@@ -29,6 +29,7 @@
 		<div style="text-align: center">
 		    <button type="button" onclick="reset(); currentPiece=' X '; piece=' X '; compPiece=' O '">Red</button>
 		    <button type="button" onclick="reset(); currentPiece=' O '; piece=' O '; compPiece=' X '">Blue</button>
+		    <button type="button" onclick="computerMoveFirst(moveYet)">Computer First</button>
 		    <button type="button" onclick="reset()">Reset</button><br />
 		</div>
 		<script>
@@ -37,6 +38,7 @@
 		    var piece = " X "
 		    var turnNum = 0
 		    var mode=0
+		    var moveYet=false
 		    var turnsAhead = 5; var turnsAhead1 = 5; var turnsAhead2 = 5
 		    var ratio = .3; var ratio1 = .3; var ratio2 = .3;
 		    var winPoints = 2.5; var winPoints1 = 2.5; var winPoints2 = 2.5

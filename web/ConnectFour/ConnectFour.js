@@ -1,3 +1,15 @@
+function computerMoveFirst(movedYet) {
+    if (!moveYet) {
+	compColumn=Math.floor(Math.random()*7)
+        compRow=MakeMove(board, compColumn)
+	switchPiece();
+        board[compRow][compColumn]=currentPiece
+        turnDone=false;
+	moveYet=true
+	turnNum--;
+        endOfTurn()
+    }
+}
 function buttonClicked(sqr, col) {
     if (!gameOver && mode!=2) {
         move=-1
@@ -336,7 +348,9 @@ function reset()
     update()
     win=false
     turnNum=0
+    currentPiece=piece;
     gameOver=false
+    moveYet=false
 }
 function check()
 {
