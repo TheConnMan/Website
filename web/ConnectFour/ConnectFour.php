@@ -23,7 +23,7 @@
 		</ul>
 	    </div>
 	</td><td width="3%"></td>
-	<td id="rightcolumn">
+	<td id="rightcolumn" style="width: 1100px">
 	    <div id="rightcontent">
 		<h1 style="text-align: center; padding-bottom: 10px">Connect Four</h1>
 		<div style="text-align: center">
