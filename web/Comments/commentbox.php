@@ -81,7 +81,7 @@
 		    ?>
     	    </div>
     	    <div id="expandcomments<?php echo $row['date']; ?>" class="commentaction" onclick="displaycomments(<?php echo $row['date']; ?>)">
-    		+<?php
+    		[+] <?php
 		$referencedate = $row['date'];
 		$count = mysql_query("SELECT COUNT(*) AS counter FROM Comments WHERE page='$page_name' AND reference='$referencedate'");
 		$counterrow = mysql_fetch_array($count);
@@ -125,7 +125,7 @@
 				</div>
 			    </div>
 			    <div id="minimizecomments" class="commentaction" onclick="minimizecomments(<?php echo $row['date']; ?>)" style="margin-left: 40px; padding: 10px;">
-				-<?php echo $counterrow['counter']; ?> comments
+				[-] Hide
 			    </div>
 			</div>
 			<?php
@@ -159,14 +159,17 @@
     function displaycommenter(id) {
         document.getElementById(id).style.display='block';
         document.getElementById('comment'+id).style.display='none';
+	resetPage();
     }
     function displaycomments(id) {
         document.getElementById('expandcomments'+id).style.display='none';
         document.getElementById('relatedcomments'+id).style.display='block';
+	resetPage();
     }
     function minimizecomments(id) {
         document.getElementById('expandcomments'+id).style.display='block';
         document.getElementById('relatedcomments'+id).style.display='none';
+	resetPage();
     }
 </script>
 <?php mysql_close($con); ?>

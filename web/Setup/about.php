@@ -40,10 +40,4 @@
 	</td>
     </tr>
 </table>
-<script>
-    $(document).ready(function(){
-	$("#leftmenu").height($("#rightcontent").height())
-	
-    });
-</script>
 <?php include("../Setup/footer.php"); ?>

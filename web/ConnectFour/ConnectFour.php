@@ -241,14 +241,5 @@
 	</td>
     </tr>
 </table>
-<script>
-    $(document).ready(function(){
-	$("#leftmenu").height($("#rightcontent").height())
-	
-    });
-    $.resetleft=function(){
-	$("#leftmenu").height($("#rightcontent").height())
-    }
-</script>
 <script type="text/javascript" defer="defer" src="ConnectFour.js"></script>
 <?php include("../Setup/footer.php"); ?>
