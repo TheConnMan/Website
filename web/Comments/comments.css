@@ -37,15 +37,19 @@
     border-radius: 5px;
     background-color: lightblue;
 }
+#toptypeline {
+    height: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: lightgreen;
+    margin-left: 10px;
+}
 #bugtopcommentline {
     width: 530px;
 
 }
 #typeline {
-    height: 15px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: lightgreen;
+    float: left;
 }
 #singlerelatedcomment {
     width: 420px;

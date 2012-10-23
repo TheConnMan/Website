@@ -63,7 +63,8 @@
 			<?php
 			if ($page_name == 'Bugs') {
 			    ?>
-			    <td style="padding-left: 10px; padding-right: 10px">
+		    <td style="width: 15px;"></td>
+			    <td id="toptypeline">
 				<div id="typeline">
 				    <?php echo $row['type']; ?>
 				</div>
