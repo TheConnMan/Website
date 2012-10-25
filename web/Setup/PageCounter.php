@@ -10,7 +10,7 @@ $result = mysql_query($query);
 while ($row = mysql_fetch_assoc($result)) {
     $count = $row['ViewCount'] + 1;
 }
-$query = sprintf("UPDATE ViewCounts SET ViewCount=$count WHERE page='$page_name'");
+$query = sprintf("UPDATE ViewCounts2 SET ViewCount=$count WHERE page='$page_name'");
 mysql_query($query);
 mysql_close($con);
 ?>

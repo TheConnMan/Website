@@ -1,6 +1,15 @@
 .commentaction:hover {
     color: red;
 }
+.pageNumber:hover {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+.pageNumber {
+    float: left;
+    margin: 5px;
+}
 #previouscomments {
     width: 620px;
 }
@@ -59,4 +68,11 @@
 }
 #makerelcomment {
     margin-left: 55px;
+}
+#pageButtons {
+    margin-left: 300px;
+    margin-right: 300px;
+    text-align: center;
+    display: inline-block;
+    width: 60px;
 }
