@@ -40,7 +40,7 @@
 
 <div id="previouscomments">
     <?php
-    $commentsPerPage = 2;
+    $commentsPerPage = 5;
     $commentNum = 0;
     while ($row = mysql_fetch_array($result)) {
         $commentNum++;
