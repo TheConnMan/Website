@@ -11,5 +11,19 @@
 		</div>
 	    </div>
 	</div>
+	<script>
+	    function resetPage() {
+		var rightCon=$("#rightcontent").height()
+		if (rightCon<maxHeight) {
+		    $("#rightcontent").height(maxHeight)
+	        } else {
+		    $("#leftmenu").height(rightCon)
+		}
+	    }
+	    $(document).ready(function() {
+		maxHeight=Math.max($("#rightcontent").height(), $("#leftmenu").height());
+		resetPage();
+	    });
+	</script>
     </body>
 </html>

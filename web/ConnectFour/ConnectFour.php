@@ -23,12 +23,13 @@
 		</ul>
 	    </div>
 	</td><td width="3%"></td>
-	<td id="rightcolumn">
+	<td id="rightcolumn" style="width: 1100px">
 	    <div id="rightcontent">
 		<h1 style="text-align: center; padding-bottom: 10px">Connect Four</h1>
 		<div style="text-align: center">
 		    <button type="button" onclick="reset(); currentPiece=' X '; piece=' X '; compPiece=' O '">Red</button>
 		    <button type="button" onclick="reset(); currentPiece=' O '; piece=' O '; compPiece=' X '">Blue</button>
+		    <button type="button" onclick="computerMoveFirst(moveYet)">Computer First</button>
 		    <button type="button" onclick="reset()">Reset</button><br />
 		</div>
 		<script>
@@ -37,6 +38,7 @@
 		    var piece = " X "
 		    var turnNum = 0
 		    var mode=0
+		    var moveYet=false
 		    var turnsAhead = 5; var turnsAhead1 = 5; var turnsAhead2 = 5
 		    var ratio = .3; var ratio1 = .3; var ratio2 = .3;
 		    var winPoints = 2.5; var winPoints1 = 2.5; var winPoints2 = 2.5
@@ -239,14 +241,5 @@
 	</td>
     </tr>
 </table>
-<script>
-    $(document).ready(function(){
-	$("#leftmenu").height($("#rightcontent").height())
-	
-    });
-    $.resetleft=function(){
-	$("#leftmenu").height($("#rightcontent").height())
-    }
-</script>
 <script type="text/javascript" defer="defer" src="ConnectFour.js"></script>
 <?php include("../Setup/footer.php"); ?>

@@ -1,4 +1,5 @@
-<?php $path_parts = pathinfo(__FILE__); include("../Setup/preheader.php"); ?>
+<?php $path_parts = pathinfo(__FILE__);
+include("../Setup/preheader.php"); ?>
 <title>The Code</title>
 <?php include("../Setup/header.php"); ?>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -48,15 +49,4 @@
 	</td>
     </tr>
 </table>
-<script>
-    $(document).ready(function(){
-        var rightCon=$("#rightcontent").height()
-        var leftCon=$("#leftmenu").height()
-        if (rightCon<leftCon) {
-            $("#rightcontent").height(leftCon)
-        } else {
-            $("#leftmenu").height(rightCon)
-        }
-    });
-</script>
 <?php include("../Setup/footer.php"); ?>

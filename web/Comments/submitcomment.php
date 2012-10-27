@@ -1,9 +1,11 @@
 <?php
 
 define('CLIENT_LONG_PASSWORD', 1);
-$date = mktime(date('H') - 6, date('i'), date('s'), date("m"), date("d"), date("Y"));
-$author = $_POST["author"];
-$comment = $_POST["comment"];
+$date = mktime(date('H')- 6, date('i'), date('s'), date("n"), date("j"), date("Y"));
+$preauthor = $_POST["author"];
+$author = str_replace("'", "''", $preauthor);
+$precomment = $_POST["comment"];
+$comment = str_replace("'", "''", $precomment);
 $page = $_POST["page"];
 $pageurl = $_POST["pageurl"];
 $commenttype = $_POST["commenttype"];
