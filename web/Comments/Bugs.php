@@ -1,5 +1,5 @@
 <?php $path_parts = pathinfo(__FILE__); include("../Setup/preheader.php"); ?>
-<title>The Code</title>
+<title>Bugs/Features</title>
 <?php include("../Setup/header.php"); ?>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <table border="0">
