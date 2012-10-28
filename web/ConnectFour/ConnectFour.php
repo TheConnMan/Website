@@ -2,6 +2,7 @@
 <title>The Game</title>
 <?php include("../Setup/header.php"); ?>
 <head>
+    <link type="text/css" rel="stylesheet" href="../ConnectFour/ConnectFour.css">
     <style type="text/css">
 	#sidebuttons:hover {color: #2f8be8; cursor: pointer}
     </style>

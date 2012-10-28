@@ -2,8 +2,6 @@
 <link type="text/css" rel="stylesheet" href="../Setup/CSS.css">
 <link type="text/css" rel="stylesheet" href="../Setup/Menu.css">
 <link type="text/css" rel="stylesheet" href="../Setup/Shapes.css">
-<link type="text/css" rel="stylesheet" href="../ConnectFour/ConnectFour.css">
-<link type="text/css" rel="stylesheet" href="../Comments/comments.css">
 <link href="data:image/x-icon;base64,AAABAAEAEBACAAAAAACwAAAAFgAAACgAAAAQAAAAIAAAAAEAAQAAAAAAQAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAKSkpAAAAAAAAAAAAAAAAADgcAABEIgAAgkEAAIGBAACBgQAAgkEAAEQiAAA4HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AADH4wAAu90AAH2+AAB+fgAAfn4AAH2+AAC73QAAx+MAAP//AAD//wAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon" />
 </head>
 <div id="container">

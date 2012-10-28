@@ -1,4 +1,5 @@
 <div id="comments">
+    <link type="text/css" rel="stylesheet" href="../Comments/comments.css">
     <h2 style="padding-top: 15px">Leave a comment</h2>
     <?php
     $page_name = $path_parts['filename'];

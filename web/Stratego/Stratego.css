@@ -1,0 +1,30 @@
+.space {
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    text-align: center;
+    line-height: 2.5em;
+}
+.space2 {
+    height: 40px;
+    width: 40px;
+    background-color: lightblue;
+    margin: 5px;
+    text-align: center;
+    line-height: 2.5em;
+}
+.space2:hover {
+    cursor: pointer;
+}
+.piecesLeft {
+    text-align: center;
+}
+#gameBoard {
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid black;
+}
+#availablePieces {
+    padding: 15px;
+}
+
