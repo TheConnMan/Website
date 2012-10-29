@@ -24,7 +24,11 @@
     margin-right: auto;
     border: 2px solid black;
 }
+#gameBoard tr td {
+    vertical-align: middle;
+}
 #availablePieces {
     padding: 15px;
+    text-align: center;
 }
 
