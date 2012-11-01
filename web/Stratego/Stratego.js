@@ -52,6 +52,7 @@ function finishedPlacing() {
 		board[i][j]=$("#"+String(i)+String(j)).text()
 	    }
 	}
+        $("#leftmenu").height($("#rightcontent").height());
     } else {
 	alert("Not all pieces have been placed.");
     }

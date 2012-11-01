@@ -21,7 +21,7 @@ include("../Setup/preheader.php");
                 </ul>
             </div>
         </td><td width="3%"></td>
-        <td id="rightcolumn">
+        <td id="rightcolumn" style="width: 1100px">
             <div id="rightcontent">
                 <h1 style="text-align: center">Stratego</h1>
                 <table border="1" id="gameBoard">
@@ -58,6 +58,7 @@ include("../Setup/preheader.php");
                         </tr>
                     </table>
                 </div>
+                <?php include("../Comments/commentbox.php"); ?>
             </div>
         </td>
     </tr>
