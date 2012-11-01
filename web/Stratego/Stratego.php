@@ -25,21 +25,22 @@ include("../Setup/preheader.php");
             <div id="rightcontent">
                 <h1 style="text-align: center">Stratego</h1>
                 <table border="1" id="gameBoard">
-                    <?php
-                    for ($i = 0; $i < 10; $i++) {
-                        echo "<tr>";
-                        for ($j = 0; $j < 10; $j++) {
-                            echo "<td><div class='space' id='";
-                            echo $i;
-                            echo $j;
-                            echo "'></div></td>";
-                        }
-                        echo "</tr>";
-                    }
-                    ?>
+		    <?php
+		    for ($i = 0; $i < 10; $i++) {
+			echo "<tr>";
+			for ($j = 0; $j < 10; $j++) {
+			    echo "<td><div class='space' id='";
+			    echo $i;
+			    echo $j;
+			    echo "'></div></td>";
+			}
+			echo "</tr>";
+		    }
+		    ?>
                 </table>
                 <div id="availablePieces">
                     <button type="button" onclick="finishedPlacing()">Finished Placing Pieces</button>
+		    <button type="button" onclick="randomlyPlace(true)">Randomly Place</button>
                     <table style="margin-left: auto; margin-right: auto;">
                         <tr>
                             <td><div class="piecesLeft" id="piecesLeft1">1</div><div class="space2">1</div></td>
@@ -69,12 +70,22 @@ include("../Setup/preheader.php");
     var pieceSelectedColor="#ffffff";
     var opponentColor="#f64d54";
 <?php
-for ($i = 0; $i < 6; $i++) {
+for ($i = 0; $i < 4; $i++) {
     for ($j = 0; $j < 10; $j++) {
-        echo "$('#";
-        echo $i;
-        echo $j;
-        echo "').css('background-color',backgroundColor);";
+	echo "$('#";
+	echo $i;
+	echo $j;
+	echo "').css('background-color',opponentColor);";
+    };
+};
+?>
+<?php
+for ($i = 4; $i < 6; $i++) {
+    for ($j = 0; $j < 10; $j++) {
+	echo "$('#";
+	echo $i;
+	echo $j;
+	echo "').css('background-color',backgroundColor);";
     };
 };
 ?>
@@ -89,10 +100,10 @@ for ($i = 0; $i < 6; $i++) {
 <?php
 for ($i = 6; $i < 10; $i++) {
     for ($j = 0; $j < 10; $j++) {
-        echo "$('#";
-        echo $i;
-        echo $j;
-        echo "').css('background-color',placementColor);";
+	echo "$('#";
+	echo $i;
+	echo $j;
+	echo "').css('background-color',placementColor);";
     };
 };
 ?>
@@ -154,13 +165,21 @@ for ($i = 6; $i < 10; $i++) {
         }
     }
     function movePiece(idName) {
-        $("#"+idName).text($("#"+selectedPiece).text());
-        $("#"+selectedPiece).text(" ");
-        $("#"+idName).css("background-color",placedColor);
-        $("#"+selectedPiece).css("background-color",backgroundColor);
-        board[parseInt(idName.substring(0,1))][parseInt(idName.substring(1))]=board[parseInt(selectedPiece.substring(0,1))][parseInt(selectedPiece.substring(1))];
-        board[parseInt(selectedPiece.substring(0,1))][parseInt(selectedPiece.substring(1))]="";
+	if ($("#"+selectedPiece).text()!="B"&&$("#"+selectedPiece).text()!="F") {
+	    $("#"+idName).text($("#"+selectedPiece).text());
+	    $("#"+selectedPiece).text("");
+	    $("#"+idName).css("background-color",placedColor);
+	    $("#"+selectedPiece).css("background-color",backgroundColor);
+	    board[parseInt(idName.substring(0,1))][parseInt(idName.substring(1))]=board[parseInt(selectedPiece.substring(0,1))][parseInt(selectedPiece.substring(1))];
+	    board[parseInt(selectedPiece.substring(0,1))][parseInt(selectedPiece.substring(1))]="";
+	} else {
+	    alert("Not a movable piece.");
+	}
+        
     }
+    $(document).ready(function() {
+	randomlyPlace(false);
+    });
 </script>
 <script type="text/javascript" defer="defer" src="Stratego.js"></script>
 <?php include("../Setup/footer.php"); ?>
