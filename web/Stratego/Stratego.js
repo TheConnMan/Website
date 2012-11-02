@@ -98,3 +98,40 @@ function randomlyPlace(player) {
 	}
     }
 }
+function attackPiece(attacker, defender) {
+    if (jQuery.isNumeric(attacker)&&jQuery.isNumberic(defender)) {
+	attacker=parseInt(attacker);
+	defender=parseInt(defender);
+	if (attacker>defender) {
+	    return "attacker";
+	} else if (defender>attacker) {
+	    return "defender";
+	} else {
+	    return "both";
+	}
+    } else if (jQuery.isNumeric(attacker)&&!jQuery.isNumeric(defender)) {
+	if (defender=="B") {
+	    if (attacker=="8") {
+		return "defender";
+	    } else {
+		return "both";
+	    }
+	} else if (defender=="F") {
+	    return "over";
+	} else {
+	    return "defender"
+	}
+    } else if (!jQuery.isNumeric(attacker)&&jQuery.isNumberic(defender)) {
+	if (attacker=="S"&&defender=="1") {
+	    return "defender";
+	} else {
+	    return "attacker";
+	}
+    } else {
+	if (defender=="F") {
+	    return "over";
+	} else {
+	    return "both";
+	}
+    }
+}
