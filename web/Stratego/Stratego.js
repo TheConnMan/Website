@@ -99,7 +99,7 @@ function randomlyPlace(player) {
     }
 }
 function attackPiece(attacker, defender) {
-    if (jQuery.isNumeric(attacker)&&jQuery.isNumberic(defender)) {
+    if ($.isNumeric(attacker) && $.isNumeric(defender)) {
 	attacker=parseInt(attacker);
 	defender=parseInt(defender);
 	if (attacker>defender) {
@@ -109,7 +109,7 @@ function attackPiece(attacker, defender) {
 	} else {
 	    return "both";
 	}
-    } else if (jQuery.isNumeric(attacker)&&!jQuery.isNumeric(defender)) {
+    } else if ($.isNumeric(attacker) && !$.isNumeric(defender)) {
 	if (defender=="B") {
 	    if (attacker=="8") {
 		return "defender";
@@ -121,7 +121,7 @@ function attackPiece(attacker, defender) {
 	} else {
 	    return "defender"
 	}
-    } else if (!jQuery.isNumeric(attacker)&&jQuery.isNumberic(defender)) {
+    } else if (!$.isNumeric(attacker) && $.isNumeric(defender)) {
 	if (attacker=="S"&&defender=="1") {
 	    return "defender";
 	} else {

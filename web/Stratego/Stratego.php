@@ -38,23 +38,27 @@ include("../Setup/preheader.php");
 		    }
 		    ?>
                 </table>
+                <div style="text-align: center; padding: 5px;">
+                    <button type="button" onclick="reset()">Reset</button>
+                </div>
                 <div id="availablePieces">
                     <button type="button" onclick="finishedPlacing()">Finished Placing Pieces</button>
 		    <button type="button" onclick="randomlyPlace(true)">Randomly Place</button>
                     <table style="margin-left: auto; margin-right: auto;">
                         <tr>
-                            <td><div class="piecesLeft" id="piecesLeft1">1</div><div class="space2">1</div></td>
-                            <td><div class="piecesLeft" id="piecesLeft2">1</div><div class="space2">2</div></td>
-                            <td><div class="piecesLeft" id="piecesLeft3">2</div><div class="space2">3</div></td>
-                            <td><div class="piecesLeft" id="piecesLeft4">3</div><div class="space2">4</div></td>
-                            <td><div class="piecesLeft" id="piecesLeft5">4</div><div class="space2">5</div></td>
-                            <td><div class="piecesLeft" id="piecesLeft6">4</div><div class="space2">6</div></td>
-                            <td><div class="piecesLeft" id="piecesLeft7">4</div><div class="space2">7</div></td>
-                            <td><div class="piecesLeft" id="piecesLeft8">5</div><div class="space2">8</div></td>
-                            <td><div class="piecesLeft" id="piecesLeft9">8</div><div class="space2">9</div></td>
-                            <td><div class="piecesLeft" id="piecesLeftS">1</div><div class="space2">S</div></td>
-                            <td><div class="piecesLeft" id="piecesLeftB">6</div><div class="space2">B</div></td>
-                            <td><div class="piecesLeft" id="piecesLeftF">1</div><div class="space2">F</div></td>
+                            <?php
+                            $pieces=["1","2","3","4","5","6","7","8","9","S","B","F"];
+                            $pieceNums=[1,1,2,3,4,4,4,5,8,1,6,1];
+                            for ($i=0; $i<12; $i++) {
+                                echo "<td><div class='piecesLeft' id='piecesLeft";
+                                echo $pieces[$i];
+                                echo "'>";
+                                echo $pieceNums[$i];
+                                echo "</div><div class='space2'>";
+                                echo $pieces[$i];
+                                echo "</div></td>";
+                            }
+                            ?>
                         </tr>
                     </table>
                 </div>
@@ -123,6 +127,53 @@ for ($i = 6; $i < 10; $i++) {
         [" "," "," "," "," "," "," "," "," "," "],
         [" "," "," "," "," "," "," "," "," "," "],
         [" "," "," "," "," "," "," "," "," "," "]];
+        var pieces=["1","2","3","4","5","6","7","8","9","S","B","F"];
+        var pieceNums=[1,1,2,3,4,4,4,5,8,1,6,1];
+    function reset() {
+        board = [[" "," "," "," "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "," "," "," "],
+        [" "," "," "," "," "," "," "," "," "," "]];
+        gameStage=0;
+        randomlyPlace(false);
+        $("#availablePieces").show();
+        $("#leftmenu").height($("#rightcontent").height());
+        for (var i=6; i<10; i++) {
+	    for (var j=0; j<10; j++) {
+		$("#"+String(i)+String(j)).css("background-color",placementColor);
+                $("#"+String(i)+String(j)).text("");
+	    }
+	}
+        for (var i=0; i<4; i++) {
+	    for (var j=0; j<10; j++) {
+		$("#"+String(i)+String(j)).css("background-color",opponentColor);
+                $("#"+String(i)+String(j)).text("");
+	    }
+	}
+        for (var i=4; i<6; i++) {
+	    for (var j=0; j<10; j++) {
+		$("#"+String(i)+String(j)).css("background-color",backgroundColor);
+                $("#"+String(i)+String(j)).text("");
+	    }
+	}
+        for (var i=0; i<12; i++) {
+            $("#piecesLeft"+pieces[i]).text(pieceNums[i]);
+        }
+        $("#42").css("background-color",lakeColor);
+        $("#43").css("background-color",lakeColor);
+        $("#52").css("background-color",lakeColor);
+        $("#53").css("background-color",lakeColor);
+        $("#46").css("background-color",lakeColor);
+        $("#47").css("background-color",lakeColor);
+        $("#56").css("background-color",lakeColor);
+        $("#57").css("background-color",lakeColor);
+    }
     $(".space").click(function() {
         var id=$(this).attr("id");
         if (gameStage==0) {
@@ -134,15 +185,9 @@ for ($i = 6; $i < 10; $i++) {
         } else if (gameStage==1) {
             if (getColor(id)==placedColor) {
                 pieceSelected(id);
-            } else if (getColor(id)==backgroundColor) {
+            } else if (getColor(id)==backgroundColor||getColor(id)==opponentColor) {
                 if (squareAdjacent(id)) {
                     movePiece(id);
-                } else {
-                    alert("Square not adjacent.");
-                }
-            } else if (getColor(id)==opponentColor) {
-                if (squareAdjacent(id)) {
-                    takePiece(id);
                 } else {
                     alert("Square not adjacent.");
                 }
@@ -167,12 +212,35 @@ for ($i = 6; $i < 10; $i++) {
     }
     function movePiece(idName) {
 	if ($("#"+selectedPiece).text()!="B"&&$("#"+selectedPiece).text()!="F") {
-	    $("#"+idName).text($("#"+selectedPiece).text());
-	    $("#"+selectedPiece).text("");
-	    $("#"+idName).css("background-color",placedColor);
-	    $("#"+selectedPiece).css("background-color",backgroundColor);
-	    board[parseInt(idName.substring(0,1))][parseInt(idName.substring(1))]=board[parseInt(selectedPiece.substring(0,1))][parseInt(selectedPiece.substring(1))];
-	    board[parseInt(selectedPiece.substring(0,1))][parseInt(selectedPiece.substring(1))]="";
+            if ($("#"+idName).text()==""&&board[parseInt(idName.substring(0,1))][parseInt(idName.substring(1))]==" ") {
+                $("#"+idName).text($("#"+selectedPiece).text());
+                $("#"+idName).css("background-color",placedColor);
+                board[parseInt(idName.substring(0,1))][parseInt(idName.substring(1))]=board[parseInt(selectedPiece.substring(0,1))][parseInt(selectedPiece.substring(1))];
+            } else if ($("#"+idName).text()==""&&board[parseInt(idName.substring(0,1))][parseInt(idName.substring(1))]!=" ") {
+                var attacker=board[parseInt(selectedPiece.substring(0,1))][parseInt(selectedPiece.substring(1))];
+                var defender=board[parseInt(idName.substring(0,1))][parseInt(idName.substring(1))];
+                alert("Attacker is "+attacker+". Defender is "+defender+".");
+                var result=attackPiece(attacker,defender);
+                if (result=="attacker") {
+                } else if (result=="defender") {
+                    $("#"+idName).css("background-color",placedColor);
+                    $("#"+idName).text($("#"+selectedPiece).text());
+                    board[parseInt(idName.substring(0,1))][parseInt(idName.substring(1))]=board[parseInt(selectedPiece.substring(0,1))][parseInt(selectedPiece.substring(1))];
+                } else if (result=="both") {
+                    board[parseInt(idName.substring(0,1))][parseInt(idName.substring(1))]=" ";
+                    $("#"+idName).text("");
+                    $("#"+idName).css("background-color",backgroundColor);
+                } else if (result=="over") {
+                    $("#"+idName).css("background-color",placedColor);
+                    $("#"+idName).text($("#"+selectedPiece).text());
+                    board[parseInt(idName.substring(0,1))][parseInt(idName.substring(1))]=board[parseInt(selectedPiece.substring(0,1))][parseInt(selectedPiece.substring(1))];
+                    gameStage=2;
+                    displayAll();
+                }
+            }
+            $("#"+selectedPiece).text("");
+            board[parseInt(selectedPiece.substring(0,1))][parseInt(selectedPiece.substring(1))]=" ";
+            $("#"+selectedPiece).css("background-color",backgroundColor);
 	} else {
 	    alert("Not a movable piece.");
 	}
@@ -181,6 +249,13 @@ for ($i = 6; $i < 10; $i++) {
     $(document).ready(function() {
 	randomlyPlace(false);
     });
+    function displayAll() {
+        for (var i=0; i<10; i++) {
+            for (var j=0; j<10; j++) {
+                $("#"+String(i)+String(j)).text(board[i][j]);
+            }
+        }
+    }
 </script>
 <script type="text/javascript" defer="defer" src="Stratego.js"></script>
 <?php include("../Setup/footer.php"); ?>
