@@ -9,7 +9,7 @@ include("../Setup/preheader.php"); ?>
     </style>
 </head>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<table border="0">
+<table id="maintable" border="0">
     <tr>
 	<td id="leftcolumn">
 	    <div id="leftmenu">

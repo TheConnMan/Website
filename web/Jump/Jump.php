@@ -6,17 +6,13 @@ include("../Setup/preheader.php"); ?>
 <title>The Code</title>
 <?php include("../Setup/header.php"); ?>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<table border="0">
+<table id="maintable" border="0">
     <tr>
 	<td id="leftcolumn">
 	    <div id="leftmenu">
 		<ul style="list-style: none">
 		    <li style="padding-top: 15px">
-			<a href="#connectfourlabel">Connect Four</a>
-			<ul>
-			    <li><a href="#backstory">Backstory</a></li>
-			    <li><a href="#actualcode">The Actual Code</a></li>
-			</ul>
+			<a>Jump Game</a>
 		    </li>
 		</ul>
 	    </div>
@@ -39,6 +35,27 @@ include("../Setup/preheader.php"); ?>
                         }
                     ?>
 		</div>
+                <div style="text-align: center; padding: 20px;">
+                    Piece Colors
+                    <table border="0" style="margin-right: auto; margin-left: auto;">
+                        <tr>
+                            <td><div class="piececolor" id="c1" style="background-color: red; margin: 5px;"></div></td>
+                            <td><div class="piececolor" id="c2" style="background-color: slateblue; margin: 5px;"></div></td>
+                            <td><div class="piececolor" id="c3" style="background-color: green; margin: 5px;"></div></td>
+                            <td><div class="piececolor" id="c4" style="background-color: black; margin: 5px;"></div></td>
+                        </tr>
+                    </table>
+                    Background Colors
+                    <table border="0" style="margin-right: auto; margin-left: auto;">
+                        <tr>
+                            <td><div class="backcolor" id="c5" style="background-color: blue; margin: 5px;"></div></td>
+                            <td><div class="backcolor" id="c6" style="background-color: tan; margin: 5px;"></div></td>
+                            <td><div class="backcolor" id="c7" style="background-color: gray; margin: 5px;"></div></td>
+                            <td><div class="backcolor" id="c8" style="background-color: orange; margin: 5px;"></div></td>
+                        </tr>
+                    </table>
+                </div>
+                <?php include("../Comments/commentbox.php"); ?>
 	    </div>
 	</td>
     </tr>

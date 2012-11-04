@@ -35,6 +35,28 @@ $(".space").click(function () {
         alert("You Win!");
     }
 });
+$(".backcolor").click(function () {
+    var color=getColor($(this).attr("id"));
+    for (var i=1; i<6; i++) {
+        for (var j=1; j<=i; j++) {
+            if (getColor($("#"+i.toString()+j.toString()).attr("id"))==backgroundColor) {
+                $("#"+i.toString()+j.toString()).css("background-color",color);
+            }
+        }
+    }
+    backgroundColor=color;
+});
+$(".piececolor").click(function () {
+    var color=getColor($(this).attr("id"));
+    for (var i=1; i<6; i++) {
+        for (var j=1; j<=i; j++) {
+            if (getColor($("#"+i.toString()+j.toString()).attr("id"))==pieceColor) {
+                $("#"+i.toString()+j.toString()).css("background-color",color);
+            }
+        }
+    }
+    pieceColor=color;
+});
 $(document).ready(function() {
     for (var i=1; i<6; i++) {
         for (var j=1; j<=i; j++) {

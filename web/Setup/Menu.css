@@ -26,6 +26,9 @@ html, body
    width: 100%;
    min-width: 1200px;
 }
+#maintable {
+    width: 1170px;
+}
 #header {
    background: lightgray;
    padding:10px;
