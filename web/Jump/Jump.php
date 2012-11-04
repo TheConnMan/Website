@@ -35,6 +35,9 @@ include("../Setup/preheader.php"); ?>
                         }
                     ?>
 		</div>
+                <div style="text-align: center; padding-top: 20px;">
+                    <button type="button" onclick="reset()">Reset</button>
+                </div>
                 <div style="text-align: center; padding: 20px;">
                     Piece Colors
                     <table border="0" style="margin-right: auto; margin-left: auto;">

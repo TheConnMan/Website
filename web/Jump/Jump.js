@@ -58,12 +58,7 @@ $(".piececolor").click(function () {
     pieceColor=color;
 });
 $(document).ready(function() {
-    for (var i=1; i<6; i++) {
-        for (var j=1; j<=i; j++) {
-            $("#"+i.toString()+j.toString()).css("background-color",pieceColor);
-        }
-    }
-    $("#11").css("background-color",backgroundColor);
+    reset();
 });
 function getColor(idNameColor) {
     var element=document.getElementById(idNameColor);
@@ -81,4 +76,15 @@ function hexc(colorval) {
     }
     color = '#' + parts.join('');
     return color
+}
+function reset() {
+    for (var i=1; i<6; i++) {
+        for (var j=1; j<=i; j++) {
+            $("#"+i.toString()+j.toString()).css("background-color",pieceColor);
+        }
+    }
+    $("#11").css("background-color",backgroundColor);
+    moves=0;
+    selectedPiece="";
+    move="";
 }
