@@ -3,7 +3,7 @@ include("../Setup/preheader.php"); ?>
 <title>The Code</title>
 <?php include("../Setup/header.php"); ?>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<table border="0">
+<table id="maintable" border="0">
     <tr>
 	<td id="leftcolumn">
 	    <div id="leftmenu">

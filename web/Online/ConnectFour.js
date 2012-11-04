@@ -69,6 +69,57 @@ function buttonClicked(sqr, col) {
 	}
     }
 }
+function previewMove(sqr, col) {
+    if (getColor(sqr)=='#ffffff') {
+	if (move!="") {
+	    board[move][previousCol]=" ";
+	}
+	move=MakeMove(board, col)
+	previousCol=col;
+	board[move][col]=" X ";
+	var str=createString(board);
+	$("#hiddenMove").val(str);
+	update();
+        $("#submit").show();
+        $("#leftmenu").height($("#rightcontent").height());
+    }
+    
+}
+function createString(board) {
+    var str="";
+    for (var i=0; i<6; i++) {
+	for (var j=0; j<7; j++) {
+	    var space=board[i][j];
+	    if (space==" ") {
+		str+="-";
+	    } else {
+		str+=space.substring(1,2);
+	    }
+	    str+=",";
+        }
+    }
+    return str;
+}
+function breakString(str) {
+    var tempBoard = [[" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "]]
+    for (var i=0; i<6; i++) {
+	for (var j=0; j<7; j++) {
+            var num=2*(i*7+j);
+	    var piece=str.substring(num,num+1);
+	    if (piece=="-") {
+                tempBoard[i][j]=" ";
+            } else {
+                tempBoard[i][j]=" "+piece+" ";
+            }
+        }
+    }
+    return tempBoard;
+}
 function getColor(idName) {
     var element=document.getElementById(idName);
     var style=window.getComputedStyle(element,"");

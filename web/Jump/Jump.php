@@ -3,7 +3,7 @@ include("../Setup/preheader.php"); ?>
 <head>
     <link type="text/css" rel="stylesheet" href="../Jump/Jump.css">
 </head>
-<title>The Code</title>
+<title>Jump</title>
 <?php include("../Setup/header.php"); ?>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <table id="maintable" border="0">
