@@ -77,11 +77,11 @@ function previewMove(sqr, col) {
 	move=MakeMove(board, col)
 	previousCol=col;
 	board[move][col]=" X ";
-	$("#hiddenRow").val(move);
-	$("#hiddenCol").val(col);
 	var str=createString(board);
-	alert(str)
+	$("#hiddenMove").val(str);
 	update();
+        $("#submit").show();
+        $("#leftmenu").height($("#rightcontent").height());
     }
     
 }
@@ -96,10 +96,29 @@ function createString(board) {
 		str+=space.substring(1,2);
 	    }
 	    str+=",";
-	}
+        }
     }
-    str+=" ";
     return str;
+}
+function breakString(str) {
+    var tempBoard = [[" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "],
+    [" "," "," "," "," "," "," "]]
+    for (var i=0; i<6; i++) {
+	for (var j=0; j<7; j++) {
+            var num=2*(i*7+j);
+	    var piece=str.substring(num,num+1);
+	    if (piece=="-") {
+                tempBoard[i][j]=" ";
+            } else {
+                tempBoard[i][j]=" "+piece+" ";
+            }
+        }
+    }
+    return tempBoard;
 }
 function getColor(idName) {
     var element=document.getElementById(idName);
@@ -112,31 +131,31 @@ function hexc(colorval) {
     var parts = colorval.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
     delete(parts[0]);
     for (var i = 1; i <= 3; ++i) {
-	parts[i] = parseInt(parts[i]).toString(16);
-	if (parts[i].length == 1) parts[i] = '0' + parts[i];
+        parts[i] = parseInt(parts[i]).toString(16);
+        if (parts[i].length == 1) parts[i] = '0' + parts[i];
     }
     color = '#' + parts.join('');
     return color
 }
 function updateButtons() {
     if (mode==0) {
-	document.buttonsArea.turns.value=turnsAhead
-	document.buttonsArea.ratioButton.value=Math.round(100*ratio)/100
-	document.buttonsArea.win.value=winPoints
-	document.buttonsArea.tie.value=tiePoints
-	document.buttonsArea.loss.value=lossPoints
+        document.buttonsArea.turns.value=turnsAhead
+        document.buttonsArea.ratioButton.value=Math.round(100*ratio)/100
+        document.buttonsArea.win.value=winPoints
+        document.buttonsArea.tie.value=tiePoints
+        document.buttonsArea.loss.value=lossPoints
     }
     else if (mode==2) {
-	document.buttonsAreaTrials.turns1.value=turnsAhead1
-	document.buttonsAreaTrials.ratioButton1.value=Math.round(100*ratio1)/100
-	document.buttonsAreaTrials.win1.value=winPoints1
-	document.buttonsAreaTrials.tie1.value=tiePoints1
-	document.buttonsAreaTrials.loss1.value=lossPoints1
-	document.buttonsAreaTrials.turns2.value=turnsAhead2
-	document.buttonsAreaTrials.ratioButton2.value=Math.round(100*ratio2)/100
-	document.buttonsAreaTrials.win2.value=winPoints2
-	document.buttonsAreaTrials.tie2.value=tiePoints2
-	document.buttonsAreaTrials.loss2.value=lossPoints2
+        document.buttonsAreaTrials.turns1.value=turnsAhead1
+        document.buttonsAreaTrials.ratioButton1.value=Math.round(100*ratio1)/100
+        document.buttonsAreaTrials.win1.value=winPoints1
+        document.buttonsAreaTrials.tie1.value=tiePoints1
+        document.buttonsAreaTrials.loss1.value=lossPoints1
+        document.buttonsAreaTrials.turns2.value=turnsAhead2
+        document.buttonsAreaTrials.ratioButton2.value=Math.round(100*ratio2)/100
+        document.buttonsAreaTrials.win2.value=winPoints2
+        document.buttonsAreaTrials.tie2.value=tiePoints2
+        document.buttonsAreaTrials.loss2.value=lossPoints2
     }
     
 }

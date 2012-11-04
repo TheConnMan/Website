@@ -40,18 +40,19 @@ include("../Setup/preheader.php"); ?>
 				    echo $squareNum;
 				    echo "'></td>";
 				    $squareNum++;
-				}
-				echo "</tr>";
-			    }
-			    ?>
+                    }
+                    echo "</tr>";
+                }
+                ?>
 			</table>
 		    </div>
 		</div>
-		<form action="../ConnectFour/SubmitMove.php" method="post">
-		    <input id="hiddenCol" type="hidden" name="col" value="">
-		    <input id="hiddenRow" type="hidden" name="row" value="">
-		    <input type="submit" />
-		</form>
+                <div id="submit" style="display: none; text-align: center;">
+                    <form action="../ConnectFour/SubmitMove.php" method="post">
+                        <input id="hiddenMove" type="hidden" name="move" value="">
+                        <input type="submit" />
+                    </form>
+                </div>
 	    </div>
 	</td>
     </tr>
