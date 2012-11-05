@@ -12,7 +12,7 @@
 	    </div>
 	</div>
 	<script>
-	    function resetPage() {
+	    function resetPage(maxHeight) {
 		var rightCon=$("#rightcontent").height()
 		if (rightCon<maxHeight) {
 		    $("#rightcontent").height(maxHeight)
@@ -21,8 +21,7 @@
 		}
 	    }
 	    $(document).ready(function() {
-		maxHeight=Math.max($("#rightcontent").height(), $("#leftmenu").height());
-		resetPage();
+		resetPage(Math.max($("#rightcontent").height(), $("#leftmenu").height()));
 	    });
 	</script>
     </body>

@@ -1,35 +1,25 @@
 <?php
 
-define('CLIENT_LONG_PASSWORD', 1);
-$date = mktime(date('H')- 6, date('i'), date('s'), date("n"), date("j"), date("Y"));
-$board = $_POST["move"];
-
-
-
-
-$preauthor = $_POST["author"];
-$author = str_replace("'", "''", $preauthor);
-$precomment = $_POST["comment"];
-$comment = str_replace("'", "''", $precomment);
-$page = $_POST["page"];
-$pageurl = $_POST["pageurl"];
-$commenttype = $_POST["commenttype"];
-if ($commenttype == 'related') {
-    $reference = $_POST["reference"];
-    $query = sprintf("INSERT INTO Comments (page, author, comment, date, reference) VALUES ('$page','$author','$comment','$date','$reference')");
-} else {
-    if ($page == 'Bugs') {
-        $type = $_POST["type"];
-        $query = sprintf("INSERT INTO Comments (page, author, comment, date, type) VALUES ('$page','$author','$comment','$date','$type')");
-    } else {
-        $query = sprintf("INSERT INTO Comments (page, author, comment, date) VALUES ('$page','$author','$comment','$date')");
-    }
+if (!defined('CLIENT_LONG_PASSWORD')) {
+    define('CLIENT_LONG_PASSWORD', 1);
 }
-
+$newdate = mktime(date('H') - 6, date('i'), date('s'), date("n"), date("j"), date("Y"));
+$board = $_POST["board"];
+$player = $_POST["opponent"];
+$opponent = $_POST["player"];
+$olddate = $_POST["date"];
+$gametype = $_POST["gametype"];
+$piece = $_POST["piece"];
 $con = mysql_connect('sql.mit.edu', 'bcconn', 'MySQL2012', false, CLIENT_LONG_PASSWORD) or die(mysql_error());
 mysql_select_db("bcconn+Website", $con);
+if ($olddate=="") {
+    $query = sprintf("INSERT INTO Games VALUES ('$gametype', '$board', '$player', '$opponent', '$piece', '$newdate')");
+} else {
+    $query = sprintf("UPDATE Games SET board='$board', curplayer='$player', oppplayer='$opponent', lastmove='$newdate', piece='$piece' WHERE lastmove='$olddate', curplayer='$opponent'");
+}
 mysql_query($query);
 mysql_close($con);
-$redirect = sprintf("Location: $pageurl");
+
+$redirect = sprintf("Location: ../Online/Games.php");
 header($redirect);
 ?>

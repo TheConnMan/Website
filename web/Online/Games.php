@@ -1,0 +1,106 @@
+<?php
+$path_parts = pathinfo(__FILE__);
+include("../Setup/preheader.php");
+?>
+<title>The Code</title>
+<?php include("../Setup/header.php"); ?>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<table id="maintable" border="0">
+    <tr>
+	<td id="leftcolumn">
+	    <div id="leftmenu">
+		<ul style="list-style: none">
+		    <li style="padding-top: 15px">
+			<a href="#connectfourlabel">Connect Four</a>
+			<ul>
+			    <li><a href="#backstory">Backstory</a></li>
+			    <li><a href="#actualcode">The Actual Code</a></li>
+			</ul>
+		    </li>
+		</ul>
+	    </div>
+	</td><td width="3%"></td>
+	<td id="rightcolumn">
+	    <div id="rightcontent">
+		<?php
+		if ($_SESSION["username"] == null) {
+		    ?>
+    		<h2 style="text-align: center;">Please login to play games against other players</h2>
+		    <?php
+		} else {
+		    ?>
+    		<h1 style="text-align: center; padding-bottom: 10px;">Welcome <?php echo $_SESSION["username"]; ?></h1>
+    		<div style="padding: 10px;">
+    		    <h2>Start New Game</h2>
+    		    <form action="../Online/OnlineGame.php" method="post">
+    			Opponent:
+    			<input type="text" name="opponent" placeholder="Random"/><br>
+    			<input type="radio" name="gametype" value="Connect Four" checked> Connect Four<br>
+			<input type="hidden" name="date" value="">
+    			<input type="submit" value="Start"/>
+    		    </form>
+    		</div>
+    		<div style="padding: 10px;">
+    		    <h2>Your Turn</h2>
+			<?php
+			if (!defined('CLIENT_LONG_PASSWORD')) {
+			    define('CLIENT_LONG_PASSWORD', 1);
+			}
+			$con = mysql_connect('sql.mit.edu', 'bcconn', 'MySQL2012', false, CLIENT_LONG_PASSWORD) or die(mysql_error());
+			mysql_select_db("bcconn+Website", $con);
+			$player = $_SESSION["username"];
+			$temp = mysql_fetch_array(mysql_query("SELECT COUNT(*) AS counter FROM Games WHERE curplayer='$player'"));
+			if ($temp['counter'] == 0) {
+			    ?>
+			    None
+			    <?php
+			} else {
+			    $result = mysql_query("SELECT * FROM Games WHERE curplayer='$player'");
+			    while ($row = mysql_fetch_array($result)) {
+				?>
+	    		    <div style="padding: 5px; margin: 5px; border: 1px solid black; border-radius: 5px; width: 300px;">
+	    			Opponent: <?php echo $row["oppplayer"]; ?><br>
+	    			Game: <?php echo $row["gametype"]; ?><br>
+	    			Last Move: <?php echo date("g:i:s A n/d/y", $row['lastmove']); ?> EST<br>
+	    			<form action="../Online/OnlineGame.php" method="post">
+	    			    <input type="hidden" name="date" value="<?php echo $row['lastmove']; ?>">
+	    			    <input type="hidden" name="opponent" value="<?php echo $row["oppplayer"]; ?>">
+				    <input type="hidden" name="gametype" value="<?php echo $row["gametype"]; ?>">
+	    			    <input type="submit" value="Play"/>
+	    			</form>
+	    		    </div>
+				<?php
+			    }
+			}
+			?>
+    		</div>
+    		<div style="padding: 10px;">
+    		    <h2>Opponents Turn</h2>
+			<?php
+			$temp = mysql_fetch_array(mysql_query("SELECT COUNT(*) AS counter FROM Games WHERE oppplayer='$player'"));
+			if ($temp['counter'] == 0) {
+			    ?>
+			    None
+			    <?php
+			} else {
+			    $result = mysql_query("SELECT * FROM Games WHERE oppplayer='$player'");
+			    while ($row = mysql_fetch_array($result)) {
+				?>
+	    		    <div style="padding: 5px; margin: 5px; border: 1px solid black; border-radius: 5px; width: 300px;">
+	    			Opponent: <?php echo $row["curplayer"]; ?><br>
+	    			Game: <?php echo $row["gametype"]; ?><br>
+	    			Last Move: <?php echo date("g:i:s A n/d/y", $row['lastmove']); ?> EST
+	    		    </div>
+				<?php
+			    }
+			}
+			?>
+    		</div>
+		    <?php
+		}
+		?>
+	    </div>
+	</td>
+    </tr>
+</table>
+<?php include("../Setup/footer.php"); ?>

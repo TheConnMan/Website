@@ -61,7 +61,7 @@
 				</a>
 			    </td>
 			    <td>
-				About the Author<br>
+				Read About the Author<br>
 				<a href="../Setup/about.php">
 				    <img src="../Images/About.png" alt="Read aobut me!" width="95%" border="0">
 				</a>

@@ -1,42 +1,4 @@
-var currentPiece = " X "
-var compPiece = " O "
-var piece = " X "
-var turnNum = 0
-var mode=0
-var moveYet=false
-var turnsAhead = 5;
-var turnsAhead1 = 5;
-var turnsAhead2 = 5
-var ratio = .3;
-var ratio1 = .3;
-var ratio2 = .3;
-var winPoints = 2.5;
-var winPoints1 = 2.5;
-var winPoints2 = 2.5
-var tiePoints = 0;
-var tiePoints1 = 0;
-var tiePoints2 = 0
-var lossPoints = -10;
-var lossPoints1 = -10;
-var lossPoints2 = -10
-var board = [[" "," "," "," "," "," "," "],
-[" "," "," "," "," "," "," "],
-[" "," "," "," "," "," "," "],
-[" "," "," "," "," "," "," "],
-[" "," "," "," "," "," "," "],
-[" "," "," "," "," "," "," "]]
-var tempBoard=[[" "," "," "," "," "," "," "],
-[" "," "," "," "," "," "," "],
-[" "," "," "," "," "," "," "],
-[" "," "," "," "," "," "," "],
-[" "," "," "," "," "," "," "],
-[" "," "," "," "," "," "," "]]
-CopyArray(board, tempBoard)
-var move="";
-var win=false
-var turnDone=false
-var gameOver=false
-var previousCol;
+
 function computerMoveFirst(movedYet) {
     if (!moveYet) {
 	compColumn=Math.floor(Math.random()*7)
@@ -76,9 +38,9 @@ function previewMove(sqr, col) {
 	}
 	move=MakeMove(board, col)
 	previousCol=col;
-	board[move][col]=" X ";
+	board[move][col]=piece;
 	var str=createString(board);
-	$("#hiddenMove").val(str);
+	$("#hiddenBoard").val(str);
 	update();
         $("#submit").show();
         $("#leftmenu").height($("#rightcontent").height());
