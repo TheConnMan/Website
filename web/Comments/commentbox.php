@@ -79,7 +79,7 @@
 				    ?>
                                 </div>
                                 <div id="commentdate">
-				    <?php echo date("g:i:s A n/d/y", $row['date']); ?> EST
+				    <?php echo date("g:i:s A n/d/y", $row['date']+6*3600); ?> EST
                                 </div>
                             </td>
 			    <?php
@@ -138,7 +138,7 @@
 						    ?>
 	                                        </div>
 	                                        <div id="commentdate">
-						    <?php echo date("g:i:s A n/d/y", $row2['date']); ?> EST
+						    <?php echo date("g:i:s A n/d/y", $row2['date']+6*3600); ?> EST
 	                                        </div>
 	                                    </td>
 	                                </tr>

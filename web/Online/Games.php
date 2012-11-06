@@ -33,6 +33,7 @@ include("../Setup/preheader.php");
     		<div style="padding: 10px;">
     		    <h2>Start New Game</h2>
     		    <form action="../Online/OnlineGame.php" method="post">
+			<input type="hidden" name="opponent" value="">
     			Opponent:
     			<input type="text" name="opponent" placeholder="Random"/><br>
     			<input type="radio" name="gametype" value="Connect Four" checked> Connect Four<br>
@@ -61,7 +62,7 @@ include("../Setup/preheader.php");
 	    		    <div style="padding: 5px; margin: 5px; border: 1px solid black; border-radius: 5px; width: 300px;">
 	    			Opponent: <?php echo $row["oppplayer"]; ?><br>
 	    			Game: <?php echo $row["gametype"]; ?><br>
-	    			Last Move: <?php echo date("g:i:s A n/d/y", $row['lastmove']); ?> EST<br>
+	    			Last Move: <?php echo date("g:i:s A n/d/y", $row['lastmove']+6*3600); ?> EST<br>
 	    			<form action="../Online/OnlineGame.php" method="post">
 	    			    <input type="hidden" name="date" value="<?php echo $row['lastmove']; ?>">
 	    			    <input type="hidden" name="opponent" value="<?php echo $row["oppplayer"]; ?>">
@@ -89,7 +90,7 @@ include("../Setup/preheader.php");
 	    		    <div style="padding: 5px; margin: 5px; border: 1px solid black; border-radius: 5px; width: 300px;">
 	    			Opponent: <?php echo $row["curplayer"]; ?><br>
 	    			Game: <?php echo $row["gametype"]; ?><br>
-	    			Last Move: <?php echo date("g:i:s A n/d/y", $row['lastmove']); ?> EST
+	    			Last Move: <?php echo date("g:i:s A n/d/y", $row['lastmove']+6*3600); ?> EST
 	    		    </div>
 				<?php
 			    }
@@ -119,7 +120,7 @@ include("../Setup/preheader.php");
 	    		    <div style="padding: 5px; margin: 5px; border: 1px solid black; border-radius: 5px; width: 300px;">
 	    			Opponent: <?php echo $row["oppplayer"]; ?><br>
 	    			Game: <?php echo $row["gametype"]; ?><br>
-	    			Last Move: <?php echo date("g:i:s A n/d/y", $row['lastmove']); ?> EST<br>
+	    			Last Move: <?php echo date("g:i:s A n/d/y", $row['lastmove']+6*3600); ?> EST<br>
 				You Won<br>
 	    			<form action="../Online/OnlineGame.php" method="post">
 	    			    <input type="hidden" name="date" value="<?php echo $row['lastmove']; ?>">
@@ -136,7 +137,7 @@ include("../Setup/preheader.php");
 	    		    <div style="padding: 5px; margin: 5px; border: 1px solid black; border-radius: 5px; width: 300px;">
 	    			Opponent: <?php echo $row["oppplayer"]; ?><br>
 	    			Game: <?php echo $row["gametype"]; ?><br>
-	    			Last Move: <?php echo date("g:i:s A n/d/y", $row['lastmove']); ?> EST<br>
+	    			Last Move: <?php echo date("g:i:s A n/d/y", $row['lastmove']+6*3600); ?> EST<br>
 				You Lost<br>
 	    			<form action="../Online/OnlineGame.php" method="post">
 	    			    <input type="hidden" name="date" value="<?php echo $row['lastmove']; ?>">

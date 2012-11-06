@@ -2,7 +2,7 @@
 $path_parts = pathinfo(__FILE__);
 include("../Setup/preheader.php");
 ?>
-<title>The Game</title>
+<title>Online Games</title>
 <?php include("../Setup/header.php"); ?>
 <head>
     <link type="text/css" rel="stylesheet" href="../ConnectFour/ConnectFour.css">
@@ -38,6 +38,20 @@ include("../Setup/preheader.php");
 		mysql_select_db("bcconn+Website", $con);
 		$player = $_SESSION["username"];
 		$opponent = $_POST["opponent"];
+		if ($opponent == "") {
+		    $tempquery = mysql_query("SELECT COUNT(*) as count FROM Users WHERE username<>'$player'");
+		    $query = mysql_fetch_array($tempquery);
+		    $num = $query["count"];
+		    $result = mysql_query("SELECT * FROM Users WHERE username<>'$player'");
+		    $rand = rand(1, $num);
+		    $counter = 1;
+		    while ($row = mysql_fetch_array($result)) {
+			if ($counter == $rand) {
+			    $opponent = $row["username"];
+			    break;
+			}
+		    }
+		}
 		$date = $_POST["date"];
 		if ($date == "") {
 		    $validuser = mysql_fetch_array(mysql_query("SELECT COUNT(*) AS count FROM Users WHERE username='$opponent'"));
@@ -51,52 +65,52 @@ include("../Setup/preheader.php");
 			    $board = $result["board"];
 			    $piece = $result["piece"];
 			    ?>
-                <script>
-                    var stri='<?php echo $board; ?>';
-                    var board = [[" "," "," "," "," "," "," "],
-                        [" "," "," "," "," "," "," "],
-                        [" "," "," "," "," "," "," "],
-                        [" "," "," "," "," "," "," "],
-                        [" "," "," "," "," "," "," "],
-                        [" "," "," "," "," "," "," "]]
-                    for (var i=0; i<6; i++) {
-                        for (var j=0; j<7; j++) {
-                            var tempNum=2*(i*7+j);
-                            var temPiece=stri.substring(tempNum,tempNum+1);
-                            if (temPiece=="-") {
-                                board[i][j]=" ";
-                            } else {
-                                board[i][j]=" "+temPiece+" ";
-                            }
-                        }
-                    }
-                    var piece='<?php echo $piece; ?>';
-                </script>
+	                    <script>
+	                        var stri='<?php echo $board; ?>';
+	                        var board = [[" "," "," "," "," "," "," "],
+	                            [" "," "," "," "," "," "," "],
+	                            [" "," "," "," "," "," "," "],
+	                            [" "," "," "," "," "," "," "],
+	                            [" "," "," "," "," "," "," "],
+	                            [" "," "," "," "," "," "," "]]
+	                        for (var i=0; i<6; i++) {
+	                            for (var j=0; j<7; j++) {
+	                                var tempNum=2*(i*7+j);
+	                                var temPiece=stri.substring(tempNum,tempNum+1);
+	                                if (temPiece=="-") {
+	                                    board[i][j]=" ";
+	                                } else {
+	                                    board[i][j]=" "+temPiece+" ";
+	                                }
+	                            }
+	                        }
+	                        var piece='<?php echo $piece; ?>';
+	                    </script>
 			    <?php
 			} else {
 			    $piece = " X ";
 			    ?>
-                <script>
-                    var board=[[" "," "," "," "," "," "," "],
-                        [" "," "," "," "," "," "," "],
-                        [" "," "," "," "," "," "," "],
-                        [" "," "," "," "," "," "," "],
-                        [" "," "," "," "," "," "," "],
-                        [" "," "," "," "," "," "," "]];
-                    var piece='<?php echo $piece; ?>';
-                </script>
+	                    <script>
+	                        var board=[[" "," "," "," "," "," "," "],
+	                            [" "," "," "," "," "," "," "],
+	                            [" "," "," "," "," "," "," "],
+	                            [" "," "," "," "," "," "," "],
+	                            [" "," "," "," "," "," "," "],
+	                            [" "," "," "," "," "," "," "]];
+	                        var piece='<?php echo $piece; ?>';
+	                    </script>
 			    <?php
 			}
 			if ($piece == " X ") {
 			    $piece = " O ";
-			} else if ($piece==" O ") {
+			} else if ($piece == " O ") {
 			    $piece = " X ";
 			}
 			?>
-                <h1 style="text-align: center; padding-bottom: 10px">Connect Four With Friends!</h1>
-                <div style="padding: 10px">
-                    <div  style="width: 350px; margin-left: auto; margin-right: auto; padding: 20px; background-color: tan; border-radius: 6px">
-                        <table border="0">
+	                <h1 style="text-align: center; padding-bottom: 10px">Connect Four With Friends!</h1>
+	                <div style="padding: 10px">
+	                    <div  style="width: 350px; margin-left: auto; margin-right: auto; padding: 20px; background-color: tan; border-radius: 6px">
+	                        <table border="0">
 				    <?php
 				    $squareNum = 8;
 				    for ($row = 0; $row < 6; $row++) {
@@ -110,14 +124,14 @@ include("../Setup/preheader.php");
 					echo "</tr>";
 				    }
 				    ?>
-                        </table>
-                    </div>
-                </div>
+	                        </table>
+	                    </div>
+	                </div>
 			<?php
 		    }
 		} else {
 		    ?>
-                <h2 style="text-align: center;">Not A Valid User</h2>
+                    <h2 style="text-align: center;">Not A Valid User</h2>
 		    <?php
 		}
 		?>
@@ -140,14 +154,14 @@ include("../Setup/preheader.php");
     $(document).ready(function () {
 	update();
     });
-    <?php if ($piece!='OVER') {
-	?>
-    $(".piece").click(function () {
-        var idName=$(this).attr("id");
-        var num=(parseInt(idName.substring(3))-8)%7;
-        previewMove(idName,num);
-    });
-    <?php } ?>
+<?php if ($piece != 'OVER') {
+    ?>
+    	    $(".piece").click(function () {
+    		var idName=$(this).attr("id");
+    		var num=(parseInt(idName.substring(3))-8)%7;
+    		previewMove(idName,num);
+    	    });
+<?php } ?>
 </script>
 <script type="text/javascript" defer="defer" src="ConnectFour.js"></script>
 <?php include("../Setup/footer.php"); ?>
