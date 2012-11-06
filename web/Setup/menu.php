@@ -12,7 +12,7 @@
     <li><a href="../Setup/about.php">About</a></li>
     <li style="float: right;">
 	<?php
-	if ($_SESSION["username"] == null) {
+	if ($_SESSION["username"] == "") {
 	    ?>
     	<a href="../Login/Login.php">Login</a>
 	    <?php
@@ -24,7 +24,7 @@
 	}
 	?></a>
 	<?php
-	if ($_SESSION["username"]!=null) {
+	if ($_SESSION["username"]!="") {
 	?>
 	<ul>
 	    <li><a href="../Login/Logout.php">Logout</a></li>

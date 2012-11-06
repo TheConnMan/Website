@@ -9,7 +9,7 @@
     $currentUrl = $protocol . '://' . $host . $script;
     ?>
     <form action="../Comments/submitcomment.php" method="post">
-	<?php if ($_SESSION["username"] == null) {
+	<?php if ($_SESSION["username"] == "") {
 	    ?>
             <input type="hidden" name="author" value="Anonymous">
             Author:
@@ -163,7 +163,7 @@
                         <button type="button" id="comment<?php echo $row['date']; ?>" onclick="displaycommenter(<?php echo $row['date']; ?>)">Comment</button>
                         <div id="<?php echo $row['date']; ?>" style="display: none">
                             <form action="../Comments/submitcomment.php" method="post">
-				<?php if ($_SESSION["username"] == null) {
+				<?php if ($_SESSION["username"] == "") {
 				    ?>
 				    <input type="hidden" name="author" value="Anonymous">
 				    Author:

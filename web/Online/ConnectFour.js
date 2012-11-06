@@ -1,4 +1,3 @@
-
 function computerMoveFirst(movedYet) {
     if (!moveYet) {
 	compColumn=Math.floor(Math.random()*7)
@@ -72,11 +71,11 @@ function breakString(str) {
     for (var i=0; i<6; i++) {
 	for (var j=0; j<7; j++) {
             var num=2*(i*7+j);
-	    var piece=str.substring(num,num+1);
-	    if (piece=="-") {
+	    var temPiece=str.substring(num,num+1);
+	    if (temPiece=="-") {
                 tempBoard[i][j]=" ";
             } else {
-                tempBoard[i][j]=" "+piece+" ";
+                tempBoard[i][j]=" "+temPiece+" ";
             }
         }
     }

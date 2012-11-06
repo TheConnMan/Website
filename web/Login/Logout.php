@@ -2,7 +2,7 @@
 
 session_start();
 
-$_SESSION["username"] = null;
+$_SESSION["username"] = "";
 $redirect = sprintf("Location: ../Setup/index.php");
 header($redirect);
 ?>
