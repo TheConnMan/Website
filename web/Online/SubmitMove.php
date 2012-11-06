@@ -15,7 +15,7 @@ mysql_select_db("bcconn+Website", $con);
 if ($olddate=="") {
     $query = sprintf("INSERT INTO Games VALUES ('$gametype', '$board', '$player', '$opponent', '$piece', '$newdate')");
 } else {
-    $query = sprintf("UPDATE Games SET board='$board', curplayer='$player', oppplayer='$opponent', lastmove='$newdate', piece='$piece' WHERE lastmove='$olddate', curplayer='$opponent'");
+    $query = sprintf("UPDATE Games SET board='$board', curplayer='$player', oppplayer='$opponent', lastmove='$newdate', piece='$piece' WHERE lastmove='$olddate' AND curplayer='$opponent'");
 }
 mysql_query($query);
 mysql_close($con);

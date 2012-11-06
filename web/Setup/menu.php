@@ -8,6 +8,7 @@
         </ul>
     </li>
     <li><a href="../Jump/Jump.php">Jump</a></li>
+    <li><a href="../Online/Games.php">Online</a></li>
     <li><a href="../Comments/Bugs.php">Bugs/Features</a></li>
     <li><a href="../Setup/about.php">About</a></li>
     <li style="float: right;">

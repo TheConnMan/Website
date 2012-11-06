@@ -89,7 +89,7 @@ include("../Setup/preheader.php");
 			}
 			if ($piece == " X ") {
 			    $piece = " O ";
-			} else {
+			} else if ($piece==" O ") {
 			    $piece = " X ";
 			}
 			?>
@@ -126,7 +126,7 @@ include("../Setup/preheader.php");
                         <input id="hiddenBoard" type="hidden" name="board" value="">
                         <input type="hidden" name="player" value="<?php echo $player; ?>">
                         <input type="hidden" name="opponent" value="<?php echo $opponent; ?>">
-                        <input type="hidden" name="piece" value="<?php echo $piece; ?>">
+                        <input id="hiddenPiece" type="hidden" name="piece" value="<?php echo $piece; ?>">
                         <input type="hidden" name="date" value="<?php echo $date; ?>">
                         <input type="hidden" name="gametype" value="<?php echo $gametype; ?>">
                         <input type="submit" />
@@ -137,11 +137,17 @@ include("../Setup/preheader.php");
     </tr>
 </table>
 <script>
+    $(document).ready(function () {
+	update();
+    });
+    <?php if ($piece!='OVER') {
+	?>
     $(".piece").click(function () {
         var idName=$(this).attr("id");
         var num=(parseInt(idName.substring(3))-8)%7;
         previewMove(idName,num);
     });
+    <?php } ?>
 </script>
 <script type="text/javascript" defer="defer" src="ConnectFour.js"></script>
 <?php include("../Setup/footer.php"); ?>
