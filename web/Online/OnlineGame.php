@@ -63,7 +63,7 @@ include("../Setup/preheader.php");
 		    if ($gametype == "Connect Four") {
 			if ($date != "") {
 			    if ($winner!="") {
-				$result = mysql_fetch_array(mysql_query("SELECT * FROM Games WHERE oppplayer='$player' AND lastmove='$date' AND gametype='$gametype'"));
+				$result = mysql_fetch_array(mysql_query("SELECT * FROM Games WHERE oppplayer='$winner' AND lastmove='$date' AND gametype='$gametype'"));
 			    } else {
 				$result = mysql_fetch_array(mysql_query("SELECT * FROM Games WHERE curplayer='$player' AND lastmove='$date' AND gametype='$gametype'"));
 			    }
