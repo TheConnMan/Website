@@ -2,7 +2,7 @@
 $path_parts = pathinfo(__FILE__);
 include("../Setup/preheader.php");
 ?>
-<title>Online Games</title>
+<title>Game Boards</title>
 <?php include("../Setup/header.php"); ?>
 <head>
     <link type="text/css" rel="stylesheet" href="../ConnectFour/ConnectFour.css">
@@ -38,6 +38,7 @@ include("../Setup/preheader.php");
 		mysql_select_db("bcconn+Website", $con);
 		$player = $_SESSION["username"];
 		$opponent = $_POST["opponent"];
+		$winner = $_POST["winner"];
 		if ($opponent == "") {
 		    $tempquery = mysql_query("SELECT COUNT(*) as count FROM Users WHERE username<>'$player'");
 		    $query = mysql_fetch_array($tempquery);
@@ -61,7 +62,11 @@ include("../Setup/preheader.php");
 		if ($validuser["count"] != 0) {
 		    if ($gametype == "Connect Four") {
 			if ($date != "") {
-			    $result = mysql_fetch_array(mysql_query("SELECT * FROM Games WHERE curplayer='$player' AND lastmove='$date' AND gametype='$gametype'"));
+			    if ($winner!="") {
+				$result = mysql_fetch_array(mysql_query("SELECT * FROM Games WHERE oppplayer='$player' AND lastmove='$date' AND gametype='$gametype'"));
+			    } else {
+				$result = mysql_fetch_array(mysql_query("SELECT * FROM Games WHERE curplayer='$player' AND lastmove='$date' AND gametype='$gametype'"));
+			    }
 			    $board = $result["board"];
 			    $piece = $result["piece"];
 			    ?>

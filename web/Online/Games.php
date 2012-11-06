@@ -2,7 +2,7 @@
 $path_parts = pathinfo(__FILE__);
 include("../Setup/preheader.php");
 ?>
-<title>The Code</title>
+<title>Games</title>
 <?php include("../Setup/header.php"); ?>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <table id="maintable" border="0">
@@ -67,6 +67,7 @@ include("../Setup/preheader.php");
 	    			    <input type="hidden" name="date" value="<?php echo $row['lastmove']; ?>">
 	    			    <input type="hidden" name="opponent" value="<?php echo $row["oppplayer"]; ?>">
 				    <input type="hidden" name="gametype" value="<?php echo $row["gametype"]; ?>">
+				    <input type="hidden" name="winner" value="">
 	    			    <input type="submit" value="Play"/>
 	    			</form>
 	    		    </div>
@@ -126,6 +127,7 @@ include("../Setup/preheader.php");
 	    			    <input type="hidden" name="date" value="<?php echo $row['lastmove']; ?>">
 	    			    <input type="hidden" name="opponent" value="<?php echo $row["oppplayer"]; ?>">
 				    <input type="hidden" name="gametype" value="<?php echo $row["gametype"]; ?>">
+				    <input type="hidden" name="winner" value="<?php echo $_SESSION["username"]; ?>">
 	    			    <input type="submit" value="View"/>
 	    			</form>
 	    		    </div>
@@ -143,6 +145,7 @@ include("../Setup/preheader.php");
 	    			    <input type="hidden" name="date" value="<?php echo $row['lastmove']; ?>">
 	    			    <input type="hidden" name="opponent" value="<?php echo $row["oppplayer"]; ?>">
 				    <input type="hidden" name="gametype" value="<?php echo $row["gametype"]; ?>">
+				    <input type="hidden" name="winner" value="<?php echo $row["oppplayer"]; ?>">
 	    			    <input type="submit" value="View"/>
 	    			</form>
 	    		    </div>
