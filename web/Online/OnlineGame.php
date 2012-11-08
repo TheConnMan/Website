@@ -115,7 +115,7 @@ if ($date == "") {
                             $result = mysql_query("SELECT * FROM Games WHERE curplayer='$player' AND piece<>'OVER'");
                             while ($row = mysql_fetch_array($result)) {
                                 ?>
-                                <div style="padding: 5px; margin: 5px; border: 1px solid black; border-radius: 5px; width: 300px;">
+                                <div style="padding: 5px; margin: 5px; border: 1px solid black; border-radius: 5px; width: 200px;">
                                     Opponent: <?php echo $row["oppplayer"]; ?><br>
                                     Game: <?php echo $row["gametype"]; ?><br>
                                     Last Move: <?php echo date("n/d/y", $row['lastmove'] + 6 * 3600); ?> EST<br>
