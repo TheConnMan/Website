@@ -7,21 +7,8 @@ include("../Setup/preheader.php");
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <table id="maintable" border="0">
     <tr>
-	<td id="leftcolumn">
-	    <div id="leftmenu">
-		<ul style="list-style: none">
-		    <li style="padding-top: 15px">
-			<a href="#connectfourlabel">Connect Four</a>
-			<ul>
-			    <li><a href="#backstory">Backstory</a></li>
-			    <li><a href="#actualcode">The Actual Code</a></li>
-			</ul>
-		    </li>
-		</ul>
-	    </div>
-	</td><td width="3%"></td>
 	<td id="rightcolumn">
-	    <div id="rightcontent">
+	    <div id="rightcontent" style="width: 800px; margin-left: auto; margin-right: auto;">
 		<?php
 		if ($_SESSION["username"] == null) {
 		    ?>
@@ -115,7 +102,7 @@ include("../Setup/preheader.php");
 			    None
 			    <?php
 			} else {
-			    $result = mysql_query("SELECT * FROM Games WHERE oppplayer='$player' AND piece='OVER'");
+			    $result = mysql_query("SELECT * FROM Games WHERE oppplayer='$player' AND piece='OVER' LIMIT 4");
 			    while ($row = mysql_fetch_array($result)) {
 				?>
 	    		    <div style="padding: 5px; margin: 5px; border: 1px solid black; border-radius: 5px; width: 300px;">
@@ -133,7 +120,7 @@ include("../Setup/preheader.php");
 	    		    </div>
 				<?php
 			    }
-				$result = mysql_query("SELECT * FROM Games WHERE curplayer='$player' AND piece='OVER'");
+				$result = mysql_query("SELECT * FROM Games WHERE curplayer='$player' AND piece='OVER' LIMIT 4");
 			    while ($row = mysql_fetch_array($result)) {
 				?>
 	    		    <div style="padding: 5px; margin: 5px; border: 1px solid black; border-radius: 5px; width: 300px;">

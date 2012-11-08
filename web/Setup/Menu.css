@@ -22,7 +22,7 @@ html, body
 #container {
    min-height:100%;
    position:relative;
-   background: lightgray;
+   background: #383838;
    width: 100%;
    min-width: 1200px;
 }
@@ -30,7 +30,7 @@ html, body
     width: 1170px;
 }
 #header {
-   background: lightgray;
+   background: #383838;
    padding:10px;
 }
 #body {
@@ -41,8 +41,8 @@ html, body
    bottom:0;
    width:100%;
    height:50px;   /* Height of the footer */
-   background: lightgrey;
-   color: blue;
+   background: #383838;
+   color: white;
 }
 #leftcolumn {
     width: 17%;

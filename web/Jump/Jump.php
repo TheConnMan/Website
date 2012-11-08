@@ -8,17 +8,8 @@ include("../Setup/preheader.php"); ?>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <table id="maintable" border="0">
     <tr>
-	<td id="leftcolumn">
-	    <div id="leftmenu">
-		<ul style="list-style: none">
-		    <li style="padding-top: 15px">
-			<a>Jump Game</a>
-		    </li>
-		</ul>
-	    </div>
-	</td><td width="3%"></td>
 	<td id="rightcolumn">
-	    <div id="rightcontent">
+	    <div id="rightcontent" style="width: 800px; margin-left: auto; margin-right: auto;">
 		<h1 style="text-align: center">Jump Game</h1>
 		<div style="text-align: left">
                     <table>
