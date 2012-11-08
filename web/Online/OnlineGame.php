@@ -63,7 +63,7 @@ if ($date == "") {
                             None
                             <?php
                         } else {
-                            $result = mysql_query("SELECT * FROM Games WHERE oppplayer='$player' AND piece='OVER' LIMIT 4");
+                            $result = mysql_query("SELECT * FROM Games WHERE oppplayer='$player' AND piece='OVER' AND lastmove<>'$date' LIMIT 4");
                             while ($row = mysql_fetch_array($result)) {
                                 ?>
                                 <div style="padding: 5px; margin: 5px; border: 1px solid black; border-radius: 5px; width: 200px;">
@@ -81,7 +81,7 @@ if ($date == "") {
                                 </div>
                                 <?php
                             }
-                            $result = mysql_query("SELECT * FROM Games WHERE curplayer='$player' AND piece='OVER' LIMIT 4");
+                            $result = mysql_query("SELECT * FROM Games WHERE curplayer='$player' AND piece='OVER' AND lastmove<>'$date' LIMIT 4");
                             while ($row = mysql_fetch_array($result)) {
                                 ?>
                                 <div style="padding: 5px; margin: 5px; border: 1px solid black; border-radius: 5px; width: 200px;">
@@ -101,7 +101,7 @@ if ($date == "") {
                             }
                         }
                     } else {
-                        $temp = mysql_fetch_array(mysql_query("SELECT COUNT(*) AS counter FROM Games WHERE curplayer='$player' AND piece<>'OVER'"));
+                        $temp = mysql_fetch_array(mysql_query("SELECT COUNT(*) AS counter FROM Games WHERE curplayer='$player' AND piece<>'OVER' AND lastmove<>'$date'"));
                         ?>
                             <div style="padding: 5px;">
                         <h2>Your Turn</h2>

@@ -2,10 +2,17 @@ var selectedPiece="";
 var move="";
 var pieceColor="#6a5acd";
 var backgroundColor="#d2b48c";
+var selectedColor="#33ffff";
 var moves=0;
+var lastSelected="";
+var lastMove="";
 $(".space").click(function () {
     if (getColor($(this).attr("id"))==pieceColor) {
+        if (selectedPiece!="") {
+            $("#"+selectedPiece).css("background-color", pieceColor);
+        }
         selectedPiece=$(this).attr("id");
+        $("#"+selectedPiece).css("background-color", selectedColor);
     } else if (selectedPiece!="" && getColor($(this).attr("id"))==backgroundColor) {
         var selectedRow=parseInt(selectedPiece.substring(0,1));
         var selectedCol=parseInt(selectedPiece.substring(1));
