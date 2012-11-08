@@ -106,7 +106,7 @@ include("../Setup/preheader.php");
 			    while ($row = mysql_fetch_array($result)) {
 				?>
 	    		    <div style="padding: 5px; margin: 5px; border: 1px solid black; border-radius: 5px; width: 300px;">
-	    			Opponent: <?php echo $row["oppplayer"]; ?><br>
+	    			Opponent: <?php echo $row["curplayer"]; ?><br>
 	    			Game: <?php echo $row["gametype"]; ?><br>
 	    			Last Move: <?php echo date("g:i:s A n/d/y", $row['lastmove']+6*3600); ?> EST<br>
 				You Won<br>
