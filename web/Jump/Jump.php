@@ -28,6 +28,7 @@ include("../Setup/preheader.php"); ?>
 		</div>
                 <div style="text-align: center; padding-top: 20px;">
                     <button type="button" onclick="reset()">Reset</button>
+                    <button type="button" onclick="undo()">Undo</button>
                 </div>
                 <div style="text-align: center; padding: 20px;">
                     Piece Colors

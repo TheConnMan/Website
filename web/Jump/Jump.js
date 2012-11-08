@@ -22,18 +22,24 @@ $(".space").click(function () {
             $("#"+(Math.min(selectedRow,curRow)+1).toString()+(Math.min(selectedCol,curCol)+1).toString()).css("background-color",backgroundColor);
             $("#"+selectedPiece).css("background-color",backgroundColor);
             $("#"+curRow.toString()+curCol.toString()).css("background-color",pieceColor);
+            lastSelected=selectedPiece;
+            lastMove=$(this).attr("id");
             selectedPiece="";
             moves++;
         } else if (Math.abs(selectedRow-curRow)==0 && Math.abs(selectedCol-curCol)==2 && getColor($("#"+selectedRow.toString()+(Math.min(selectedCol,curCol)+1).toString()).attr("id"))==pieceColor) {
             $("#"+selectedRow.toString()+(Math.min(selectedCol,curCol)+1).toString()).css("background-color",backgroundColor);
             $("#"+selectedPiece).css("background-color",backgroundColor);
             $("#"+curRow.toString()+curCol.toString()).css("background-color",pieceColor);
+            lastSelected=selectedPiece;
+            lastMove=$(this).attr("id");
             selectedPiece="";
             moves++;
         } else if (Math.abs(selectedRow-curRow)==2 && Math.abs(selectedCol-curCol)==0 && getColor($("#"+(Math.min(selectedRow,curRow)+1).toString()+selectedCol.toString()).attr("id"))==pieceColor) {
             $("#"+(Math.min(selectedRow,curRow)+1).toString()+selectedCol.toString()).css("background-color",backgroundColor);
             $("#"+selectedPiece).css("background-color",backgroundColor);
             $("#"+curRow.toString()+curCol.toString()).css("background-color",pieceColor);
+            lastSelected=selectedPiece;
+            lastMove=$(this).attr("id");
             selectedPiece="";
             moves++;
         }
@@ -42,6 +48,36 @@ $(".space").click(function () {
         alert("You Win!");
     }
 });
+function undo() {
+    if (lastMove!="") {
+        var selectedRow=parseInt(lastSelected.substring(0,1));
+        var selectedCol=parseInt(lastSelected.substring(1));
+        var curRow=parseInt(lastMove.substring(0,1));
+        var curCol=parseInt(lastMove.substring(1));
+        if (Math.abs(selectedRow-curRow)==2 && Math.abs(selectedCol-curCol)==2) {
+            $("#"+(Math.min(selectedRow,curRow)+1).toString()+(Math.min(selectedCol,curCol)+1).toString()).css("background-color",pieceColor);
+            $("#"+lastSelected).css("background-color",pieceColor);
+            $("#"+curRow.toString()+curCol.toString()).css("background-color",backgroundColor);
+            lastSelected="";
+            lastMove="";
+            moves--;
+        } else if (Math.abs(selectedRow-curRow)==0 && Math.abs(selectedCol-curCol)==2) {
+            $("#"+selectedRow.toString()+(Math.min(selectedCol,curCol)+1).toString()).css("background-color",pieceColor);
+            $("#"+lastSelected).css("background-color",pieceColor);
+            $("#"+curRow.toString()+curCol.toString()).css("background-color",backgroundColor);
+            lastSelected="";
+            lastMove="";
+            moves--;
+        } else if (Math.abs(selectedRow-curRow)==2 && Math.abs(selectedCol-curCol)==0) {
+            $("#"+(Math.min(selectedRow,curRow)+1).toString()+selectedCol.toString()).css("background-color",pieceColor);
+            $("#"+lastSelected).css("background-color",pieceColor);
+            $("#"+curRow.toString()+curCol.toString()).css("background-color",backgroundColor);
+            lastSelected="";
+            lastMove="";
+            moves--;
+        }
+    }
+}
 $(".backcolor").click(function () {
     var color=getColor($(this).attr("id"));
     for (var i=1; i<6; i++) {
