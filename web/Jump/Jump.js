@@ -56,22 +56,25 @@ function undo() {
         var curCol=parseInt(lastMove.substring(1));
         if (Math.abs(selectedRow-curRow)==2 && Math.abs(selectedCol-curCol)==2) {
             $("#"+(Math.min(selectedRow,curRow)+1).toString()+(Math.min(selectedCol,curCol)+1).toString()).css("background-color",pieceColor);
-            $("#"+lastSelected).css("background-color",pieceColor);
+            $("#"+lastSelected).css("background-color",selectedColor);
             $("#"+curRow.toString()+curCol.toString()).css("background-color",backgroundColor);
+            selectedPiece=lastSelected;
             lastSelected="";
             lastMove="";
             moves--;
         } else if (Math.abs(selectedRow-curRow)==0 && Math.abs(selectedCol-curCol)==2) {
             $("#"+selectedRow.toString()+(Math.min(selectedCol,curCol)+1).toString()).css("background-color",pieceColor);
-            $("#"+lastSelected).css("background-color",pieceColor);
+            $("#"+lastSelected).css("background-color",selectedColor);
             $("#"+curRow.toString()+curCol.toString()).css("background-color",backgroundColor);
+            selectedPiece=lastSelected;
             lastSelected="";
             lastMove="";
             moves--;
         } else if (Math.abs(selectedRow-curRow)==2 && Math.abs(selectedCol-curCol)==0) {
             $("#"+(Math.min(selectedRow,curRow)+1).toString()+selectedCol.toString()).css("background-color",pieceColor);
-            $("#"+lastSelected).css("background-color",pieceColor);
+            $("#"+lastSelected).css("background-color",selectedColor);
             $("#"+curRow.toString()+curCol.toString()).css("background-color",backgroundColor);
+            selectedPiece=lastSelected;
             lastSelected="";
             lastMove="";
             moves--;
