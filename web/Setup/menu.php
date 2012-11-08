@@ -43,7 +43,7 @@
         $player = $_SESSION["username"];
         $temp = mysql_fetch_array(mysql_query("SELECT COUNT(*) AS counter FROM Games WHERE curplayer='$player' AND piece<>'OVER'"));
         $counter = $temp['counter']; ?>
-    <li style="float: right;"><a href="../Setup/about.php"><?php echo $counter; if ($counter==1) {echo ' Game';} else {echo ' Games';} ?></a>
+    <li style="float: right;"><a href="../Online/Games.php"><?php echo $counter; if ($counter==1) {echo ' Game';} else {echo ' Games';} ?></a>
         <ul>
             <?php
             $result = mysql_query("SELECT * FROM Games WHERE curplayer='$player' AND piece<>'OVER'");
