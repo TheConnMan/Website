@@ -25,6 +25,7 @@ include("../Setup/preheader.php");
     			<input type="text" name="opponent" placeholder="Random"/><br>
     			<input type="radio" name="gametype" value="Connect Four" checked> Connect Four<br>
 			<input type="hidden" name="date" value="">
+                        <input type="hidden" name="winner" value="">
     			<input type="submit" value="Start"/>
     		    </form>
     		</div>

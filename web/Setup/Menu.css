@@ -11,6 +11,9 @@ html, body
     font-family: Arial;
 }
 /* Index */
+.gameNotification:hover {
+    cursor: pointer;
+}
 #siteChoices {
     text-align: center;
     width: 100%;

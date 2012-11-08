@@ -46,43 +46,91 @@ if ($date == "") {
     <tr>
         <td id="leftcolumn">
             <div id="leftmenu">
-                <div>
-                <?php 
-                $result = mysql_query("SELECT * FROM Games WHERE oppplayer='$player' AND piece='OVER' LIMIT 4");
-			    while ($row = mysql_fetch_array($result)) {
-				?>
-	    		    <div style="padding: 5px; margin: 5px; border: 1px solid black; border-radius: 5px; width: 200px;">
-	    			Opponent: <?php echo $row["curplayer"]; ?><br>
-	    			Game: <?php echo $row["gametype"]; ?><br>
-	    			Ended: <?php echo date("n/d/y", $row['lastmove']+6*3600); ?> EST<br>
-				You Won<br>
-	    			<form action="../Online/OnlineGame.php" method="post">
-	    			    <input type="hidden" name="date" value="<?php echo $row['lastmove']; ?>">
-	    			    <input type="hidden" name="opponent" value="<?php echo $row["oppplayer"]; ?>">
-				    <input type="hidden" name="gametype" value="<?php echo $row["gametype"]; ?>">
-				    <input type="hidden" name="winner" value="<?php echo $_SESSION["username"]; ?>">
-	    			    <input type="submit" value="View"/>
-	    			</form>
-	    		    </div>
-                <?php }
-                $result = mysql_query("SELECT * FROM Games WHERE curplayer='$player' AND piece='OVER' LIMIT 4");
-			    while ($row = mysql_fetch_array($result)) {
-				?>
-	    		    <div style="padding: 5px; margin: 5px; border: 1px solid black; border-radius: 5px; width: 200px;">
-	    			Opponent: <?php echo $row["oppplayer"]; ?><br>
-	    			Game: <?php echo $row["gametype"]; ?><br>
-	    			Ended: <?php echo date("n/d/y", $row['lastmove']+6*3600); ?> EST<br>
-				You Lost<br>
-	    			<form action="../Online/OnlineGame.php" method="post">
-	    			    <input type="hidden" name="date" value="<?php echo $row['lastmove']; ?>">
-	    			    <input type="hidden" name="opponent" value="<?php echo $row["oppplayer"]; ?>">
-				    <input type="hidden" name="gametype" value="<?php echo $row["gametype"]; ?>">
-				    <input type="hidden" name="winner" value="<?php echo $row["oppplayer"]; ?>">
-	    			    <input type="submit" value="View"/>
-	    			</form>
-	    		    </div>
-                <?php } ?>
-                </div>
+                    
+                    <?php
+                    if ($winner != "") {
+                        $player = $_SESSION["username"];
+                        $temp = mysql_fetch_array(mysql_query("SELECT COUNT(*) AS counter FROM Games WHERE curplayer='$player' AND piece='OVER'"));
+                        $temp2 = mysql_fetch_array(mysql_query("SELECT COUNT(*) AS counter FROM Games WHERE oppplayer='$player' AND piece='OVER'"));
+                        $counter = $temp['counter'] + $temp2['counter'];
+                        ?>
+                <div style="padding: 5px;">
+                        <h2>View Games</h2>
+                    </div>
+                <?php
+                        if ($counter == 0) {
+                            ?>
+                            None
+                            <?php
+                        } else {
+                            $result = mysql_query("SELECT * FROM Games WHERE oppplayer='$player' AND piece='OVER' LIMIT 4");
+                            while ($row = mysql_fetch_array($result)) {
+                                ?>
+                                <div style="padding: 5px; margin: 5px; border: 1px solid black; border-radius: 5px; width: 200px;">
+                                    Opponent: <?php echo $row["curplayer"]; ?><br>
+                                    Game: <?php echo $row["gametype"]; ?><br>
+                                    Ended: <?php echo date("n/d/y", $row['lastmove'] + 6 * 3600); ?> EST<br>
+                                    You Won<br>
+                                    <form action="../Online/OnlineGame.php" method="post">
+                                        <input type="hidden" name="date" value="<?php echo $row['lastmove']; ?>">
+                                        <input type="hidden" name="opponent" value="<?php echo $row["oppplayer"]; ?>">
+                                        <input type="hidden" name="gametype" value="<?php echo $row["gametype"]; ?>">
+                                        <input type="hidden" name="winner" value="<?php echo $_SESSION["username"]; ?>">
+                                        <input type="submit" value="View"/>
+                                    </form>
+                                </div>
+                                <?php
+                            }
+                            $result = mysql_query("SELECT * FROM Games WHERE curplayer='$player' AND piece='OVER' LIMIT 4");
+                            while ($row = mysql_fetch_array($result)) {
+                                ?>
+                                <div style="padding: 5px; margin: 5px; border: 1px solid black; border-radius: 5px; width: 200px;">
+                                    Opponent: <?php echo $row["oppplayer"]; ?><br>
+                                    Game: <?php echo $row["gametype"]; ?><br>
+                                    Ended: <?php echo date("n/d/y", $row['lastmove'] + 6 * 3600); ?> EST<br>
+                                    You Lost<br>
+                                    <form action="../Online/OnlineGame.php" method="post">
+                                        <input type="hidden" name="date" value="<?php echo $row['lastmove']; ?>">
+                                        <input type="hidden" name="opponent" value="<?php echo $row["oppplayer"]; ?>">
+                                        <input type="hidden" name="gametype" value="<?php echo $row["gametype"]; ?>">
+                                        <input type="hidden" name="winner" value="<?php echo $row["oppplayer"]; ?>">
+                                        <input type="submit" value="View"/>
+                                    </form>
+                                </div>
+                            <?php
+                            }
+                        }
+                    } else {
+                        $temp = mysql_fetch_array(mysql_query("SELECT COUNT(*) AS counter FROM Games WHERE curplayer='$player' AND piece<>'OVER'"));
+                        ?>
+                            <div style="padding: 5px;">
+                        <h2>Your Turn</h2>
+                    </div>
+                            <?php
+                        if ($temp['counter'] == 0) {
+                            ?>
+                            None
+                            <?php
+                        } else {
+                            $result = mysql_query("SELECT * FROM Games WHERE curplayer='$player' AND piece<>'OVER'");
+                            while ($row = mysql_fetch_array($result)) {
+                                ?>
+                                <div style="padding: 5px; margin: 5px; border: 1px solid black; border-radius: 5px; width: 300px;">
+                                    Opponent: <?php echo $row["oppplayer"]; ?><br>
+                                    Game: <?php echo $row["gametype"]; ?><br>
+                                    Last Move: <?php echo date("n/d/y", $row['lastmove'] + 6 * 3600); ?> EST<br>
+                                    <form action="../Online/OnlineGame.php" method="post">
+                                        <input type="hidden" name="date" value="<?php echo $row['lastmove']; ?>">
+                                        <input type="hidden" name="opponent" value="<?php echo $row["oppplayer"]; ?>">
+                                        <input type="hidden" name="gametype" value="<?php echo $row["gametype"]; ?>">
+                                        <input type="hidden" name="winner" value="">
+                                        <input type="submit" value="Play"/>
+                                    </form>
+                                </div>
+        <?php }
+    }
+}
+?>
             </div>
         </td><td width="3%"></td>
         <td id="rightcolumn">
@@ -120,10 +168,10 @@ if ($date == "") {
                                 }
                                 var piece='<?php echo $piece; ?>';
                             </script>
-                            <?php
-                        } else {
-                            $piece = " X ";
-                            ?>
+            <?php
+        } else {
+            $piece = " X ";
+            ?>
                             <script>
                                 var board=[[" "," "," "," "," "," "," "],
                                     [" "," "," "," "," "," "," "],
@@ -166,9 +214,9 @@ if ($date == "") {
                 } else {
                     ?>
                     <h2 style="text-align: center;">Not A Valid User</h2>
-                    <?php
-                }
-                ?>
+    <?php
+}
+?>
                 <div id="submit" style="display: none; text-align: center;">
                     <form action="../Online/SubmitMove.php" method="post">
                         <input id="hiddenBoard" type="hidden" name="board" value="">
