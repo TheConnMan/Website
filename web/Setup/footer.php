@@ -20,7 +20,7 @@
 		    $("#leftmenu").height(rightCon)
 		}
 	    }
-	    $(document).ready(function() {
+	    $(window).load(function(){
 		resetPage(Math.max($("#rightcontent").height(), $("#leftmenu").height()));
 	    });
 	</script>

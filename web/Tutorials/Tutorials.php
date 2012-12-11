@@ -1,6 +1,6 @@
 <?php $path_parts = pathinfo(__FILE__);
 include("../Setup/preheader.php"); ?>
-<title>The Code</title>
+<title>Tutorials</title>
 <?php include("../Setup/header.php"); ?>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <table id="maintable" border="0">
@@ -35,7 +35,7 @@ include("../Setup/preheader.php"); ?>
                     <table>
                         <tr>
                             <td id="python" style="width: 50%; padding: 10px; vertical-align: top;">
-                                <h3>Python</h3>
+                                <h3><a href="../Tutorials/Python.php">Python</a></h3>
                                 <p>
                                     Python is a good language to learn how to program the basics.
                                 </p>

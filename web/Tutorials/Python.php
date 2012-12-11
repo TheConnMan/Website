@@ -1,6 +1,6 @@
 <?php $path_parts = pathinfo(__FILE__);
 include("../Setup/preheader.php"); ?>
-<title>The Code</title>
+<title>Python</title>
 <?php include("../Setup/header.php"); ?>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <table id="maintable" border="0">
