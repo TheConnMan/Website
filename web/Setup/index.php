@@ -1,7 +1,11 @@
 <?php $path_parts = pathinfo(__FILE__); include("../Setup/preheader.php"); ?>
 <title>Home</title>
 <?php include("../Setup/header.php"); ?>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js">
+    $(document).ready(function () {
+        $("#leftcolumn").height($("#rightcolumn").height());
+    });
+</script>
 <table id="maintable" border="0">
     <tr>
 	<td id="leftcolumn">
