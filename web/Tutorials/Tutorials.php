@@ -51,13 +51,13 @@ include("../Setup/preheader.php"); ?>
                             <td id="html" style="width: 50%; padding: 10px; vertical-align: top;">
                                 <h3>HTML</h3>
                                 <p>
-                                    Python is a good language to learn how to program the basics.
+                                    HTML is an easy web development language.
                                 </p>
                             </td>
                             <td id="PHP" style="width: 50%; padding: 10px; vertical-align: top;">
                                 <h3>PHP</h3>
                                 <p>
-                                    Java is a good all around language.
+                                    PHP is not as easy as HTML.
                                 </p>
                             </td>
                         </tr>
