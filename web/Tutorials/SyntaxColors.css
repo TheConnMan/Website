@@ -10,6 +10,18 @@ root {
     display: block;
 }
 
+.pythonOutput {
+    font-weight: normal; vertical-align:top;font: normal normal 130% 'Courier New', Courier, monospace; color: blue; font-size: 17px;
+}
+
+.pythonEnd {
+    color: maroon;
+}
+
+.pythonError {
+    color: red;
+}
+
 .python .de1, .python .de2 {
     font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;color: #000020;
 }
