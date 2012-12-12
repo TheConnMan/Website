@@ -22,9 +22,7 @@ include("../Setup/preheader.php");
     </p>
     <h2 style="padding-top: 15px" id="actualcode">The Actual Code</h2>
     <p class="bodyparagraph">
-        The base algorithm is a recursive point based system. The actual code for that 
-        part of the AI is only 32 lines, the rest is just the (inefficiently written) 
-        rules and producing the board. 
+        
     </p>
 </div>
 

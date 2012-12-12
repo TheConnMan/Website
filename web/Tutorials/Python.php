@@ -1,52 +1,81 @@
 <?php $path_parts = pathinfo(__FILE__);
 include("../Setup/preheader.php"); ?>
+<head>
+    <link type="text/css" rel="stylesheet" href="../Tutorials/SyntaxColors.css">
+</head>
+
 <title>Python</title>
-<?php include("../Setup/header.php"); ?>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<table id="maintable" border="0">
-    <tr>
-	<td id="leftcolumn">
-	    <div id="leftmenu">
-		<ul style="list-style: none">
-		    <li style="padding-top: 15px">
-			<a href="#connectfourlabel">Connect Four</a>
-			<ul>
-			    <li><a href="#backstory">Backstory</a></li>
-			    <li><a href="#actualcode">The Actual Code</a></li>
-			</ul>
-		    </li>
-		</ul>
-	    </div>
-	</td><td width="3%"></td>
-	<td id="rightcolumn">
-	    <div id="rightcontent">
-		<h1 style="text-align: center">The Algorithm</h1>
-		<div style="text-align: left">
-		    <h2 id="backstory">Backstory</h2>
-		    <div class="bodyparagraph">
-			<p>
-			    Enter the Winter of '11:
-			    In the bitter, mild cold of Michigan I toiled away trying to find things to do. 
-			    My time away from school had taken a toll on my workload and I was stranded in 
-			    the unforgiving land of boredom. My friend, a student on break from school in 
-			    our nation's capital, had not yet taken his finals and so was studying for much 
-			    of his winter break. Following in the footsteps of the old American proverb 
-			    "Misery loves warm mochas" I staved off the cold and having to spend more than
-			    three consecutive hours with my family by joining him in the quite confines of 
-			    a local cafe.
-			</p>
-		    </div>
-		    <h2 style="padding-top: 15px" id="actualcode">The Actual Code</h2>
-		    <div class="bodyparagraph">
-			<p>
-			    The base algorithm is a recursive point based system. The actual code for that 
-			    part of the AI is only 32 lines, the rest is just the (inefficiently written) 
-			    rules and producing the board. 
-			</p>
-		    </div>
-		</div>
-	    </div>
-	</td>
-    </tr>
-</table>
-<?php include("../Setup/footer.php"); ?>
+
+<?php include("../Templates/Top.php"); ?>
+
+Python
+<ul>
+    <li>
+        <a href="#intro">Intro</a>
+        <ul>
+            <li><a href="#installation">Installation</a></li>
+        </ul>
+    </li>
+    <li><a href="#firstProgram">Your First Program</a></li>
+    <li>
+        <a href="#basics">Basic Commands</a>
+        <ul>
+            <li><a href="#print">Print</a></li>
+        </ul>
+    </li>
+</ul>
+
+<?php include("../Templates/Middle.php"); ?>
+
+<h1 style="text-align: center">Python</h1>
+<div style="text-align: left">
+    <h2 id="intro">Intro</h2>
+    <p class="bodyparagraph">
+        Welcome to my Python tutorial! I will try not to be too boring.
+    </p>
+    <h3 style="padding-top: 15px" id="installation">Installation</h3>
+    <p class="bodyparagraph">
+        First, we need to install IDLE. IDLE is the interface which we'll write and run our code in. 
+        The download page can be found <a href="http://www.python.org/getit/releases/2.7.3/">here</a>. 
+        Download the MSI Installer for Windows, a tar ball for Linux, and the OS X for Mac. Download 
+        the installer for whichever bit OS you have. Use the 32 bit version if you don't know what bit 
+        OS you have. Once you install IDLE you're done! You've got Python installed.
+    </p>
+    <h2 style="padding-top: 15px" id="firstProgram">Your First Program</h2>
+    <p class="bodyparagraph">
+        <a href="../Tutorials/HelloWorld.py">Here</a> is an example program to get you started. Once 
+        you download it, right click on it (or do whatever you Mac people do) and open it with IDLE. 
+        Once you open it in IDLE you should see the following code.
+    </p><br>
+    <div class="python">
+        <ol>
+            <li class="li1">
+                <div class="de1">
+                    <span class="kw1">print</span>
+                    <span class="st0">&quot;Hello world!&quot;</span>
+                </div>
+            </li>
+        </ol>
+    </div><br>
+    <p class="bodyparagraph">
+        To run the program hit F5 or go to Run->Run Module. A Python shell should open up with the 
+        words "Hello world!". Congratulations! You've just run your first Python program!
+    </p>
+    <h2 style="padding-top: 15px" id="basics">Basic Commands</h2>
+    <p class="bodyparagraph">
+        Now that we know how to run a program, lets learn a few commands. We'll start off with 
+        an easy one.
+    </p>
+    <h3 style="padding-top: 15px" id="print">Print</h3>
+    <p class="bodyparagraph">
+          Printing is easy: you just type print followed by what you want to print. In the previous 
+          section we printed a String. You may be asking yourself "What is a String?". Hopefully 
+          you know what a string is, but in this context it means a string of characters, like a 
+          word. Variable types will be discussed more in-depth later on.
+    </p>
+    <p class="bodyparagraph">
+        
+    </p>
+</div>
+
+<?php include("../Templates/Bottom.php"); ?>

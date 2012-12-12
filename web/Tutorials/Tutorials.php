@@ -37,7 +37,14 @@ include("../Setup/preheader.php"); ?>
                             <td id="python" style="width: 50%; padding: 10px; vertical-align: top;">
                                 <h3><a href="../Tutorials/Python.php">Python</a></h3>
                                 <p>
-                                    Python is a good language to learn how to program the basics.
+                                    Python is a good language to learn how to program the basics. Syntax is 
+                                    very intuitive so you don't have to learn two things at the same time. 
+                                    It's also very quick to write programs in, so I use it to quickly generate 
+                                    basic data or to parse files. As easy as Python is to use, I don't 
+                                    recommend it as a primary language. Python isn't used in many big 
+                                    application because it is somewhat slow and does not scale well. Python 
+                                    can create function libraries, but I don't use Python for anything more 
+                                    then a few hundred lines.
                                 </p>
                             </td>
                             <td id="java" style="width: 50%; padding: 10px; vertical-align: top;">
