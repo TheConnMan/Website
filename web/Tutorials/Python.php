@@ -23,6 +23,8 @@ Python
         <a href="#basics">Basic Commands</a>
         <ul>
             <li><a href="#print">Print</a></li>
+            <li><a href="#if">If Statements</a></li>
+            <li><a href="#for">For Statements</a></li>
         </ul>
     </li>
 </ul>
@@ -51,7 +53,7 @@ Python
             <a href="../Tutorials/HelloWorld.py">Here</a> is an example program to get you started. Once 
             you download it, right click on it (or do whatever you Mac people do) and open it with IDLE. 
             Once you open it in IDLE you should see the following code.
-        </p><br>
+        </p>
         <div class="python">
             <ol>
                 <li class="li1">
@@ -60,7 +62,7 @@ Python
                     </div>
                 </li>
             </ol>
-        </div><br>
+        </div>
         <p class="bodyparagraph">
             Output:
         </p>
@@ -93,7 +95,7 @@ Python
             </p>
             <p class="bodyparagraph">
                 Let's try two more examples of printing:
-            </p><br>
+            </p>
             <div class="python">
                 <ol>
                     <li class="li1">
@@ -102,7 +104,7 @@ Python
                         </div>
                     </li>
                 </ol>
-            </div><br>
+            </div>
             <p class="bodyparagraph">
                 Output:
             </p>
@@ -113,12 +115,12 @@ Python
                         >>>
                     </div>
                 </div>
-            </div><br>
+            </div>
             <p class="bodyparagraph">
                 When printing you can add strings together to be printed on the same line. You can actually 
                 add strings together whenever, but we'll cover that in variables later on. On to the next 
                 example.
-            </p><br>
+            </p>
             <div class="python">
                 <ol>
                     <li class="li1">
@@ -132,7 +134,7 @@ Python
                         </div>
                     </li>
                 </ol>
-            </div><br>
+            </div>
             <p class="bodyparagraph">
                 Output:
             </p>
@@ -148,16 +150,16 @@ Python
                 Wow. Now that was exciting. A few things to note from that example:
             </p>
             <ol style="margin-left: 30px;">
-                <li>A special character is not needed to end a line, you just go onto the next line</li>
-                <li>Variables are not instantiated with a type, you just assign it a value</li>
-                <li>Single and double quotes can both be used for strings, but the same character has to be used to open and close the string</li>
-                <li>Printing variables will print them regardless of variable type</li>
+                <li>A special character is not needed to end a line, you just go onto the next line.</li>
+                <li>Variables are not instantiated with a type, you just assign it a value.</li>
+                <li>Single and double quotes can both be used for strings, but the same character has to be used to open and close the string.</li>
+                <li>Printing variables will print them regardless of variable type.</li>
             </ol>
             <p class="bodyparagraph">
                 There is, however, a conditional on the last comment. If you are just trying to 
                 print a single variable, it will work fine, but what happens when you try to add 
                 different data types together in-line? Why don't we give it a try?
-            </p><br>
+            </p>
             <div class="python">
                 <ol>
                     <li class="li1">
@@ -166,7 +168,7 @@ Python
                         </div>
                     </li>
                 </ol>
-            </div><br>
+            </div>
             <p class="bodyparagraph">
                 Output:
             </p>
@@ -180,7 +182,7 @@ Python
                         >>>
                     </div>
                 </div>
-            </div><br>
+            </div>
             <p class="bodyparagraph">
                 Schwoops. See what happened there? We tried to add a string (str) and an integer (int), 
                 which kinda doesn't work. Pro tip: that never works. Make sure whenever you're adding 
@@ -198,7 +200,6 @@ Python
                 stands). The other way is something called <a href="#typeCasting">type casting</a>. We'll 
                 discuss this later.
             </p>
-
         </div>
         <h3 style="padding-top: 15px" id="if">If Statements</h3>
         <div>
@@ -207,8 +208,157 @@ Python
                 the time</i>.
             </p>
             <p class="bodyparagraph">
-                
+                If statements are pretty simple: if a boolean statement is true, the following code 
+                is executed. Let's try it on for size.
             </p>
+            <div class="python">
+                <ol>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">if</span> <span class="nu0">1</span>==<span class="nu0">1</span>:
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            &nbsp; &nbsp; <span class="kw1">print</span> <span class="st0">&quot;Well that's a relief.&quot;</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <p class="bodyparagraph">
+                Output:
+            </p>
+            <div class="python">
+                <div class="pythonOutput">
+                    Well that's a relief.
+                    <div class="pythonEnd">
+                        >>>
+                    </div>
+                </div>
+            </div>
+            <p class="bodyparagraph">
+                Ok, so another list of comments is coming.
+            </p>
+            <ol style="margin-left: 30px">
+                <li>There isn't one equals sign, there are two. Two means "is equal to". One is for assigning variables values.</li>
+                <li>The if statement ends with a colon.</li>
+                <li>The line after the if statement is indented.</li>
+            </ol>
+            <p class="bodyparagraph">
+                Here we start getting into the syntax of coding. The first statement is true for almost all coding languages, but 
+                the last two are specific to Python. The other boolean operators are >, <, >=, <=, and !=. These mean greater than, 
+                less than, greater than or equal to, less than or equal to, and not equal to.
+            </p>
+            <p class="bodyparagraph">
+                Let's look at some other features of the if statement.
+            </p>
+            <div class="python">
+                <ol>
+                    <li class="li1">
+                        <div class="de1">
+                            number=<span class="nu0">10</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">if</span> number<span class="sy0">&gt;</span><span class="nu0">10</span>:
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            &nbsp; &nbsp; <span class="kw1">print</span> <span class="st0">&quot;That doesn't seem right.&quot;</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">elif</span> number<span class="sy0">&lt;</span><span class="nu0">10</span>:
+                        </div>
+                    </li>
+                    <li class="li2">
+                        <div class="de2">
+                            &nbsp; &nbsp; <span class="kw1">print</span> <span class="st0">&quot;That either.&quot;</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">else</span>:
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            &nbsp; &nbsp; <span class="kw1">print</span> <span class="st0">&quot;There we go.&quot;</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <p class="bodyparagraph">
+                Output:
+            </p>
+            <div class="python">
+                <div class="pythonOutput">
+                    There we go.
+                    <div class="pythonEnd">
+                        >>>
+                    </div>
+                </div>
+            </div>
+            <p class="bodyparagraph">
+                Elif stands for "else if". The program will read the first if statement and if it is 
+                not true then it will continue onto the elif statement. You can have as many elif statements 
+                as you want, you just can't have any situations where multiple if and elif statements are true 
+                at the same time. That just doesn't make sense. The else statement covers all situations which 
+                aren't covered by the if and elif statements.
+            </p>
+        </div>
+        <h3 style="padding-top: 15px" id="for">For Statements</h3>
+        <div>
+            <p class="bodyparagraph">
+                Next are for statements. Some of the syntax of if and for statements are shared, so 
+                I'll further explain the syntax in this section.
+            </p>
+            <p class="bodyparagraph">
+                For statements are for repetitive actions. Example time.
+            </p>
+            <div class="python">
+                <ol>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">for</span> i <span class="kw1">in</span> <span class="kw2">range</span><span class="br0">&#40;</span><span class="nu0">5</span><span class="br0">&#41;</span>:
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            &nbsp; &nbsp; <span class="kw1">print</span> i
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <p class="bodyparagraph">
+                Output:
+            </p>
+            <div class="python">
+                <div class="pythonOutput">
+                    0<br>
+                    1<br>
+                    2<br>
+                    3<br>
+                    4
+                    <div class="pythonEnd">
+                        >>>
+                    </div>
+                </div>
+            </div>
+            <p class="bodyparagraph">
+                Wowza. First things first, we once again see the colon and indents. Give me a second on those, 
+                geeze. What happens in a for statement is a loop for every number in the range given. Every loop 
+                the variable given (i in this case) increases by 1. The example above shows this pretty clearly. 
+                One catch: i starts at 0. This is something you should probably get used to. In computer language 
+                numbers start at 0 plain and simple.
+            </p>
+            <p class="bodyparagraph">
+                Now we'll tackle the colon and indent problem. With an example of course.
+            </p>
+            
         </div>
     </div>
 </div>
