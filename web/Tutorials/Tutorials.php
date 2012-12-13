@@ -35,7 +35,7 @@ include("../Setup/preheader.php"); ?>
                     <table>
                         <tr>
                             <td id="python" style="width: 50%; padding: 10px; vertical-align: top;">
-                                <h3><a href="../Tutorials/Python.php">Python</a></h3>
+                                <h3><a href="../PythonTutorial/Python.php">Python</a></h3>
                                 <p>
                                     Python is a good language to learn how to program the basics. Syntax is 
                                     very intuitive so you don't have to learn two things at the same time. 

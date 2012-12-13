@@ -23,8 +23,9 @@ Python
         <a href="#basics">Basic Commands</a>
         <ul>
             <li><a href="#print">Print</a></li>
-            <li><a href="#if">If Statements</a></li>
-            <li><a href="#for">For Statements</a></li>
+            <li><a href="#if">If</a></li>
+            <li><a href="#for">For</a></li>
+            <li><a href="#while">While</a></li>
         </ul>
     </li>
 </ul>
@@ -50,7 +51,7 @@ Python
     <h2 style="padding-top: 15px" id="firstProgram">Your First Program</h2>
     <div>
         <p class="bodyparagraph">
-            <a href="../Tutorials/HelloWorld.py">Here</a> is an example program to get you started. Once 
+            <a href="../PythonTutorial/HelloWorld.py">Here</a> is an example program to get you started. Once 
             you download it, right click on it (or do whatever you Mac people do) and open it with IDLE. 
             Once you open it in IDLE you should see the following code.
         </p>
@@ -58,7 +59,7 @@ Python
             <ol>
                 <li class="li1">
                     <div class="de1">
-                        <span class="kw1">print</span><span class="st0">&quot;Hello world!&quot;</span>
+                        <span class="kw1">print</span><span class="st0"> &quot;Hello world!&quot;</span>
                     </div>
                 </li>
             </ol>
@@ -201,11 +202,11 @@ Python
                 discuss this later.
             </p>
         </div>
-        <h3 style="padding-top: 15px" id="if">If Statements</h3>
+        <h3 style="padding-top: 15px" id="if">If</h3>
         <div>
             <p class="bodyparagraph">
                 Now that we know how to print stuff, let's learn how to print stuff <i>only some of 
-                the time</i>.
+                    the time</i>.
             </p>
             <p class="bodyparagraph">
                 If statements are pretty simple: if a boolean statement is true, the following code 
@@ -310,7 +311,7 @@ Python
                 aren't covered by the if and elif statements.
             </p>
         </div>
-        <h3 style="padding-top: 15px" id="for">For Statements</h3>
+        <h3 style="padding-top: 15px" id="for">For</h3>
         <div>
             <p class="bodyparagraph">
                 Next are for statements. Some of the syntax of if and for statements are shared, so 
@@ -358,7 +359,115 @@ Python
             <p class="bodyparagraph">
                 Now we'll tackle the colon and indent problem. With an example of course.
             </p>
-            
+            <div class="python">
+                <ol>
+                    <li class="li1">
+                        <div class="de1">
+                            number1=<span class="nu0">0</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            number2=<span class="nu0">0</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">for</span> i <span class="kw1">in</span> <span class="kw2">range</span><span class="br0">&#40;</span><span class="nu0">10</span><span class="br0">&#41;</span>:
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            &nbsp; &nbsp; number1=number1+<span class="nu0">1</span>
+                        </div>
+                    </li>
+                    <li class="li2">
+                        <div class="de2">
+                            number2=number2+<span class="nu0">1</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">print</span> number1
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1"><span class="kw1">print</span> number2
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <p class="bodyparagraph">
+                Hmm, we've got a couple possible outcomes here. First, the tab may not matter and the 
+                two outputs will be the same. Second, the tab could mean something like only the tabbed 
+                code could be run in the for look. Lastly, we could get an error. Something that you'll 
+                find in coding is you can always get an error. Let's run it.
+            </p>
+            <p class="bodyparagraph">
+                Output:
+            </p>
+            <div class="python">
+                <div class="pythonOutput">
+                    10<br>
+                    1
+                    <div class="pythonEnd">
+                        >>>
+                    </div>
+                </div>
+            </div>
+            <p class="bodyparagraph">
+                Twas the second choice. Now we know what the tabs mean.
+            </p>
+            <p class="bodyparagraph">
+                This is one of the things I don't like about Python: relative positions matter. It's the 
+                price we pay for not having brackets and semicolons everywhere. We just need to be very 
+                careful about indenting, especially when we have nested for and if statements. You may begin 
+                to see why I prefer not to write large scripts in Python...
+            </p>
+        </div>
+        <h3 style="padding-top: 15px" id="while">While</h3>
+        <div>
+            <p class="bodyparagraph">
+                To finish off the trifecta we have while statements. These do exactly what you think they do.
+            </p>
+            <div class="python">
+                <ol>
+                    <li class="li1">
+                        <div class="de1">
+                            i=<span class="nu0">0</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">while</span> i<span class="sy0">&lt;</span><span class="nu0">4</span>:
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            &nbsp; &nbsp; i+=<span class="nu0">1</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            &nbsp; &nbsp; <span class="kw1">print</span> i
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <p class="bodyparagraph">
+                Output:
+            </p>
+            <div class="python">
+                <div class="pythonOutput">
+                    1<br>
+                    2<br>
+                    3<br>
+                    4
+                    <div class="pythonEnd">
+                        >>>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
