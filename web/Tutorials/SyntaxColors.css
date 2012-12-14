@@ -26,7 +26,10 @@ root {
     font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;color: #000020;
 }
 .python  {
-    font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0; padding-left: 50px;
+    font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0; padding-left: 60px;
+}
+.python2  {
+    font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0; padding-left: 10px;
 }
 .python a:link {
     color: #000060;

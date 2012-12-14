@@ -10,6 +10,7 @@ include("../Setup/preheader.php");
 
 <?php include("../Templates/Top.php"); ?>
 
+<div>
 Python
 <ul>
     <li>
@@ -26,9 +27,11 @@ Python
             <li><a href="#if">If</a></li>
             <li><a href="#for">For</a></li>
             <li><a href="#while">While</a></li>
+            <li><a href="#basicExamples">Examples</a></li>
         </ul>
     </li>
 </ul>
+</div>
 
 <?php include("../Templates/Middle.php"); ?>
 
@@ -67,7 +70,7 @@ Python
         <p class="bodyparagraph">
             Output:
         </p>
-        <div class="python">
+        <div class="python2">
             <div class="pythonOutput">
                 Hello world!
                 <div class="pythonEnd">
@@ -109,7 +112,7 @@ Python
             <p class="bodyparagraph">
                 Output:
             </p>
-            <div class="python">
+            <div class="python2">
                 <div class="pythonOutput">
                     String power!
                     <div class="pythonEnd">
@@ -139,7 +142,7 @@ Python
             <p class="bodyparagraph">
                 Output:
             </p>
-            <div class="python">
+            <div class="python2">
                 <div class="pythonOutput">
                     1
                     <div class="pythonEnd">
@@ -173,7 +176,7 @@ Python
             <p class="bodyparagraph">
                 Output:
             </p>
-            <div class="python">
+            <div class="python2"">
                 <div class="pythonError">
                     Traceback (most recent call last):<br>
                     &nbsp;&nbsp;File "C:\Users\Brian\Desktop\test.py", line 1, in &lt;module&gt;<br>
@@ -229,7 +232,7 @@ Python
             <p class="bodyparagraph">
                 Output:
             </p>
-            <div class="python">
+            <div class="python2">
                 <div class="pythonOutput">
                     Well that's a relief.
                     <div class="pythonEnd">
@@ -247,8 +250,8 @@ Python
             </ol>
             <p class="bodyparagraph">
                 Here we start getting into the syntax of coding. The first statement is true for almost all coding languages, but 
-                the last two are specific to Python. The other boolean operators are >, <, >=, <=, and !=. These mean greater than, 
-                less than, greater than or equal to, less than or equal to, and not equal to.
+                the last two are specific to Python. The other boolean operators are >, <, >=, <=, and "not". These mean greater than, 
+                less than, greater than or equal to, less than or equal to, and not equal to. For the "not" you would put "if not 1==2".
             </p>
             <p class="bodyparagraph">
                 Let's look at some other features of the if statement.
@@ -295,7 +298,7 @@ Python
             <p class="bodyparagraph">
                 Output:
             </p>
-            <div class="python">
+            <div class="python2">
                 <div class="pythonOutput">
                     There we go.
                     <div class="pythonEnd">
@@ -337,7 +340,7 @@ Python
             <p class="bodyparagraph">
                 Output:
             </p>
-            <div class="python">
+            <div class="python2">
                 <div class="pythonOutput">
                     0<br>
                     1<br>
@@ -406,7 +409,7 @@ Python
             <p class="bodyparagraph">
                 Output:
             </p>
-            <div class="python">
+            <div class="python2">
                 <div class="pythonOutput">
                     10<br>
                     1
@@ -457,12 +460,101 @@ Python
             <p class="bodyparagraph">
                 Output:
             </p>
-            <div class="python">
+            <div class="python2">
                 <div class="pythonOutput">
                     1<br>
                     2<br>
                     3<br>
                     4
+                    <div class="pythonEnd">
+                        >>>
+                    </div>
+                </div>
+            </div>
+            <p class="bodyparagraph">
+                That was pretty simple. While the boolean statement is true the while loop will continue running. 
+                Also, I used a new operator: +=. This is just shorthand for "i=i+1". Coders are very lazy.
+                While loops are very similar in syntax to if and for statements, so there's not much use going over 
+                them anymore. Instead, let's see how these functions can all work together.
+            </p>
+        </div>
+        <h3 style="padding-top: 15px" id="basicExamples">Examples</h3>
+        <div>
+            <p class="bodyparagraph">
+                Ok, so now that we've learned four basic commands (and a little syntax) let's try an example that uses 
+                all of them. The basis for this example is <a href="http://en.wikipedia.org/wiki/Collatz_conjecture">Collatz conjecture</a>. 
+                This conjecture says that for every natural number divide it by 2 if it's even, multiply it by 3 and add 
+                1 if it's odd, and repeat. If you do this enough times you will always get 1. There's some fancy math behind the 
+                pattern of how many repetitions each number takes, but let's just check that the conjecture is correct. Buckle up.
+            </p>
+            <div class="python">
+                <ol>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">for</span> num <span class="kw1">in</span> <span class="kw2">range</span><span class="br0">&#40;</span><span class="nu0">1</span>,<span class="nu0">10</span><span class="br0">&#41;</span>:
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            &nbsp; &nbsp; n=num
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            &nbsp; &nbsp; i=<span class="nu0">0</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            &nbsp; &nbsp; <span class="kw1">while</span> <span class="kw1">not</span> n==<span class="nu0">1</span>:
+                        </div>
+                    </li>
+                    <li class="li2">
+                        <div class="de2">
+                            &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> n<span class="sy0">%</span>2==<span class="nu0">1</span>:
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; n=<span class="nu0">3</span><span class="sy0">*</span>n+<span class="nu0">1</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">else</span>:
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; n=n/<span class="nu0">2</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            &nbsp; &nbsp; &nbsp; &nbsp; i+=<span class="nu0">1</span>
+                        </div>
+                    </li>
+                    <li class="li2">
+                        <div class="de2">
+                            &nbsp; &nbsp; <span class="kw1">print</span> <span class="kw2">str</span><span class="br0">&#40;</span>num<span class="br0">&#41;</span>+<span class="st0">&quot; took &quot;</span>+<span class="kw2">str</span><span class="br0">&#40;</span>i<span class="br0">&#41;</span>+<span class="st0">&quot; iterations.&quot;</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <p class="bodyparagraph">
+                Output:
+            </p>
+            <div class="python2">
+                <div class="pythonOutput">
+                    1 took 0 iterations.<br>
+                    2 took 1 iterations.<br>
+                    3 took 7 iterations.<br>
+                    4 took 2 iterations.<br>
+                    5 took 5 iterations.<br>
+                    6 took 8 iterations.<br>
+                    7 took 16 iterations.<br>
+                    8 took 3 iterations.<br>
+                    9 took 19 iterations.
                     <div class="pythonEnd">
                         >>>
                     </div>

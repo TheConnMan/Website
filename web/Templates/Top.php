@@ -4,5 +4,5 @@
     <tr>
 	<td id="leftcolumn">
 	    <div id="leftmenu">
-		<ul style="list-style: none">
+		<ul style="list-style: none;">
 		    <li style="padding-top: 15px">
