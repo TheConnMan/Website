@@ -560,6 +560,10 @@ Python
                     </div>
                 </div>
             </div>
+            <p class="bodyparagraph">
+                To answer our question the conjecture is correct. The fact that the program 
+                finished running means 
+            </p>
         </div>
     </div>
 </div>
