@@ -27,7 +27,7 @@ Python
             <li><a href="#if">If</a></li>
             <li><a href="#for">For</a></li>
             <li><a href="#while">While</a></li>
-            <li><a href="#basicExamples">Examples</a></li>
+            <li><a href="#basicExample">Example</a></li>
         </ul>
     </li>
 </ul>
@@ -478,7 +478,7 @@ Python
                 them anymore. Instead, let's see how these functions can all work together.
             </p>
         </div>
-        <h3 style="padding-top: 15px" id="basicExamples">Examples</h3>
+        <h3 style="padding-top: 15px" id="basicExample">Example</h3>
         <div>
             <p class="bodyparagraph">
                 Ok, so now that we've learned four basic commands (and a little syntax) let's try an example that uses 
@@ -562,7 +562,32 @@ Python
             </div>
             <p class="bodyparagraph">
                 To answer our question the conjecture is correct. The fact that the program 
-                finished running means 
+                finished running means each number reduced to 1 in a finite number of iterations.
+                Try increasing the upper bound in the for loop to see how many iterations larger 
+                numbers take.
+            </p>
+            <p class="bodyparagraph">
+                Take a look at the code above and try to walk yourself through what the computer 
+                actually executes. I've found that when I write code I can easily get caught up 
+                thinking about the program as a whole, resulting in little errors which are hard 
+                to find later. Walking myself through sections of code helps me figure out what 
+                the program is actually doing. Computers do exactly what you tell them to do so 
+                you have to be smarter than them.
+            </p>
+            <p class="bodyparagraph">
+                While walking yourself through the program you'll probably find the walk through 
+                almost identical to my explanation of the Collatz conjecture above. This is no 
+                coincidence. For many programs if you're able to verbally explain what the program 
+                does then you've already solved the problem. There are obviously exceptions to this, 
+                but detailed, logical explanations can be translated into code fairly easily.
+            </p>
+            <p class="bodyparagraph">
+                When creating any program I would recommend working through this type of explanation 
+                before writing code. Programmers often use something called "pseudocode" as a way to 
+                formulate this explanation with the same basic structure as code but without having to 
+                worry about syntax. By following good programming practices while you are learning to 
+                code you'll develop good habits which will make learning other languages easier down the 
+                road.
             </p>
         </div>
     </div>
