@@ -30,6 +30,9 @@ Python
             <li><a href="#basicExample">Example</a></li>
         </ul>
     </li>
+    <li>
+        <a href="#types">Variable Types</a>
+    </li>
 </ul>
 </div>
 
@@ -86,7 +89,7 @@ Python
     <h2 style="padding-top: 15px" id="basics">Basic Commands</h2>
     <div>
         <p class="bodyparagraph">
-            Now that we know how to run a program, lets learn a few commands. We'll start off with 
+            Now that we know how to run a program, let's learn a few commands. We'll start off with 
             an easy one.
         </p>
         <h3 style="padding-top: 15px" id="print">Print</h3>
@@ -588,6 +591,22 @@ Python
                 worry about syntax. By following good programming practices while you are learning to 
                 code you'll develop good habits which will make learning other languages easier down the 
                 road.
+            </p>
+        </div>
+        
+    </div>
+    <h2 style="padding-top: 15px" id="types">Variable Types</h2>
+    <div>
+        <p class="bodyparagraph">
+            Now that we've learned some basic commands and syntax we're going to switch gears 
+            a little bit and talk about variable types. So far a few of the examples have used 
+            variables, but it hasn't yet been explained how variables can be used and what form 
+            they can take.
+        </p>
+        <h3 style="padding-top: 15px" id="strings">Strings</h3>
+        <div>
+            <p class="bodyparagraph">
+                Strings are strings of characters. Anything 
             </p>
         </div>
     </div>
