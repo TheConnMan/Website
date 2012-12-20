@@ -606,7 +606,8 @@ Python
         <h3 style="padding-top: 15px" id="strings">Strings</h3>
         <div>
             <p class="bodyparagraph">
-                Strings are strings of characters. Anything 
+                Strings are strings of characters. Anything within quotes counts as a string 
+                including 
             </p>
         </div>
     </div>
