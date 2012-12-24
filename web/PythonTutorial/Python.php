@@ -32,6 +32,10 @@ Python
     </li>
     <li>
         <a href="#types">Variable Types</a>
+        <ul>
+            <li><a href="#strings">Strings</a></li>
+            <li><a href="#numbers">Numbers</a></li>
+        </ul>
     </li>
 </ul>
 </div>
@@ -193,8 +197,8 @@ Python
             <p class="bodyparagraph">
                 Schwoops. See what happened there? We tried to add a string (str) and an integer (int), 
                 which kinda doesn't work. Pro tip: that never works. Make sure whenever you're adding 
-                variables you don't do the same thing. Not having to instantiate variables is a double-
-                edged sword (pun not intended...sorta) because although we don't have to worry about labeling 
+                variables you don't do the same thing. Not having to instantiate variables is a double-edged 
+                sword (pun not intended...sorta) because although we don't have to worry about labeling 
                 our variables with types, we have to remember what they are so things like this don't happen.
             </p>
             <p class="bodyparagraph">
@@ -607,9 +611,128 @@ Python
         <div>
             <p class="bodyparagraph">
                 Strings are strings of characters. Anything within quotes counts as a string 
-                including 
+                including numbers, symbols, and letters. Adding strings together with a "+" 
+                symbol just appends the second string onto the first. Let's look at an example 
+                for a few other things we can do with strings.
+            </p>
+            <div class="python">
+                <ol>
+                    <li class="li1">
+                        <div class="de1">
+                            word=<span class="st0">&quot;this is an awesome string.&quot;</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            otherWord=<span class="st0">&quot;really, &quot;</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">print</span> otherWord+word
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">print</span> otherWord+word<span class="br0">&#91;</span><span class="nu0">11</span>:<span class="nu0">18</span><span class="br0">&#93;</span>
+                        </div>
+                    </li>
+                    <li class="li2">
+                        <div class="de2">
+                            <span class="kw1">print</span> word<span class="br0">&#91;</span><span class="nu0">0</span>:<span class="nu0">4</span><span class="br0">&#93;</span>+otherWord<span class="br0">&#91;</span><span class="nu0">6</span><span class="br0">&#93;</span>+word<span class="br0">&#91;</span><span class="nu0">4</span>:<span class="br0">&#93;</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <p class="bodyparagraph">
+                Output:
+            </p>
+            <div class="python2">
+                <div class="pythonOutput">
+                    really, this is an awesome string.<br>
+                    really, awesome<br>
+                    this, is an awesome string.
+                    <div class="pythonEnd">
+                        >>>
+                    </div>
+                </div>
+            </div>
+            <p class="bodyparagraph">
+                After defining two strings we print three lines. The first is just addition of 
+                two strings. Simple. The second is the addition of a string with a substring. The 
+                addition works the same way, but the second string is only part of the variable. The 
+                tricky part is the input for the substring is the index of the first character (starting 
+                from zero of course) and the second is the index of he last character <i>plus 1</i>. 
+                A bit confusing, I know, but you'll get used to it. Two questions you may be asking are "What if I only want one character?" 
+                and "What if want the substring of a character to the end?". These are both covered in the 
+                third line. For a single character just input the index of the character (as if the string 
+                was an array, which we'll get to in a bit) and to select a character to the end just leave 
+                the second input blank. Selecting from the beginning to a specific character is the same 
+                but with the first input blank.
             </p>
         </div>
+        <h3 style="padding-top: 15px" id="numbers">Numbers</h3>
+        <div>
+            <p class="bodyparagraph">
+                Python is simple in that it treats numbers as numbers. You don't have to worry about 
+                if it's a double or an int, maybe a float or a short int. Python takes care of all 
+                of that for you, but that doens't mean we're completely off the hook. Here's on example.
+            </p>
+            <div class="python">
+                <ol>
+                    <li class="li1">
+                        <div class="de1">
+                            number1=<span class="nu0">11</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            number2=<span class="nu0">5</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">print</span> number1/number2
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <p class="bodyparagraph">
+                Output:
+            </p>
+            <div class="python2">
+                <div class="pythonOutput">
+                    2
+                    <div class="pythonEnd">
+                        >>>
+                    </div>
+                </div>
+            </div>
+            <p class="bodyparagraph">
+                Umm, what? The answer should be 2.2, but it just gives us 2. Try making 11 into 11.0 
+                and rerun the program. Now it should give us 2.2, so what happened?
+            </p>
+            <p class="bodyparagraph">
+                The answer is integer division. Not quite as exciting as you may have hoped, but it's 
+                the answer nonetheless. Because both numbers are integers the output of division is 
+                also an integer. This means that the output is rounded down to the nearest integer. 
+                This may not seem useful now, but it is down the line. The easy fix is if you ever 
+                want a number to not be treated as an integer, just add a ".0" onto the end of it.
+                Multiplication, division, subtraction, and addition will all carry the decimal points 
+                so you won't have to worry about it anymore.
+            </p>
+            <p class="bodyparagraph">
+                Other than watching out for integer division, numbers are pretty much numbers. You might 
+                run into problems if you make very large or very small numbers, but Python makes it easy 
+                for everything else.
+            </p>
+        </div>
+        <h3 style="padding-top: 15px" id="arrays">Arrays</h3>
+        <div>
+            Arrays aren't a variable type per se, but they can be assigned to variable names, so I'm 
+            covering them in this section. Arrays 
+        </div>
+        <h3 style="padding-top: 15px" id="typeCasting">Type Casting</h3>
     </div>
 </div>
 
