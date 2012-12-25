@@ -35,6 +35,8 @@ Python
         <ul>
             <li><a href="#strings">Strings</a></li>
             <li><a href="#numbers">Numbers</a></li>
+            <li><a href="#arrays">Arrays</a></li>
+            <li><a href="#typeCasting">Type Casting</a></li>
         </ul>
     </li>
 </ul>
@@ -729,8 +731,97 @@ Python
         </div>
         <h3 style="padding-top: 15px" id="arrays">Arrays</h3>
         <div>
-            Arrays aren't a variable type per se, but they can be assigned to variable names, so I'm 
-            covering them in this section. Arrays 
+            <p class="bodyparagraph">
+                Arrays aren't a variable type per se, but they can be assigned to variable names so I'm 
+                covering them in this section. Arrays are constructs which hold multiple values. They can 
+                also be multi-dimensional. In Python the label "array" and "list" have the same meaning, 
+                but don't get used to this. Most other languages separate the two.
+            </p>
+            <p class="bodyparagraph">
+                There are many uses for arrays, but there are a few basic things you can do with them: 
+                initialize, append, insert, call, and remove. Let's see how we can use these.
+            </p>
+            <div class="python">
+                <ol>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw3">array</span>=<span class="br0">&#91;</span><span class="nu0">1</span>,<span class="nu0">2</span>,<span class="nu0">3</span>,<span class="nu0">4</span>,<span class="nu0">5</span><span class="br0">&#93;</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">print</span> <span class="kw3">array</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw3">array</span>.<span class="me1">append</span><span class="br0">&#40;</span><span class="nu0">6</span><span class="br0">&#41;</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">print</span> <span class="kw3">array</span>
+                        </div>
+                    </li>
+                    <li class="li2">
+                        <div class="de2">
+                            <span class="kw3">array</span>.<span class="me1">remove</span><span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">print</span> <span class="kw3">array</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw3">array</span>.<span class="me1">insert</span><span class="br0">&#40;</span><span class="nu0">2</span>,<span class="nu0">3.5</span><span class="br0">&#41;</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">print</span> <span class="kw3">array</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw3">array</span><span class="br0">&#91;</span><span class="nu0">4</span><span class="br0">&#93;</span>+=<span class="nu0">3</span>
+                        </div>
+                    </li>
+                    <li class="li2">
+                        <div class="de2">
+                            <span class="kw1">print</span> <span class="kw3">array</span><span class="br0">&#91;</span><span class="nu0">4</span><span class="br0">&#93;</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <p class="bodyparagraph">
+                Output:
+            </p>
+            <div class="python2">
+                <div class="pythonOutput">
+                    [1, 2, 3, 4, 5]<br>
+                    [1, 2, 3, 4, 5, 6]<br>
+                    [1, 3, 4, 5, 6]<br>
+                    [1, 3, 3.5, 4, 5, 6]<br>
+                    8
+                    <div class="pythonEnd">
+                        >>>
+                    </div>
+                </div>
+            </div>
+            <p class="bodyparagraph">
+                Honestly that wasn't that exciting of an example, but it shows the capabilities of arrays. 
+                There is something else new in the above example, though: function calls. Once we initialized 
+                the array the variable has functions inherently associated with it. To call these functions 
+                you put a "." after the variable name then the function and inputs. In IDLE if you add the "." 
+                and wait a second all available functions will be listed automatically then after you type the 
+                function and first parenthesis IDLE will list the inputs needed. Very helpful for when you forget 
+                what functions are available.
+           </p>
+           <p class="bodyparagraph">
+               
+           </p>
         </div>
         <h3 style="padding-top: 15px" id="typeCasting">Type Casting</h3>
     </div>
