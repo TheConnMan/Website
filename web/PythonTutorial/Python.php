@@ -199,7 +199,7 @@ Python
             <p class="bodyparagraph">
                 Schwoops. See what happened there? We tried to add a string (str) and an integer (int), 
                 which kinda doesn't work. Pro tip: that never works. Make sure whenever you're adding 
-                variables you don't do the same thing. Not having to instantiate variables is a double-edged 
+                variables you don't do the same thing. Not having to define variable types is a <i>double</i>-edged 
                 sword (pun not intended...sorta) because although we don't have to worry about labeling 
                 our variables with types, we have to remember what they are so things like this don't happen.
             </p>
