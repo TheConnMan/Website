@@ -39,6 +39,12 @@ Python
             <li><a href="#typeCasting">Type Casting</a></li>
         </ul>
     </li>
+    <li>
+        <a href="#functions">Functions</a>
+        <ul>
+            <li><a href="#import">Import</a></li>
+        </ul>
+    </li>
 </ul>
 </div>
 
@@ -362,7 +368,7 @@ Python
                 </div>
             </div>
             <p class="bodyparagraph">
-                Wowza. First things first, we once again see the colon and indents. Give me a second on those, 
+                Wowza. First thing's first, we once again see the colon and indents. Give me a second on those, 
                 geeze. What happens in a for statement is a loop for every number in the range given. Every loop 
                 the variable given (i in this case) increases by 1. The example above shows this pretty clearly. 
                 One catch: i starts at 0. This is something you should probably get used to. In computer language 
@@ -819,11 +825,82 @@ Python
                 function and first parenthesis IDLE will list the inputs needed. Very helpful for when you forget 
                 what functions are available.
            </p>
-           <p class="bodyparagraph">
-               
-           </p>
         </div>
         <h3 style="padding-top: 15px" id="typeCasting">Type Casting</h3>
+        <div>
+            <p class="bodyparagraph">
+                Now that we've gone over some basic variable types, we need to know how to convert from one 
+                to the other. The easiest is converting things to strings. You can do this simply by 
+                surrounding an expression with <code>str(<i>variable</i>)</code>. Boom, done. You can reassign this 
+                to another variable or add it to other strings just like it was a string (mostly cause it 
+                is a string).
+            </p>
+            <p class="bodyparagraph">
+                Turning strings into numbers is a bit more difficult. Anything can be converted into a string, but 
+                what happens when you try to turn letters into a number? Bad things, that's what. Let's check it out.
+            </p>
+            <div class="python">
+                <ol>
+                    <li class="li1">
+                        <div class="de1">
+                            number=<span class="nu0">4</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            word=<span class="st0">&quot;Check out this number: 4.5&quot;</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">print</span> word<span class="br0">&#91;</span>:<span class="nu0">23</span><span class="br0">&#93;</span>+<span class="kw2">str</span><span class="br0">&#40;</span>number<span class="br0">&#41;</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">print</span> number+<span class="kw2">float</span><span class="br0">&#40;</span>word<span class="br0">&#91;</span><span class="nu0">23</span>:<span class="br0">&#93;</span><span class="br0">&#41;</span>
+                        </div>
+                    </li>
+                    <li class="li2">
+                        <div class="de2">
+                            <span class="kw1">print</span> number+<span class="kw2">int</span><span class="br0">&#40;</span>word<span class="br0">&#91;</span><span class="nu0">23</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <p class="bodyparagraph">
+                Output:
+            </p>
+            <div class="python2">
+                <div class="pythonOutput">
+                    Check out this number: 4<br>
+                    8.5<br>
+                    8
+                    <div class="pythonEnd">
+                        >>>
+                    </div>
+                </div>
+            </div>
+            <p class="bodyparagraph">
+                So there are a couple ways to convert strings to numbers: <code>float(<i>string</i>)</code> and int(<i>string</i>).
+                Float converts an integer or a float (a number with decimal places) within a string into a decimal 
+                number. Int converts only integers within a string into integers, so be careful when trying to convert 
+                any number into an int directly from a string; it will throw an error. To convert a float to an int from a 
+                string you have to do a two step process of <code>int(float(<i>string</i>))</code>. Int and float can also be used to 
+                convert numbers from one type to the other.
+            </p>
+        </div>
+        
+    </div>
+    <h2 style="padding-top: 15px" id="functions">Functions</h2>
+    <div>
+        <p class="bodyparagraph">
+            Now that we've covered some commands and variable types it's time to look at functions.
+        </p>
+        <h3 style="padding-top: 15px" id="import">Import</h3>
+        <div>
+            
+        </div>
     </div>
 </div>
 
