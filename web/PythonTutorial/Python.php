@@ -882,7 +882,7 @@ Python
                 </div>
             </div>
             <p class="bodyparagraph">
-                So there are a couple ways to convert strings to numbers: <code>float(<i>string</i>)</code> and int(<i>string</i>).
+                So there are a couple ways to convert strings to numbers: <code>float(<i>string</i>)</code> and <code>int(<i>string</i>)</code>.
                 Float converts an integer or a float (a number with decimal places) within a string into a decimal 
                 number. Int converts only integers within a string into integers, so be careful when trying to convert 
                 any number into an int directly from a string; it will throw an error. To convert a float to an int from a 
@@ -899,7 +899,41 @@ Python
         </p>
         <h3 style="padding-top: 15px" id="import">Import</h3>
         <div>
-            
+            <p class="bodyparagraph">
+                Python makes it very easy to import built in functions such as math and time. The easiest 
+                way to demonstrate this is, of course, with an example.
+            </p>
+            <div class="python">
+                <ol>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">import</span> <span class="kw3">math</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">print</span> <span class="kw3">math</span>.<span class="kw2">pow</span><span class="br0">&#40;</span><span class="nu0">5</span>, <span class="nu0">2</span><span class="br0">&#41;</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <p class="bodyparagraph">
+                Output:
+            </p>
+            <div class="python2">
+                <div class="pythonOutput">
+                    25.0
+                    <div class="pythonEnd">
+                        >>>
+                    </div>
+                </div>
+            </div>
+            <p class="bodyparagraph">
+                That seemed too simple... The first time I asked how to use built in modules I thought the person 
+                I asked was joking. By importing these modules you can enhance your program without reinventing the 
+                wheel. To see a list of modules type <code>help('modules')</code> into the Python shell. A few notable 
+                modules are math, time, csv, and random.
+            </p>
         </div>
     </div>
 </div>
