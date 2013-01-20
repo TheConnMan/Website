@@ -43,6 +43,7 @@ Python
         <a href="#functions">Functions</a>
         <ul>
             <li><a href="#import">Import</a></li>
+            <li><a href="definitions">Definitions</a></li>
         </ul>
     </li>
 </ul>
@@ -933,6 +934,69 @@ Python
                 I asked was joking. By importing these modules you can enhance your program without reinventing the 
                 wheel. To see a list of modules type <code>help('modules')</code> into the Python shell. A few notable 
                 modules are math, time, csv, and random.
+            </p>
+        </div>
+        <h3 style="padding-top: 15px" id="definitions">Definitions</h3>
+        <div>
+            <p class="bodyparagraph">
+                Most of the time you need custom functions within your code that cannot be 
+                found in modules. For this we can define functions at the beginning of our code and can 
+                call them afterwards.
+            </p>
+            <div class="python">
+                <ol>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="kw1">def</span> fib<span class="br0">&#40;</span>n<span class="br0">&#41;</span>:
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            &nbsp; &nbsp; a, b = <span class="nu0">0</span>, <span class="nu0">1</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            &nbsp; &nbsp; <span class="kw1">for</span> i <span class="kw1">in</span> <span class="kw2">range</span><span class="br0">&#40;</span>n<span class="br0">&#41;</span>:
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">print</span> a
+                        </div>
+                    </li>
+                    <li class="li2">
+                        <div class="de2">
+                            &nbsp; &nbsp; &nbsp; &nbsp; a, b = b, a+b
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            fib<span class="br0">&#40;</span><span class="nu0">5</span><span class="br0">&#41;</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <p class="bodyparagraph">
+                Output:
+            </p>
+            <div class="python2">
+                <div class="pythonOutput">
+                    0<br>
+                    1<br>
+                    1<br>
+                    2<br>
+                    3
+                    <div class="pythonEnd">
+                        >>>
+                    </div>
+                </div>
+            </div>
+            <p>
+                The function we define has one input <code>n</code> which we use as a variable throughout the 
+                definition. Defining functions is not only good for something you need to use multiple times, 
+                but also for breaking larger scripts into pieces. This means testing is significantly easier 
+                because each function can be tested individually.
             </p>
         </div>
     </div>
