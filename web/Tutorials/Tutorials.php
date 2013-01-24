@@ -13,6 +13,7 @@ include("../Setup/preheader.php"); ?>
 			<ul>
 			    <li><a href="#python">Python</a></li>
 			    <li><a href="#java">Java</a></li>
+			    <li><a href="#LaTex">LaTex</a></li>
 			</ul>
 		    </li>
 		</ul>
@@ -35,7 +36,7 @@ include("../Setup/preheader.php"); ?>
                     <table>
                         <tr>
                             <td id="python" style="width: 50%; padding: 10px; vertical-align: top;">
-                                <h3><a href="../PythonTutorial/Python.php">Python</a></h3>
+                                <h3><a href="./PythonTutorial/Python.php">Python</a></h3>
                                 <p>
                                     Python is a good language to learn how to program the basics. Syntax is 
                                     very intuitive so you don't have to learn two things at the same time. 
@@ -65,6 +66,15 @@ include("../Setup/preheader.php"); ?>
                                 <h3>PHP</h3>
                                 <p>
                                     PHP is not as easy as HTML.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="LaTex" style="width: 50%; padding: 10px; vertical-align: top;">
+                                <h3><a href="./LaTexTutorial/LaTex.php">LaTex</a></h3>
+                                <p>
+                                    LaTex is a formatting language used to make very nice looking PDFs. It is 
+                                    often used for resumes, research papers, white papers, etc.
                                 </p>
                             </td>
                         </tr>

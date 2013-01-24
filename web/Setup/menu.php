@@ -12,7 +12,8 @@
     <li>
         <a href="../Tutorials/Tutorials.php">Tutorials</a>
         <ul>
-            <li><a href="../PythonTutorial/Python.php">Python</a></li>
+            <li><a href="../Tutorials/PythonTutorial/Python.php">Python</a></li>
+            <li><a href="../Tutorials/LaTexTutorial/LaTex.php">LaTex</a></li>
         </ul>
     </li>
     <li><a href="../Comments/Bugs.php">Bugs/Features</a></li>

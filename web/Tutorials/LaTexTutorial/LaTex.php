@@ -1,14 +1,14 @@
 <?php
 $path_parts = pathinfo(__FILE__);
-include("../Setup/preheader.php");
+include("../../Setup/preheader.php");
 ?>
 <head>
-    <link type="text/css" rel="stylesheet" href="../Tutorials/SyntaxColors.css">
+    <link type="text/css" rel="stylesheet" href="../../Tutorials/SyntaxColors.css">
 </head>
 
 <title>Python</title>
 
-<?php include("../Templates/Top.php"); ?>
+<?php include("../../Templates/Top.php"); ?>
 
 <div>
 Python
@@ -49,7 +49,7 @@ Python
 </ul>
 </div>
 
-<?php include("../Templates/Middle.php"); ?>
+<?php include("../../Templates/Middle.php"); ?>
 
 <h1 style="text-align: center">Python</h1>
 <div style="text-align: left">
@@ -1002,4 +1002,4 @@ Python
     </div>
 </div>
 
-<?php include("../Templates/Bottom.php"); ?>
+<?php include("../../Templates/Bottom.php"); ?>
