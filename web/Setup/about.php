@@ -11,7 +11,7 @@
 			About
 			<ul>
 			    <li><a href="#author">Author</a></li>
-			    <li><a href="../Setup/Resume.pdf">Resume</a></li>
+			    <li><a href="../Setup/Brian Conn's Resume.pdf">Resume</a></li>
 			</ul>
 		    </li>
 		</ul>
