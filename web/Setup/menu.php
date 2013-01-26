@@ -13,7 +13,7 @@
         <a href="../Tutorials/Tutorials.php">Tutorials</a>
         <ul>
             <li><a href="../PythonTutorial/Python.php">Python</a></li>
-            <li><a href="../LaTexTutorial/LaTex.php">LaTex</a></li>
+            <li><a href="../LaTeXTutorial/LaTeX.php">LaTeX</a></li>
         </ul>
     </li>
     <li><a href="../Comments/Bugs.php">Bugs/Features</a></li>
