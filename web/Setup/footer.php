@@ -4,7 +4,7 @@
 	    <?php $count=0; include("../Setup/PageCounter.php"); ?>
 	    <div id="footer">
 		<div style="text-align: center; font-size: small">
-		    Written by <a href="mailto:bcconn2112@gmail.com">Brian Conn</a> &nbsp;&nbsp; Page views=<?php echo $count; ?>
+		    Written by <a href="mailto:bcconn2112@gmail.com" style="color: beige;">Brian Conn</a> &nbsp;&nbsp; Page views=<?php echo $count; ?>
 		</div>
 		<div style="text-align: center; font-size: smaller">
 		     Because he hasn't found a real hobby yet
