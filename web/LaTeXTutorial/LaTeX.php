@@ -4,7 +4,6 @@ include("../Setup/preheader.php");
 ?>
 <head>
     <link type="text/css" rel="stylesheet" href="../Tutorials/SyntaxColors.css">
-    <script src="../Setup/qtip.js"></script>
 </head>
 
 <title>LaTeX</title>
@@ -162,29 +161,29 @@ LaTeX
                 <ol>
                     <li class="li1">
                         <div class="de1">
-                            <span class="re8" id="tabular">\begin</span><span class="br0">{</span><span class="re9"><span class="re7">tabular</span></span><span class="br0">}</span><span class="br0">{</span><span class="re9"> l c r </span><span class="br0">}</span>
+                            <span class="re8 begin">\begin</span><span class="br0">{</span><span class="re9"><span class="re7 tabular">tabular</span></span><span class="br0">}</span><span class="br0">{</span><span class="re9 positions"> l c r </span><span class="br0">}</span>
                         </div>
                     </li>
                     <li class="li1">
                         <div class="de1">
-                            <span class="nu0">1</span> <span class="sy0">&</span> <span class="nu0">2</span> <span class="sy0">&</span> <span class="nu0">3</span> <span class="sy0">\\</span>
+                            <span class="nu0 element">1</span> <span class="sy0 separator">&</span> <span class="nu0 element">2</span> <span class="sy0 separator">&</span> <span class="nu0 element">3</span> <span class="sy0 newline">\\</span>
                         </div>
                     </li>
                     <li class="li1">
                         <div class="de1">
-                            <span class="nu0">4</span> <span class="sy0">&</span> <span class="nu0">5</span> <span class="sy0">&</span> <span class="nu0">6</span> <span class="sy0">\\</span>
+                            <span class="nu0 element">4</span> <span class="sy0 separator">&</span> <span class="nu0 element">5</span> <span class="sy0 separator">&</span> <span class="nu0 element">6</span> <span class="sy0 newline">\\</span>
                         </div>
                     </li>
                     <li class="li1">
                         <div class="de1">
-                            <span class="re8">\end</span><span class="br0">{</span><span class="re9"><span class="re7">tabular</span></span><span class="br0">}</span>
+                            <span class="re8 end">\end</span><span class="br0">{</span><span class="re9"><span class="re7 tabular">tabular</span></span><span class="br0">}</span>
                         </div>
                     </li>
                 </ol>
             </div>
             <p class="bodyparagraph">
                 Easy peasy. When you compile the document you should see a two row by three column table with 
-                the numbers 1 through 6 in it. Now let's break down the code and see how it works.
+                the numbers 1 through 6 in it. Roll over the code to see how it works.
             </p>
         </div>
         <h3 style="padding-top: 15px" id="fonts">Font Sizes</h3>
@@ -242,14 +241,79 @@ LaTeX
     </div>
 </div>
 
+<script type="text/javascript" src="../Setup/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="../Setup/qtip.js"></script>
 <script type="text/javascript">
     $(document).ready(function() 
     {
-        $('exercises').qtip(
-        {
-            content: 'Some basic content for the tooltip'
+<?php
+$examples = array("example1");
+$classes = array
+    (
+    "example1" => array
+        (
+        ".begin", ".tabular", ".positions", ".newline", ".element", ".separator", ".end"
+    )
+);
+$content = array
+    (
+    "example1" => array
+        (
+        "The begin command initiates a type of structure like \\\begin{document}",
+        "The begin command calls a table",
+        "These determine how many elements there are and how they are aligned (l: left, c: center, r: right)",
+        "The newline command goes to the next row",
+        "These are the actual table elements",
+        "& designates the end of a column element",
+        "The end command ends the current structure"
+    )
+);
+$target = array
+    (
+    "example1" => array
+        (
+        "topCenter", "topMiddle", "topRight", "rightMiddle", "leftMiddle", "topMiddle", "bottomCenter"
+    )
+);
+$tip = array
+    (
+    "example1" => array
+        (
+        "bottomRight", "bottomMiddle", "bottomLeft", "leftMiddle", "rightMiddle", "bottomRight", "topRight"
+    )
+);
+for ($j = 0; $j < sizeof($classes); $j++) {
+    for ($i = 0; $i < sizeof($classes[$examples[$j]]); $i++) {
+        echo "$('#";
+        echo $examples[$j];
+        echo " ";
+        echo $classes[$examples[$j]][$i];
+        echo "').qtip({
+            content: '";
+        echo $content[$examples[$j]][$i];
+        echo "',
+            position: {
+                corner: {
+                    target: '";
+        echo $target[$examples[$j]][$i];
+        echo "',
+                    tooltip: '";
+        echo $tip[$examples[$j]][$i];
+        echo "'
+                }
+            },
+            style: {
+                name: 'dark',
+                tip: '";
+        echo $tip[$examples[$j]][$i];
+        echo "'
+            }
         });
-    });
+        ";
+    }
+}
+?>
+        });
 </script>
 
 <?php include("../Templates/Bottom.php"); ?>

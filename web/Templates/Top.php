@@ -1,5 +1,5 @@
 <?php include("../Setup/header.php"); ?>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <table id="maintable" border="0">
     <tr>
 	<td id="leftcolumn">
