@@ -185,6 +185,62 @@ LaTeX
                 Easy peasy. When you compile the document you should see a two row by three column table with 
                 the numbers 1 through 6 in it. Roll over the code to see how it works.
             </p>
+            <p class="bodyparagraph">
+                There are a lot of additional parts you can put on a table. Below is another, more complex, example.
+            </p>
+            <div class="latex" id="example2">
+                <ol>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="re8">\begin</span><span class="br0">{</span><span class="re9"><span class="re7">tabular</span></span><span class="br0">}</span><span class="br0">{</span><span class="sy0"><span class="re9 vline">| l || c | r |</span></span><span class="br0">}</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="sy0">\</span><span class="kw1 hline">hline</span></div></li>
+                    <li class="li1">
+                        <div class="de1">
+                             Element <span class="nu0">1</span> <span class="sy0">&</span> Element <span class="nu0">2</span> <span class="sy0">&</span> Element <span class="nu0">3</span> <span class="sy0">\\</span></div></li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="sy0">\</span><span class="kw1 hline">hline</span> <span class="sy0">\</span><span class="kw1 hline">hline</span> </div></li>
+                    <li class="li2">
+                        <div class="de2">
+                            <span class="nu0">4</span> <span class="sy0">&</span> <span class="nu0">5</span> <span class="sy0">&</span> <span class="nu0">6</span> <span class="sy0">\\</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="re12 cline">\cline</span><span class="br0">{</span><span class="re9 columns">2-3</span><span class="br0">}</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="nu0">7</span> <span class="sy0">&</span> <span class="nu0">8</span> <span class="sy0">&</span> <span class="nu0">9</span> <span class="sy0">\\</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="sy0">\</span><span class="kw1 hline">hline</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="re12 multicolumn">\multicolumn</span><span class="br0">{</span><span class="re9 columnnum">2</span><span class="br0">}</span><span class="br0">{</span><span class="sy0"><span class="re9 multivline">| l |</span></span><span class="br0">}</span><span class="br0">{</span><span class="re9">Two columns combined into one</span><span class="br0">}</span> <span class="sy0">&</span> <span class="nu0">7</span> <span class="sy0">\\</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="sy0">\</span><span class="kw1 hline">hline</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="re8">\end</span><span class="br0">{</span><span class="re9"><span class="re7">tabular</span></span><span class="br0">}</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
         </div>
         <h3 style="padding-top: 15px" id="fonts">Font Sizes</h3>
         <div>
@@ -247,12 +303,16 @@ LaTeX
     $(document).ready(function() 
     {
 <?php
-$examples = array("example1");
+$examples = array("example1", "example2");
 $classes = array
     (
     "example1" => array
         (
         ".begin", ".tabular", ".positions", ".newline", ".element", ".separator", ".end"
+    ),
+    "example2" => array
+    (
+        ".vline", ".hline", ".cline", ".columns", ".multicolumn", ".columnnum", ".multivline"
     )
 );
 $content = array
@@ -260,19 +320,33 @@ $content = array
     "example1" => array
         (
         "The begin command initiates a type of structure like \\\begin{document}",
-        "The begin command calls a table",
+        "The structure used is a table",
         "These determine how many elements there are and how they are aligned (l: left, c: center, r: right)",
         "The newline command goes to the next row",
         "These are the actual table elements",
         "& designates the end of a column element",
         "The end command ends the current structure"
+    ),
+    "example2" => array
+    (
+        "Adding | between position keys adds vertical lines into the table between those columns",
+        "Adding \\\hline between rows adds horizontal lines",
+        "\\\cline adds horizontal lines that only span certain columns",
+        "The inputs determine which columns the horizontal line spans",
+        "The multicolumn command combines columns",
+        "The first input is how many columns will be comined",
+        "The second input is vertical lines and positioning of the new column"
     )
 );
 $target = array
     (
     "example1" => array
         (
-        "topCenter", "topMiddle", "topRight", "rightMiddle", "leftMiddle", "topMiddle", "bottomCenter"
+        "topMiddle", "topMiddle", "topMiddle", "rightMiddle", "leftMiddle", "topMiddle", "bottomMiddle"
+    ),
+    "example2" => array
+        (
+        "topMiddle", "leftMiddle", "leftMiddle", "rightMiddle", "leftMiddle", "bottomMiddle", "topMiddle"
     )
 );
 $tip = array
@@ -280,6 +354,10 @@ $tip = array
     "example1" => array
         (
         "bottomRight", "bottomMiddle", "bottomLeft", "leftMiddle", "rightMiddle", "bottomRight", "topRight"
+    ),
+    "example2" => array
+        (
+        "bottomLeft", "rightMiddle", "rightMiddle", "leftMiddle", "rightMiddle", "topMiddle", "bottomLeft"
     )
 );
 for ($j = 0; $j < sizeof($classes); $j++) {
