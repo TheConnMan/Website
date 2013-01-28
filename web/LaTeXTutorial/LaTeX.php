@@ -72,24 +72,25 @@ include("../Setup/preheader.php");
             To start out we're going to try a super simple document: some words on a page. Open up TeXworks and 
             enter the following code into a new document. Run Typeset and see the results.
         </p>
-        <div class="latex">
+        <div style="position: relative;" class="latex">
+            <img class="result" style="position: absolute; top: 10px; left: 500px;" src="HelloWorld.png">
             <ol>
                 <li class="li1">
                     <div class="de1">
-                        <span class="re8">\documentclass</span><span class="br0">&#91;</span><span class="re2">letter</span><span class="br0">&#93;</span><span class="br0">&#123;</span><span class="re9">article</span><span class="br0">&#125;</span>
+                        <span class="re8 documentclass">\documentclass</span><span class="br0">&#123;</span><span class="re9 documenttype">article</span><span class="br0">&#125;</span>
                     </div>
                 </li>
                 <li class="li1">
                     <div class="de1">
-                        <span class="re8">\begin</span><span class="br0">&#123;</span><span class="re9"><span class="re7">document</span></span><span class="br0">&#125;</span>
+                        <span class="re8 begin">\begin</span><span class="br0">&#123;</span><span class="re9"><span class="re7 document">document</span></span><span class="br0">&#125;</span>
                     </div>
                 </li>
                 <li class="li1">
-                    <div class="de1">Hello World!</div>
+                    <div class="de1"><span class="text">Hello World!</span></div>
                 </li>
                 <li class="li1">
                     <div class="de1">
-                        <span class="re8">\end</span><span class="br0">&#123;</span><span class="re9"><span class="re7">document</span></span><span class="br0">&#125;</span>
+                        <span class="re8 end">\end</span><span class="br0">&#123;</span><span class="re9"><span class="re7 document">document</span></span><span class="br0">&#125;</span>
                     </div>
                 </li>
             </ol>
@@ -105,7 +106,7 @@ include("../Setup/preheader.php");
     <div>
         <p class="bodyparagraph">
             You'll see some very repetitive syntax when dealing with LaTeX. Almost all of the commands are 
-            formated like <code>/command{input}</code>. The difference is we're not writing "code" persay. 
+            formated like <code>/command[option1,option2,...]{input1}{input2}{...}</code>. The difference is we're not writing "code" persay. 
             Instead we're creating a document, so "inputs" are just things we're writing. Let's take a look 
             at some simple commands.
         </p>
@@ -119,21 +120,22 @@ include("../Setup/preheader.php");
                 The most basic commands are italics, bolding, and underlining. Let's look at an example with all 
                 of them.
             </p>
-            <div class="latex">
+            <div style="position: relative;" class="latex">
+                <img class="result" style="position: absolute; top: 3px; left: 500px;" src="Emphasis.png">
                 <ol>
                     <li class="li1">
                         <div class="de1">
-                            <span class="re8">\emph</span><span class="br0">{</span><span class="re9">Italics</span><span class="br0">}</span> <span class="sy0">\\</span>
+                            <span class="re8 emph">\emph</span><span class="br0">{</span><span class="re9 input">Italics</span><span class="br0">}</span> <span class="sy0 newline">\\</span>
                         </div>
                     </li>
                     <li class="li1">
                         <div class="de1">
-                            <span class="re8">\textbf</span><span class="br0">{</span><span class="re9">Bold</span><span class="br0">}</span> <span class="sy0">\\</span>
+                            <span class="re8 bf">\textbf</span><span class="br0">{</span><span class="re9 input">Bold</span><span class="br0">}</span> <span class="sy0 newline">\\</span>
                         </div>
                     </li>
                     <li class="li1">
                         <div class="de1">
-                            <span class="re8">\underline</span><span class="br0">{</span><span class="re9">Underline</span><span class="br0">}</span>
+                            <span class="re8 underline">\underline</span><span class="br0">{</span><span class="re9 input">Underline</span><span class="br0">}</span>
                         </div>
                     </li>
                 </ol>
@@ -151,7 +153,7 @@ include("../Setup/preheader.php");
             </p>
         </div>
         <h3 style="padding-top: 15px" id="tables">Tables</h3>
-        <div id="table">
+        <div class="table">
             <p class="bodyparagraph">
                 Another important aspect of professional documents is tables. These are especially important in 
                 resumes, white papers, and research papers when custom formatting is needed. Creating the actual 
@@ -252,6 +254,60 @@ include("../Setup/preheader.php");
                 To change font sizes across a whole section use the <a href="#documentClass">document class</a> 
                 command, but it is easy to change small bits of text locally. Check out the example below.
             </p>
+            <div class="latex">
+                <ol>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="re12">\Huge</span> Huge <span class="sy0">\\</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="sy0">\</span><span class="kw1">huge</span> huge <span class="sy0">\\</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="re12">\LARGE</span> LARGE <span class="sy0">\\</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="re12">\Large</span> Large <span class="sy0">\\</span>
+                        </div>
+                    </li>
+                    <li class="li2">
+                        <div class="de2">
+                            <span class="re12">\large</span> large <span class="sy0">\\</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="re12">\normalsize</span> default <span class="sy0">\\</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="re12">\small</span> small <span class="sy0">\\</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="re12">\footnotesize</span> footnotesize <span class="sy0">\\</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="re12">\scriptsize</span> scriptsize <span class="sy0">\\</span>
+                        </div>
+                    </li>
+                    <li class="li2">
+                        <div class="de2">
+                            <span class="re12">\tiny</span> tiny
+                        </div>
+                    </li>
+                </ol>
+            </div>
 
         </div>
     </div>
@@ -314,82 +370,89 @@ include("../Setup/preheader.php");
 <script type="text/javascript">
     $(document).ready(function() 
     {
-        $(".result").each(function(i) {
+        $(".result").each(function() {
             $(this).css("left",$(".latex").width()-$(this).width()+50);
         });
 <?php
-$examples = array("table");
 $classes = array
     (
-    "table" => array
-        (
-        ".begin", ".tabular", ".positions", ".newline", ".element", ".separator", ".end", ".vline", ".hline", ".cline", ".columns", ".multicolumn", ".columnnum", ".multivline", ".result"
-    )
+    ".documentclass", ".documenttype", ".begin", ".document", ".text", ".end",
+    ".result",
+    ".emph", ".bf", ".underline", ".input",
+    ".tabular", ".positions", ".newline", ".element", ".separator",
+    ".vline", ".hline", ".cline", ".columns", ".multicolumn", ".columnnum", ".multivline"
 );
 $content = array
     (
-    "table" => array
-        (
-        "The begin command initiates a type of structure like \\\begin{document}",
-        "The structure used is a table",
-        "These determine how many elements there are and how they are aligned (l: left, c: center, r: right)",
-        "The newline command goes to the next row",
-        "These are the actual table elements",
-        "& designates the end of a column element",
-        "The end command ends the current structure",
-        "Adding | between position keys adds vertical lines into the table between those columns",
-        "Adding \\\hline between rows adds horizontal lines",
-        "\\\cline adds horizontal lines that only span certain columns",
-        "The inputs determine which columns the horizontal line spans",
-        "The multicolumn command combines columns",
-        "The first input is how many columns will be comined",
-        "The second input is vertical lines and positioning of the new column",
-        "This is the resulting table of the compiled code"
-    )
+    "The first line of each LaTex document defines what type of document it is",
+    "The argument of documentclass determines what document structure the document will have",
+    "The begin command initiates a type of structure like \\\begin{document}",
+    "The input for the begin command is document, telling LaTeX that the document content is beginning",
+    "Plain text to be displayed",
+    "The end command ends the current structure",
+    
+    "This is the result of the compiled code",
+    
+    "The emph command italicizes the input text",
+    "The textbf command bolds text",
+    "Underline underlines text",
+    "Inside the braces is the input text",
+    
+    "The structure used is a table",
+    "These determine how many elements there are and how they are aligned (l: left, c: center, r: right)",
+    "The newline command goes to the next row",
+    "These are the actual table elements",
+    "& designates the end of a column element",
+    
+    "Adding | between position keys adds vertical lines into the table between those columns",
+    "Adding \\\hline between rows adds horizontal lines",
+    "\\\cline adds horizontal lines that only span certain columns",
+    "The inputs determine which columns the horizontal line spans",
+    "The multicolumn command combines columns",
+    "The first input is how many columns will be comined",
+    "The second input is vertical lines and positioning of the new column"
 );
 $target = array
     (
-    "table" => array
-        (
-        "topMiddle", "topMiddle", "topMiddle", "rightMiddle", "leftMiddle", "topMiddle", "bottomMiddle", "topMiddle", "leftMiddle", "leftMiddle", "rightMiddle", "leftMiddle", "bottomMiddle", "topMiddle", "topMiddle"
-    )
+    "topMiddle", "topMiddle", "topMiddle", "bottomMiddle", "leftMiddle", "bottomMiddle",
+    "topMiddle",
+    "topMiddle", "leftMiddle", "bottomMiddle", "rightMiddle",
+    "topMiddle", "topMiddle", "rightMiddle", "leftMiddle", "topMiddle",
+    "topMiddle", "leftMiddle", "leftMiddle", "rightMiddle", "leftMiddle", "bottomMiddle", "topMiddle"
 );
 $tip = array
     (
-    "table" => array
-        (
-        "bottomRight", "bottomMiddle", "bottomLeft", "leftMiddle", "rightMiddle", "bottomRight", "topRight", "bottomLeft", "rightMiddle", "rightMiddle", "leftMiddle", "rightMiddle", "topMiddle", "bottomLeft", "bottomMiddle"
-    )
+    "bottomRight", "bottomLeft", "bottomRight", "topRight", "rightMiddle", "topRight",
+    "bottomMiddle",
+    "bottomRight", "rightMiddle", "topRight", "leftMiddle",
+    "bottomMiddle", "bottomLeft", "leftMiddle", "rightMiddle", "bottomRight",
+    "bottomLeft", "rightMiddle", "rightMiddle", "leftMiddle", "rightMiddle", "topMiddle", "bottomLeft"
 );
-for ($j = 0; $j < sizeof($classes); $j++) {
-    for ($i = 0; $i < sizeof($classes[$examples[$j]]); $i++) {
-        echo "$('#";
-        echo $examples[$j];
-        echo " ";
-        echo $classes[$examples[$j]][$i];
-        echo "').qtip({
+for ($i = 0; $i < sizeof($classes); $i++) {
+    echo "$('.latex ";
+    echo $classes[$i];
+    echo "').qtip({
             content: '";
-        echo $content[$examples[$j]][$i];
-        echo "',
+    echo $content[$i];
+    echo "',
             position: {
                 corner: {
                     target: '";
-        echo $target[$examples[$j]][$i];
-        echo "',
+    echo $target[$i];
+    echo "',
                     tooltip: '";
-        echo $tip[$examples[$j]][$i];
-        echo "'
+    echo $tip[$i];
+    echo "'
                 }
             },
             style: {
                 name: 'dark',
                 tip: '";
-        echo $tip[$examples[$j]][$i];
-        echo "'
+    echo $tip[$i];
+    echo "'
             }
         });
         ";
-    }
 }
 ?>
     });
