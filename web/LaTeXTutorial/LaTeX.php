@@ -436,7 +436,7 @@ $content = array
     
     "The structure used is a table",
     "These determine how many elements there are and how they are aligned (l: left, c: center, r: right)",
-    "The newline command goes to the next row",
+    "The newline command goes to the next line",
     "These are the actual table elements",
     "& designates the end of a column element",
     

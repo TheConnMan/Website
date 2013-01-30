@@ -79,7 +79,7 @@
 				    ?>
                                 </div>
                                 <div id="commentdate">
-				    <?php echo date("g:i:s A n/d/y", $row['date']+6*3600); ?> EST
+				    <?php echo date("g:i:s A n/d/y", $row['date']); ?> EST
                                 </div>
                             </td>
 			    <?php
@@ -138,7 +138,7 @@
 						    ?>
 	                                        </div>
 	                                        <div id="commentdate">
-						    <?php echo date("g:i:s A n/d/y", $row2['date']+6*3600); ?> EST
+						    <?php echo date("g:i:s A n/d/y", $row2['date']); ?> EST
 	                                        </div>
 	                                    </td>
 	                                </tr>
@@ -212,22 +212,16 @@
     function displaycommenter(id) {
         document.getElementById(id).style.display='block';
         document.getElementById('comment'+id).style.display='none';
-        var top = $('#pageButtons').offset().top;
-        $("#rightContent").height(top+100);
         resetPage();
     }
     function displaycomments(id) {
         document.getElementById('expandcomments'+id).style.display='none';
         document.getElementById('relatedcomments'+id).style.display='block';
-        var top = $('#pageButtons').offset().top;
-        $("#rightContent").height(top+100);
         resetPage();
     }
     function minimizecomments(id) {
         document.getElementById('expandcomments'+id).style.display='block';
         document.getElementById('relatedcomments'+id).style.display='none';
-        var top = $('#pageButtons').offset().top;
-        $("#rightContent").height(top+100);
         resetPage();
     }
     $(".pageNumber").click(function() {

@@ -19,7 +19,10 @@
 	        } else {
 		    $("#leftmenu").height(rightCon)
 		}
-	    }
+	    };
+            function resetPage() {
+                $("#leftmenu").height($("#rightcontent").height())
+            };
 	    $(window).load(function(){
 		resetPage(Math.max($("#rightcontent").height(), $("#leftmenu").height()));
 	    });
