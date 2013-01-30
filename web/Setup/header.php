@@ -2,7 +2,7 @@
 <link type="text/css" rel="stylesheet" href="../Setup/CSS.css">
 <link type="text/css" rel="stylesheet" href="../Setup/Menu.css">
 <link type="text/css" rel="stylesheet" href="../Setup/Shapes.css">
-<link rel="icon" type="image/ico" href="../Setup/favicon.ico">
+<link rel="shortcut icon" href="../Setup/favicon.ico" mce_href="../Setup/favicon.ico"/>
 </head>
 <div id="container">
     <div id="header" style="text-align: center">

@@ -254,66 +254,100 @@ include("../Setup/preheader.php");
                 To change font sizes across a whole section use the <a href="#documentClass">document class</a> 
                 command, but it is easy to change small bits of text locally. Check out the example below.
             </p>
-            <div class="latex">
+            <div style="position: relative;" class="latex">
+                <img class="result" style="position: absolute; top: 10px; left: 500px;" src="Fonts.png">
                 <ol>
                     <li class="li1">
                         <div class="de1">
-                            <span class="re12">\Huge</span> Huge <span class="sy0">\\</span>
+                            <span class="re12 fontsize">\Huge</span> <span class="text">Huge</span> <span class="sy0 newline">\\</span>
                         </div>
                     </li>
                     <li class="li1">
                         <div class="de1">
-                            <span class="sy0">\</span><span class="kw1">huge</span> huge <span class="sy0">\\</span>
+                            <span class="re12 fontsize">\huge</span> <span class="text">huge</span> <span class="sy0 newline">\\</span>
                         </div>
                     </li>
                     <li class="li1">
                         <div class="de1">
-                            <span class="re12">\LARGE</span> LARGE <span class="sy0">\\</span>
+                            <span class="re12 fontsize">\LARGE</span> <span class="text">LARGE</span> <span class="sy0 newline">\\</span>
                         </div>
                     </li>
                     <li class="li1">
                         <div class="de1">
-                            <span class="re12">\Large</span> Large <span class="sy0">\\</span>
+                            <span class="re12 fontsize">\Large</span> <span class="text">Large</span> <span class="sy0 newline">\\</span>
                         </div>
                     </li>
                     <li class="li2">
                         <div class="de2">
-                            <span class="re12">\large</span> large <span class="sy0">\\</span>
+                            <span class="re12 fontsize">\large</span> <span class="text">large</span> <span class="sy0 newline">\\</span>
                         </div>
                     </li>
                     <li class="li1">
                         <div class="de1">
-                            <span class="re12">\normalsize</span> default <span class="sy0">\\</span>
+                            <span class="re12 fontsize">\normalsize</span> <span class="text">default</span> <span class="sy0 newline">\\</span>
                         </div>
                     </li>
                     <li class="li1">
                         <div class="de1">
-                            <span class="re12">\small</span> small <span class="sy0">\\</span>
+                            <span class="re12 fontsize">\small</span> <span class="text">small</span> <span class="sy0 newline">\\</span>
                         </div>
                     </li>
                     <li class="li1">
                         <div class="de1">
-                            <span class="re12">\footnotesize</span> footnotesize <span class="sy0">\\</span>
+                            <span class="re12 fontsize">\footnotesize</span> <span class="text">footnotesize</span> <span class="sy0 newline">\\</span>
                         </div>
                     </li>
                     <li class="li1">
                         <div class="de1">
-                            <span class="re12">\scriptsize</span> scriptsize <span class="sy0">\\</span>
+                            <span class="re12 fontsize">\scriptsize</span> <span class="text">scriptsize</span> <span class="sy0 newline">\\</span>
                         </div>
                     </li>
                     <li class="li2">
                         <div class="de2">
-                            <span class="re12">\tiny</span> tiny
+                            <span class="re12 fontsize">\tiny</span> <span class="text">tiny</span>
                         </div>
                     </li>
                 </ol>
             </div>
-
         </div>
     </div>
     <h2 style="padding-top: 15px" id="math">Math Symbols</h2>
     <div>
-
+        <p class="bodyparagraph">
+            I use LaTeX to create my resume, but what I use it the most for is technical papers. These papers 
+            have a lot of equations and math symbols. LaTeX is perfect for these sorts of symbols and makes 
+            them look great. Much to your surprise, the command structures will look very familiar.
+        </p>
+        <div style="position: relative;" class="latex">
+            <img class="result" style="position: absolute; top: 5px; left: 500px;" src="Symbols.png">
+            <ol>
+                <li class="li1">
+                    <div class="de1">
+                        <span class="re3 equation">$<span class="re12 greek">\alpha</span> <span class="re12 greek">\beta</span></span>
+                    </div>
+                </li>
+                <li class="li1">
+                    <div class="de1">
+                        <span class="re3 equation"><span class="re12 greek">\Gamma</span> <span class="re12 greek">\gamma</span>$</span> <span class="sy0 newline">\\</span>
+                    </div>
+                </li>
+                <li class="li1">
+                    <div class="de1">
+                        <span class="re3 equation">$<span class="re12 symbols">\uparrow</span> <span class="re12 symbols">\Uparrow</span> <span class="re12 symbols">\to</span></span> <span class="sy0 newline">\\</span>
+                    </div>
+                </li>
+                <li class="li1">
+                    <div class="de1">
+                        <span class="re3 equation"><span class="re12 alterations">\hat</span><span class="br0">{</span><span class="re9">x</span><span class="br0">}</span> <span class="re12 alterations">\ddot</span><span class="br0">{</span><span class="re9">x</span><span class="br0">}</span>$</span> <span class="sy0 newline">\\</span>
+                    </div>
+                </li>
+                <li class="li2">
+                    <div class="de2">
+                        <span class="re3 equation">$<span class="nu0">15</span>=x+<span class="br0 parentheses">(</span>x<span class="subscript">_</span>2-<span class="nu0">1</span><span class="br0 parentheses">)</span><span class="exponent">^</span><span class="nu0">2</span>+<span class="sy0 side">\left</span> <span class="br0">(</span> <span class="sy0 frac">\frac</span></a><span class="br0">{</span><span class="re9">x</span><span class="br0">}</span><span class="br0">{</span><span class="sy0 frac">\frac</span><span class="br0">{</span>2<span class="br0">}</span><span class="br0">{</span><span class="re9">y<span class="exponent">^</span>4</span><span class="br0">}</span><span class="br0">}</span> <span class="sy0 side">\right</span> <span class="br0">)</span>$</span>
+                    </div>
+                </li>
+            </ol>
+        </div>
     </div>
     <h2 style="padding-top: 15px" id="formatting">Formatting</h2>
     <div>
@@ -368,7 +402,7 @@ include("../Setup/preheader.php");
 <script type="text/javascript" src="../Setup/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="../Setup/qtip.js"></script>
 <script type="text/javascript">
-    $(document).ready(function() 
+    $(window).load(function() 
     {
         $(".result").each(function() {
             $(this).css("left",$(".latex").width()-$(this).width()+50);
@@ -380,7 +414,9 @@ $classes = array
     ".result",
     ".emph", ".bf", ".underline", ".input",
     ".tabular", ".positions", ".newline", ".element", ".separator",
-    ".vline", ".hline", ".cline", ".columns", ".multicolumn", ".columnnum", ".multivline"
+    ".vline", ".hline", ".cline", ".columns", ".multicolumn", ".columnnum", ".multivline",
+    ".fontsize",
+    ".equation", ".greek", ".symbols", ".alterations", ".exponent", ".parentheses", ".subscript", ".side", ".frac"
 );
 $content = array
     (
@@ -410,7 +446,19 @@ $content = array
     "The inputs determine which columns the horizontal line spans",
     "The multicolumn command combines columns",
     "The first input is how many columns will be comined",
-    "The second input is vertical lines and positioning of the new column"
+    "The second input is vertical lines and positioning of the new column",
+    
+    "Calling a specific, local font size makes all text after it that size",
+    
+    "In-line symbols and equations need to be surrounded by \$",
+    "All lowercase greek letters are available as well as some uppercase",
+    "Arrows and other symbols are available",
+    "Math symbols such as dots and hats can be put on text",
+    "Carrots create superscripts",
+    "Parentheses show up as normal parentheses",
+    "Underscores can be used to create subscripts",
+    "\\\left and \\\right can be used on parentheses, braces, and brackets to change their size to surround content",
+    "\\\frac can be used with two inputs to create a fraction"
 );
 $target = array
     (
@@ -418,7 +466,9 @@ $target = array
     "topMiddle",
     "topMiddle", "leftMiddle", "bottomMiddle", "rightMiddle",
     "topMiddle", "topMiddle", "rightMiddle", "leftMiddle", "topMiddle",
-    "topMiddle", "leftMiddle", "leftMiddle", "rightMiddle", "leftMiddle", "bottomMiddle", "topMiddle"
+    "topMiddle", "leftMiddle", "leftMiddle", "rightMiddle", "leftMiddle", "bottomMiddle", "topMiddle",
+    "leftMiddle",
+    "topRight", "leftMiddle", "leftMiddle", "leftMiddle", "leftMiddle", "bottomMiddle", "bottomMiddle", "bottomMiddle", "bottomMiddle",
 );
 $tip = array
     (
@@ -426,7 +476,9 @@ $tip = array
     "bottomMiddle",
     "bottomRight", "rightMiddle", "topRight", "leftMiddle",
     "bottomMiddle", "bottomLeft", "leftMiddle", "rightMiddle", "bottomRight",
-    "bottomLeft", "rightMiddle", "rightMiddle", "leftMiddle", "rightMiddle", "topMiddle", "bottomLeft"
+    "bottomLeft", "rightMiddle", "rightMiddle", "leftMiddle", "rightMiddle", "topMiddle", "bottomLeft",
+    "rightMiddle",
+    "bottomLeft", "rightMiddle", "rightMiddle", "rightMiddle", "rightMiddle", "topMiddle", "topLeft", "topMiddle", "topLeft",
 );
 for ($i = 0; $i < sizeof($classes); $i++) {
     echo "$('.latex ";
