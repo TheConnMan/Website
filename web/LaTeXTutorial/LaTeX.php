@@ -37,6 +37,7 @@ include("../Setup/preheader.php");
                 <li><a href="#sections">Sections</a></li>
                 <li><a href="#borders">Borders</a></li>
                 <li><a href="#images">Images</a></li>
+                <li><a href="#references">References</a></li>
                 <li><a href="#bib">Bibliographies</a></li>
             </ul>
         </li>
@@ -348,6 +349,31 @@ include("../Setup/preheader.php");
                 </li>
             </ol>
         </div>
+        <p class="bodyparagraph">
+            The above example is for in-line symbols and equations. Making stand-alone equations which are 
+            numbered, referenceable, and are centered is not much harder. The syntax will seem very logical 
+            too.
+        </p>
+        <div style="position: relative;" class="latex">
+            <img class="result" style="position: absolute; top: 10px; left: 500px;" src="Equation.png">
+            <ol>
+                <li class="li1">
+                    <div class="de1">
+                        <span class="re8 begin">\begin</span><span class="br0">{</span><span class="re9"><span class="re7 equationsection">equation</span></span><span class="br0">}</span>
+                    </div>
+                </li>
+                <li class="li1">
+                    <div class="de1">
+                        <span class="re12 frac">\frac</span><span class="br0">{</span><span class="re12 symbols">\partial</span><span class="exponent">^</span>2 x<span class="br0">}</span><span class="br0">{</span><span class="re12 symbols">\partial</span> t<span class="exponent">^</span>2<span class="br0">}</span>=<span class="re12 alterations">\ddot</span><span class="br0">{</span><span class="re9">x</span><span class="br0">}</span>=-x</span>
+                    </div>
+                </li>
+                <li class="li1">
+                    <div class="de1">
+                        <span class="re8 end">\end</span><span class="br0">{</span><span class="re9"><span class="re7 equationsection">equation</span></span><span class="br0">}</span>
+                    </div>
+                </li>
+            </ol>
+        </div>
     </div>
     <h2 style="padding-top: 15px" id="formatting">Formatting</h2>
     <div>
@@ -379,6 +405,12 @@ include("../Setup/preheader.php");
             </p>
         </div>
         <h3 style="padding-top: 15px" id="images">Images</h3>
+        <div>
+            <p class="bodyparagraph">
+
+            </p>
+        </div>
+        <h3 style="padding-top: 15px" id="references">References</h3>
         <div>
             <p class="bodyparagraph">
 
@@ -417,13 +449,14 @@ $classes = array
     ".tabular", ".positions", ".newline", ".element", ".separator",
     ".vline", ".hline", ".cline", ".columns", ".multicolumn", ".columnnum", ".multivline",
     ".fontsize",
-    ".equation", ".greek", ".symbols", ".alterations", ".exponent", ".parentheses", ".subscript", ".side", ".frac"
+    ".equation", ".greek", ".symbols", ".alterations", ".exponent", ".parentheses", ".subscript", ".side", ".frac",
+    ".equationsection"
 );
 $content = array
     (
     "The first line of each LaTex document defines what type of document it is",
     "The argument of documentclass determines what document structure the document will have",
-    "The begin command initiates a type of structure like \\\begin{document}",
+    "The begin command initiates a type of structure like begin{document}",
     "The input for the begin command is document, telling LaTeX that the document content is beginning",
     "Plain text to be displayed",
     "The end command ends the current structure",
@@ -442,11 +475,11 @@ $content = array
     "& designates the end of a column element",
     
     "Adding | between position keys adds vertical lines into the table between those columns",
-    "Adding \\\hline between rows adds horizontal lines",
-    "\\\cline adds horizontal lines that only span certain columns",
+    "Adding hline between rows adds horizontal lines",
+    "Cline adds horizontal lines that only span certain columns",
     "The inputs determine which columns the horizontal line spans",
     "The multicolumn command combines columns",
-    "The first input is how many columns will be comined",
+    "The first input is how many columns will be combined",
     "The second input is vertical lines and positioning of the new column",
     
     "Calling a specific, local font size makes all text after it that size",
@@ -458,8 +491,10 @@ $content = array
     "Carrots create superscripts",
     "Parentheses show up as normal parentheses",
     "Underscores can be used to create subscripts",
-    "\\\left and \\\right can be used on parentheses, braces, and brackets to change their size to surround content",
-    "\\\frac can be used with two inputs to create a fraction"
+    "Left and right can be used on parentheses, braces, and brackets to change their size to surround content",
+    "Frac can be used with two inputs to create a fraction",
+    
+    "The structure used is an equation"
 );
 $target = array
     (
@@ -470,6 +505,7 @@ $target = array
     "topMiddle", "leftMiddle", "leftMiddle", "rightMiddle", "leftMiddle", "bottomMiddle", "topMiddle",
     "leftMiddle",
     "topRight", "leftMiddle", "leftMiddle", "leftMiddle", "leftMiddle", "bottomMiddle", "bottomMiddle", "bottomMiddle", "bottomMiddle",
+    "leftMiddle"
 );
 $tip = array
     (
@@ -480,6 +516,7 @@ $tip = array
     "bottomLeft", "rightMiddle", "rightMiddle", "leftMiddle", "rightMiddle", "topMiddle", "bottomLeft",
     "rightMiddle",
     "bottomLeft", "rightMiddle", "rightMiddle", "rightMiddle", "rightMiddle", "topMiddle", "topLeft", "topMiddle", "topLeft",
+    "rightMiddle"
 );
 for ($i = 0; $i < sizeof($classes); $i++) {
     echo "$('.latex ";

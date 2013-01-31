@@ -5,20 +5,6 @@ include("../Setup/preheader.php"); ?>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <table id="maintable" border="0">
     <tr>
-	<td id="leftcolumn">
-	    <div id="leftmenu">
-		<ul style="list-style: none">
-		    <li style="padding-top: 15px">
-			Tutorials
-			<ul>
-			    <li><a href="#python">Python</a></li>
-			    <li><a href="#java">Java</a></li>
-			    <li><a href="#LaTeX">LaTeX</a></li>
-			</ul>
-		    </li>
-		</ul>
-	    </div>
-	</td><td width="3%"></td>
 	<td id="rightcolumn">
 	    <div id="rightcontent">
 		<h1 style="text-align: center">Tutorials</h1>
@@ -28,9 +14,8 @@ include("../Setup/preheader.php"); ?>
 			    There are some programming languages that I have learned which I haven't found 
                             very good tutorials for. Some have been way too basic, some spend too much time 
                             on useless things, and some are just too confusing to follow. My goal here is 
-                            provide a few guides of what I think is helpful when learning a language (
-                            depending on the language of course). Here's a layout of what I use different 
-                            languages for:
+                            provide a few guides of what I think is helpful when learning a language (depending 
+                            on the language of course). Here's a layout of what I use different languages for:
 			</p>
 		    </div>
                     <table>
