@@ -374,16 +374,72 @@ include("../Setup/preheader.php");
                 </li>
             </ol>
         </div>
+        <p class="bodyparagraph">
+            Additional symbols can be found <a href="http://www.artofproblemsolving.com/Wiki/index.php/LaTeX:Symbols">here</a>.
+        </p>
     </div>
     <h2 style="padding-top: 15px" id="formatting">Formatting</h2>
     <div>
         <p class="bodyparagraph">
-
+            Generally formatting is done before the document content is declared. This formatting includes 
+            style packages, borders, and document classes. The implementation of these is very simple, but 
+            it can take some work to figure out exactly which packages and document class is best for your 
+            specific project.
+        </p>
+        <p class="bodyparagraph">
+            Additionally in this section are how to insert 
+            sections and subsections, images, references, and bibliographies. All of these are very simple 
+            to learn and implement and can add a lot to a document.
         </p>
         <h3 style="padding-top: 15px" id="packages">Packages</h3>
         <div>
             <p class="bodyparagraph">
-
+                Packages are used to add extra functionality to LaTeX. A basic paper will not usually need 
+                many (if any) packages, but it's good to know what they are and how to add them in case 
+                additional functionality is needed. Below are a few packages I pulled from a technical paper 
+                I wrote.
+            </p>
+            <div class="latex">
+                <ol>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="sy0 documentclass">\documentclass</span><span class="br0">{</span><span class="re9 documenttype">article</span><span class="br0">}</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="sy0 usepackage">\usepackage</span<span class="br0">{</span><span class="re9 package">chapterbib</span><span class="br0">}</span> <span class="co1 comment">% allows a bibliography for each chapter</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="sy0 usepackage">\usepackage</span><span class="br0">{</span><span class="re9 package">color</span><span class="br0">}</span>      <span class="co1 comment">% produces boxes or entire pages with colored backgrounds</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="sy0 usepackage">\usepackage</span><span class="br0">{</span><span class="re9 package">graphics</span><span class="br0">}</span>   <span class="co1 comment">% standard graphics specifications</span>
+                        </div>
+                    </li>
+                    <li class="li2">
+                        <div class="de2">
+                            <span class="sy0 usepackage">\usepackage</span><span class="br0">{</span><span class="re9 package">longtable</span><span class="br0">}</span>  <span class="co1 comment">% helps with long table options</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="sy0 usepackage">\usepackage</span><span class="br0">{</span><span class="re9 package">epsf</span><span class="br0">}</span>       <span class="co1 comment">% old package handles encapsulated post script issues</span>
+                        </div>
+                    </li>
+                    <li class="li1">
+                        <div class="de1">
+                            <span class="sy0 usepackage">\usepackage</span><span class="br0">{</span><span class="re9 package">bm</span><span class="br0">}</span>       &nbsp;&nbsp;<span class="co1 comment">% special 'bold-math' package</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <p class="bodyparagraph">
+                A guide to helpful packages can be found <a href="http://en.wikibooks.org/wiki/LaTeX/Package_Reference">here</a>.
             </p>
         </div>
         <h3 style="padding-top: 15px" id="documentClass">Document Class</h3>
@@ -450,7 +506,8 @@ $classes = array
     ".vline", ".hline", ".cline", ".columns", ".multicolumn", ".columnnum", ".multivline",
     ".fontsize",
     ".equation", ".greek", ".symbols", ".alterations", ".exponent", ".parentheses", ".subscript", ".side", ".frac",
-    ".equationsection"
+    ".equationsection",
+    ".usepackage", ".package", ".comment"
 );
 $content = array
     (
@@ -494,7 +551,11 @@ $content = array
     "Left and right can be used on parentheses, braces, and brackets to change their size to surround content",
     "Frac can be used with two inputs to create a fraction",
     
-    "The structure used is an equation"
+    "The structure used is an equation",
+    
+    "The usepackage command calls a package and occurs before the begin{document} command",
+    "The argument is the package to be used",
+    "Text after a % is commented out and ignored by the compiler"
 );
 $target = array
     (
@@ -505,7 +566,8 @@ $target = array
     "topMiddle", "leftMiddle", "leftMiddle", "rightMiddle", "leftMiddle", "bottomMiddle", "topMiddle",
     "leftMiddle",
     "topRight", "leftMiddle", "leftMiddle", "leftMiddle", "leftMiddle", "bottomMiddle", "bottomMiddle", "bottomMiddle", "bottomMiddle",
-    "leftMiddle"
+    "leftMiddle",
+    "topMiddle", "rightMiddle", "topMiddle"
 );
 $tip = array
     (
@@ -516,7 +578,8 @@ $tip = array
     "bottomLeft", "rightMiddle", "rightMiddle", "leftMiddle", "rightMiddle", "topMiddle", "bottomLeft",
     "rightMiddle",
     "bottomLeft", "rightMiddle", "rightMiddle", "rightMiddle", "rightMiddle", "topMiddle", "topLeft", "topMiddle", "topLeft",
-    "rightMiddle"
+    "rightMiddle",
+    "bottomRight", "leftMiddle", "bottomMiddle",
 );
 for ($i = 0; $i < sizeof($classes); $i++) {
     echo "$('.latex ";
