@@ -26,11 +26,11 @@ html, body
    min-height:100%;
    position:relative;
    background: #383838;
+   min-width: 980px;
    width: 100%;
-   min-width: 1200px;
 }
 #maintable {
-    width: 1170px;
+    width: 100%;
 }
 #header {
    background: #383838;
@@ -81,7 +81,9 @@ td div ul li a:hover {
     text-decoration: none;
 }
 #menu {
-    width: 1170px;
+    min-width: 950px;
+    width: 90%;
+    max-width: 1470px;
     text-align: left;
     background: mintcream;
     margin-left: auto;
@@ -90,7 +92,9 @@ td div ul li a:hover {
 }
 
 #content {
-    width: 1200px;
+    min-width: 980px;
+    width: 90%;
+    max-width: 1500px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
