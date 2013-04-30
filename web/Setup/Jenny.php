@@ -16,7 +16,7 @@ include("../Setup/preheader.php");
     </tr>
 </table>
 <script language="JavaScript">
-    TargetDate = "4/25/2013 8:30 PM";
+    TargetDate = "5/9/2013 10:45 PM";
     BackColor = "mintcream";
     ForeColor = "black";
     CountActive = true;
