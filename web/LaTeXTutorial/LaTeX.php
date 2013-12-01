@@ -485,7 +485,6 @@ include("../Setup/preheader.php");
 
         </p>
     </div>
-    <?php include("../Comments/commentbox.php"); ?>
 </div>
 
 <script type="text/javascript" src="../Setup/jquery-1.3.2.min.js"></script>

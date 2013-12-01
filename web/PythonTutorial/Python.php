@@ -1000,7 +1000,6 @@ Python
             </p>
         </div>
     </div>
-    <?php include("../Comments/commentbox.php"); ?>
 </div>
 
 <?php include("../Templates/Bottom.php"); ?>

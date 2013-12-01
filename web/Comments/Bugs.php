@@ -16,7 +16,6 @@
                             it.
 			</p>
 		    </div>
-		    <?php include("../Comments/commentbox.php"); ?>
 		</div>
 	    </div>
 	</td>

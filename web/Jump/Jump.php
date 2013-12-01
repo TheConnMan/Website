@@ -50,7 +50,6 @@ include("../Setup/preheader.php"); ?>
                         </tr>
                     </table>
                 </div>
-                <?php include("../Comments/commentbox.php"); ?>
 	    </div>
 	</td>
     </tr>
